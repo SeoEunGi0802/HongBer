@@ -1,0 +1,199 @@
+/*----------------------전체 반영--------------------*/
+body {
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+#wrap{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+/*----------------상단바 영역-------------*/
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1280px;
+  height: 50px;
+  background-color: white;
+  border-top: 3px solid #999;
+  border-bottom: 3px solid #999;
+  margin: 0 auto;
+  font-size: 20px;
+  z-index: 1;
+}
+header > div{
+  line-height: 50px;
+  padding: 5px 0;
+}
+.logo {
+  margin-top: 5px;
+  background: #2f3542;
+  padding-top: 10px;
+  height: 30px;
+}
+.logo span{
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  width: 100%;
+  color: #fff;
+}
+.nav_p {
+  line-height: 40px;
+  font-size: 16px;
+}
+.nav_p:hover {
+  border-bottom: 2px solid rgba(0,0,0,0.2)
+}
+.nav_a:hover {
+  font-size: 18px;
+  font-weight: bold;
+}
+.logout_nav {
+  display: none;
+  background-color: #fff;
+}
+/*-----------------------li--------------------------*/
+.match_wrap{
+position: relative;
+display: flex;
+flex-direction: row;
+align-content: flex-start;
+flex-wrap: wrap;
+align-items: flex-start;
+width: 1280px;
+height: 100%;
+margin: 0 auto;
+}
+.honor_card{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 290px;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 75px;
+  text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+.hm_thumb{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+.hm_thumb > img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.hm_info{
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.hm_img{
+  width: 300px;
+  height: 200px;
+  margin-top: 0px;
+  border-radius: 5px;
+}
+.hm_img > img {
+  width: 270px;
+  height: 190px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.hm_comment{
+  margin-top: 10px;
+  width: 300px;
+  height: 140px;
+  border-radius: 5px;
+  resize: none;
+}
+.hm_date{
+  width: 300px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.honor_card div{
+  background-color: white;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+.send{
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border: none;
+  background: none;
+}
+.send > img{
+  width: 50px;
+  height: 50px;
+}
+/*-----------------------스크롤바--------------------------*/
+body::-webkit-scrollbar {
+width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+background-color: #2f3542;
+border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+background-color: grey;
+border-radius: 10px;
+box-shadow: inset 0px 0px 5px white;
+}
+/*-----------------------등록영역--------------------------*/
+.reg_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65px;
+  height: 25px;
+}
+.reg_md_btn{
+  position: absolute;
+  top: 25px;
+  right: 0;
+  width: 65px;
+  height: 25px;
+}
+.reg_rm_btn{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 65px;
+  height: 25px;
+}
+/*-----------------------쪽지영역--------------------------*/
+.send_li{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  border: none;
+  background-color: #fff;
+}
+.send_li > img{
+  width: 50px;
+  height: 50px;
+}
+.btn-like .heart-shape {
+  display: inline;
+  color: red;
+}
+.btn-like {
+  border: none;
+  background-color: inherit;
+}

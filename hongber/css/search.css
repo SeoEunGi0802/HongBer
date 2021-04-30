@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+body {
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+#wrap{
+  margin: 0 auto;
+}
+/*----------------상단바 영역-------------*/
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1280px;
+  height: 50px;
+  background-color: white;
+  border-top: 3px solid #999;
+  border-bottom: 3px solid #999;
+  margin: 0 auto;
+  font-size: 20px;
+  z-index: 1;
+}
+header > div{
+  line-height: 50px;
+  padding: 5px 0;
+}
+.logo {
+  margin-top: 5px;
+  background: #2f3542;
+  padding-top: 10px;
+  height: 30px;
+}
+.logo span{
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  width: 100%;
+  color: #fff;
+}
+.nav_p {
+  line-height: 40px;
+  font-size: 16px;
+}
+.nav_p:hover {
+  border-bottom: 2px solid rgba(0,0,0,0.2)
+}
+.nav_a:hover {
+  font-size: 18px;
+  font-weight: bold;
+}
+.logout_nav {
+  display: none;
+  background-color: #fff;
+}
+/*---------------------로그인 및 회원가입 영역------------------*/
+.dropdown {
+  position: relative;
+  width: 100px;
+  line-height: 50px;
+  padding: 0;
+  margin-top: 0;
+  text-align: center;
+}
+.dropbtn {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  color: #000;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -1px;
+  min-width: 180px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  border-left: 0;
+}
+.dropdown-content a p {
+  font-size: 14px;
+}
+.dropdown-content a+a>p {
+  border-top: 1px solid #bbb;
+}
+.dropdown-content p {
+  text-align: center;
+  color: black;
+}
+.dropdown-content p:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropbtn:hover {
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: bold;
+}
+/*---------------------세션 영역------------------*/
+.profile_wrap {
+  width: 960px;
+  height: 300px;
+  padding: 50px 30px;
+  margin: 50px auto 0;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 8px 10px 1px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+.img_wrap {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.img_wrap img {
+  width: 100%;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.info_wrap {
+  float: left;
+  width: 690px;
+  height: 200px;
+}
+
+input {
+  height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.input_name{
+  width: 130px;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+.input_email {
+  width: 280px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.input_who {
+  width: 140px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.knock{
+  height: 30px;
+  width: 90px;
+  margin-left: 5px;
+  background-color: white;
+  border: 0.7px solid gray;
+  vertical-align: middle;
+}
+
+textarea {
+  display: block;
+  width: 670px;
+  height: 150px;
+  margin: 20px 0 0 15px;
+  font-size: 12pt;
+  box-sizing: border-box;
+  resize: none;
+}
+/*------------------검색어------------------*/
+.nav2 p {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+.none_here {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  width: 1280px;
+  line-height: 50px;
+  text-align: right;
+  margin: 0 auto;
+}
+  
+.searchbox {
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  box-sizing: border-box;
+  text-align: left;
+  vertical-align: middle;
+}
+  
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  vertical-align: middle;
+}
+  
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+}
+/*-----------------------스크롤바--------------------------*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px white;
+}
+  

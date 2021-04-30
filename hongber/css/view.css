@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body{
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  background-color: #333;
+  color: #eee;
+}
+a{
+  color: #eee;
+  text-decoration: none;
+}
+.view_wrap{
+  display: flex;
+  border-collapse: collapse;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 70px;
+}
+table {
+  width: 600px;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+  /*-ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  */
+}
+th, td{
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+  text-align: center;
+}
+.hday{
+  width: 100px;
+  padding: 10px 0 10px 0;
+}
+.hdaym{
+  width: 10px;
+}
+/*-----------------------스크롤바--------------------------*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px white;
+}

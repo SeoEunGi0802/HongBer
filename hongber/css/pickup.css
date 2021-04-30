@@ -1,0 +1,147 @@
+@charset "UTF-8";
+body {
+    margin: 0 auto;
+    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 1280px;
+    height: 50px;
+    background-color: white;
+    border-top: 3px solid #999;
+    border-bottom: 3px solid #999;
+    margin: 0 auto;
+    font-size: 20px;
+    z-index: 1;
+}
+ header > div{
+    line-height: 50px;
+    padding: 5px 0;
+}
+.logo {
+    margin-top: 5px;
+    background: #2f3542;
+    padding-top: 10px;
+    height: 30px;
+}
+.logo span{
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    width: 100%;
+    color: #fff;
+}
+.nav_p {
+    line-height: 40px;
+    font-size: 16px;
+}
+.nav_p:hover {
+    border-bottom: 2px solid rgba(0,0,0,0.2)
+}
+.nav_a:hover {
+    font-size: 18px;
+    font-weight: bold;
+}
+.logout_nav {
+    display: none;
+    background-color: #fff;
+}
+
+.table_wrap {
+    width: 1100px;
+    padding-top: 150px;
+    margin: 0 auto;
+}
+
+.ad_list, .pick_list {
+    float: left;
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    padding: 20px 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.ad_list p, .pick_list p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 25px;
+}
+
+td {
+    width: 300px;
+    border: 1px solid black;
+    vertical-align: middle;
+}
+
+.plus_btn {
+    width: 40px;
+    height: 40px;
+    background: url(/hongber/css/image/plus.png) no-repeat center center;
+    background-size: 50%;
+    border-left: 0px;
+    cursor: pointer;
+}
+
+.arrow {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: url(/hongber/css/image/arrow.png) no-repeat 0 0;
+    background-size: cover;
+    margin: 150px 50px;
+}
+
+.pick_list::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.minus_btn {
+    width: 40px;
+    height: 40px;
+    background: url(/hongber/css/image/minus.png) no-repeat center center;
+    background-size: 50%;
+    border-left: 0px;
+    cursor: pointer;
+}
+/*-----------------------스크롤바--------------------------*/
+.ad_list::-webkit-scrollbar {
+    width: 10px;
+    }
+    .ad_list::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 5px;
+    }
+    .ad_list::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px white;
+    }
+    .pick_list::-webkit-scrollbar {
+    width: 10px;
+    }
+    .pick_list::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 5px;
+    }
+    .pick_list::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px white;
+    }

@@ -1,0 +1,79 @@
+/*----------------------전체 반영--------------------*/
+body {
+    margin: 0 auto;
+    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  #wrap{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  /*----------------------쪽지 영역--------------------*/
+  #msgview {
+      width: 800px; margin: 0 auto;
+  } 
+  #msgview h3{
+      margin-top: 30px;
+      padding: 10px;
+      border-bottom: solid 2px #2f3542;
+      font-size: 20px;
+  }
+  #wirte_msg{
+      padding: 0 20px;
+  }
+  #write_msg span{
+      display: inline-block;
+  }
+  #write_msg .col1 {
+      width: 150px;
+  }
+  #write_msg li{
+      border-bottom: solid 1px #dddddd;
+      padding: 12px;
+  }
+  #write_msg input {
+      width: 500px;
+      height: 25px;
+  }
+  #write_msg textarea {
+      width: 550px;
+      height: 300px;
+  }
+  #write_msg #textarea {
+      position: relative;
+      height: 320px;
+  }
+  #write_msg #textarea .col1 {
+      position: absolute;
+      top: 10px;
+  }
+  #write_msg #textarea .col2 {
+      position: absolute;
+      left: 166px;
+  }
+  #msgview .top_buttons{
+      text-align: right;
+      margin: 20px 0px;
+  }
+  #msgview .top_buttons li{
+      display: inline;
+      margin-right: 20px;
+  }
+  #msgview .top_buttons li a:link{
+      text-decoration: underline;
+      color: #2f3542;
+  }
+  #msgview .top_buttons li a:visited{
+      text-decoration: underline;
+      color: #2f3542;
+  }
+  #write_msg input[type="button"]{
+    height: 35px;
+    margin: 15px 0 30px 165px;
+    cursor: pointer;
+}

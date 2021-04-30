@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+body {
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+/*----------------상단바 영역-------------*/
+header {
+  position: relative;
+  width: 1280px;
+  height: 50px;
+  background-color: white;
+  border-top: 3px solid #999;
+  border-bottom: 3px solid #999;
+  margin: 0 auto;
+  font-size: 20px;
+}
+header > div{
+  line-height: 50px;
+  padding: 5px 0;
+}
+.logo {
+  margin: 5px auto 0;
+  background: #2f3542;
+  padding-top: 10px;
+  width: max-content;
+  height: 30px;
+}
+.logo span{
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  width: 100%;
+  color: #fff;
+}
+
+.info_wrap {
+  text-align: center;
+  margin-top: 50px;
+}
+
+hr{
+  width: 370px;
+}
+
+input{
+  width: 370px;
+  height: 30px;
+}
+
+input:first-child{
+  margin-top: 50px;
+}
+
+textarea {
+  resize: none;
+  height: 270px;
+}
+
+.submit{
+  width: 380px;
+  height: 50px;
+  background-color: rgba(228, 82, 101, 0.733);
+  font-size: 30px;
+}
+
+input::placeholder{
+  text-align: center;
+}
+/*-----------------------스크롤바--------------------------*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px white;
+}
