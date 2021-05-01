@@ -98,16 +98,28 @@ header > div{
     display: none;
     background-color: #fff;
 }
+.help{
+  width: 160px;
+  height: 50px;
+  font-size: 20px;
+  border: 0px solid;
+  background: white;
+}
 h1{
     font-size: 80px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     font-weight: bold;
 }
 h3{
     text-align: center;
     margin-top: 30px;
     font-size: 30px;
+}
+h6{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
 }
 .form_container{
     display: flex;

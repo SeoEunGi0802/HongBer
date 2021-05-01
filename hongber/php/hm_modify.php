@@ -23,10 +23,10 @@ if (empty($row)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/modify.css">
-    <script type="text/javascript" src="/js/user_info.js"></script>
-    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/hongber/css/reset.css">
+    <link rel="stylesheet" href="/hongber/css/modify.css">
+    <script type="text/javascript" src="/hongber/js/user_info.js"></script>
+    <script type="text/javascript" src="/hongber/js/jquery.js"></script>
     <script>
         function tnn() {
             document.getElementById('tn').value = document.getElementById('tr').value.length;
