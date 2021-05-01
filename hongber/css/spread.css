@@ -30,6 +30,28 @@ a {
     overflow: hidden;
     border: 0;
   }
+  #addintro{
+    width: 300px;
+    height: 250px;
+  }
+  #productintro{
+    width: 300px;
+    height: 250px;
+  }
+  .introduce_add{
+    text-align: center;
+  }
+  .introduce_add input{
+    width: 500px;
+    height: 150px;
+  }
+  .introduce_prod{
+    text-align: center;
+  }
+  .introduce_prod input{
+    width: 500px;
+    height: 150px;
+  }
   .filebox label {
     display: inline-block;
     padding: 10px 20px;
@@ -130,16 +152,31 @@ h6{
     margin-top: 40px;
 }
 .form_container input{
-    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .form_container select{
     margin-top: 40px;
 }
 .form_container textarea{
-    margin-top: 40px;
+    margin-top: 10px;
+    width: 500px;
+    resize: none;
 }
 .form_container h1{
     font-size: 50px;
+}
+#sbtn{
+  width: 80px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid;
+}
+.spread_date{
+  text-align: center;
+}
+#checklist{
+  width: 500px;
+  height: 150px;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
