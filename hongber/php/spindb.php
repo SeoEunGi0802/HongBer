@@ -17,38 +17,80 @@ if (!isset($_SESSION['hislog'])) {
     $checklist = $_POST['checklist'];
     $recper = $_POST['recper'];
 }
-
-$sql = "INSERT INTO spread (spread_id, spread_sd, spread_ed, introduce_add, introduce_prod, checklist, bespread_num)";
-$sql = $sql . "VALUES('$sp_email', '$sd', '$ed', '$add', '$prod', '$checklist', '$recper')";
+$sql = "SELECT * FROM spread WHERE spread_id = '$sp_email'";
 $res = $connect->query($sql);
-$updsql = "SET @COUNT = 0;";
-$updsql .= "UPDATE spread SET num = @COUNT:=@COUNT+1;";
-$connect->query($updsql);
-echo "<script>alert('뿌리기 완료'); location.replace('/hongber/index.php');</script>";
+$row = $res->fetch();
 
+if (empty($row)) {
 
-// if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file']['tmp_name']) != false) {
-//     $size = getimagesize($_FILES['file']['tmp_name']);
-//     $type = $size['mime'];
-//     $imgfp = fopen($_FILES['file']['tmp_name'], 'rb');
-//     $size = $size[3];
-//     $name = $_FILES['file']['name'];
-//     $maxsize = 99999999;
+    $sql2 = "INSERT INTO spread (spread_id, spread_sd, spread_ed, introduce_add, introduce_prod, checklist, bespread_num)";
+    $sql2 = $sql2 . "VALUES('$sp_email', '$sd', '$ed', '$add', '$prod', '$checklist', '$recper')";
+    $connect->query($sql2);
 
-//     if ($_FILES['file']['size'] < $maxsize) {
-//         $stmt = $dbcon->prepare("UPDATE spread SET hm_upimg = ? WHERE hm_email = '$hm_email'");
-//         $stmt->bindParam(1, $imgfp, PDO::PARAM_LOB);
-//         $stmt->execute();
+    $updsql = "SET @COUNT = 0;";
+    $updsql .= "UPDATE spread SET num = @COUNT:=@COUNT+1;";
+    $connect->query($updsql);
 
-//         $sql2 = "SELECT * FROM spread WHERE hm_email = '$hm_email'";
-//         $res2 = $connect->query($sql2);
-//         $row2 = $res2->fetch();
-//         $ti = 'data:image/png;base64,' . base64_encode($row2['hm_upimg']);
-//         $stmt = $dbcon->prepare("UPDATE spread SET hm_upimg = ? WHERE hm_email = '$hm_email'");
-//         $stmt->bindParam(1, $ti, PDO::PARAM_LOB);
-//         $stmt->execute();
+    if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file']['tmp_name']) != false) {
+        $size = getimagesize($_FILES['file']['tmp_name']);
+        $type = $size['mime'];
+        $imgfp = fopen($_FILES['file']['tmp_name'], 'rb');
+        $size = $size[3];
+        $name = $_FILES['file']['name'];
+        $maxsize = 99999999;
 
-//         $sql3 = "UPDATE spread SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed'";
-//         $res3 = $connect->query($sql3);
-//     }
-// }
+        if ($_FILES['file']['size'] < $maxsize) {
+            $stmt = $dbcon->prepare("UPDATE spread SET introduce_add_img = ? WHERE spread_id = '$sp_email'");
+            $stmt->bindParam(1, $imgfp, PDO::PARAM_LOB);
+            $stmt->execute();
+
+            $sql3 = "SELECT * FROM spread WHERE spread_id = '$sp_email'";
+            $res3 = $connect->query($sql3);
+            $row3 = $res3->fetch();
+            $ti = 'data:image/png;base64,' . base64_encode($row3['introduce_add_img']);
+            $stmt2 = $dbcon->prepare("UPDATE spread SET introduce_add_img = ? WHERE spread_id = '$sp_email'");
+            $stmt2->bindParam(1, $ti, PDO::PARAM_LOB);
+            $stmt2->execute();
+        } else {
+            echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/index.php'</script>";
+        }
+    } else {
+        $sql = "DELETE FROM spread WHERE spread_id = '$sp_email'";
+        $connect->query($sql);
+        echo "<script>alert('사진을 등록해주세요.'); history.back();</script>";
+    }
+
+    if (is_uploaded_file($_FILES['file2']['tmp_name']) && getimagesize($_FILES['file2']['tmp_name']) != false) {
+        $size = getimagesize($_FILES['file2']['tmp_name']);
+        $type = $size['mime'];
+        $imgfp = fopen($_FILES['file2']['tmp_name'], 'rb');
+        $size = $size[3];
+        $name = $_FILES['file2']['name'];
+        $maxsize = 99999999;
+
+        if ($_FILES['file2']['size'] < $maxsize) {
+            $stmt = $dbcon->prepare("UPDATE spread SET introduce_prod_img = ? WHERE spread_id = '$sp_email'");
+            $stmt->bindParam(1, $imgfp, PDO::PARAM_LOB);
+            $stmt->execute();
+
+            $sql3 = "SELECT * FROM spread WHERE spread_id = '$sp_email'";
+            $res3 = $connect->query($sql3);
+            $row3 = $res3->fetch();
+            $ti = 'data:image/png;base64,' . base64_encode($row3['introduce_prod_img']);
+            $stmt2 = $dbcon->prepare("UPDATE spread SET introduce_prod_img = ? WHERE spread_id = '$sp_email'");
+            $stmt2->bindParam(1, $ti, PDO::PARAM_LOB);
+            $stmt2->execute();
+
+            echo "<script>alert('광고가 뿌려졌습니다.'); location.href='/hongber/index.php'</script>";
+        } else {
+            echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/index.php'</script>";
+        }
+    } else {
+        $sql = "DELETE FROM spread WHERE spread_id = '$sp_email'";
+        $connect->query($sql);
+        echo "<script>alert('사진을 등록해주세요.'); history.back();</script>";
+    }
+} else {
+    echo "<script>alert('광고 뿌리기는 계정당 1번이며 이전 광고의 기간이 만료되면 가능합니다.'); location.href='/hongber/index.php'</script>";
+}
+?>

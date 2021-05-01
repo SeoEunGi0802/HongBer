@@ -45,7 +45,7 @@
       <div class="form_container">
         <form action="spindb.php" enctype="multipart/form-data" method="POST">
           <div class="spread_date">
-            <input type="date" name="sd" required> ~ <input type="date" name="ed" required>
+            <input type="date" name="sd" id="sd" required> ~ <input type="date" name="ed" id="ed" required>
           </div>
           <div class="filebox">
             <img src="" id="addintro" onerror="noneimg()">
@@ -84,6 +84,29 @@
           <h6><input type="submit" value="뿌리기" id="sbtn"></h6>
         </form>
       </div>
+      <script>
+        document.getElementById('sd').value = new Date().toISOString().substring(0, 10);
+        document.getElementById('sd').min = new Date().toISOString().substring(0, 10);
+        document.getElementById('ed').min = new Date().toISOString().substring(0, 10);
+      </script>
+      <script>
+        $('#ed').blur(function() {
+          if ($('#sd').val() > $('#ed').val()) {
+            alert("뿌릴 기간을 제대로 설정해주세요.");
+            document.getElementById('ed').value = "";
+          }
+        });
+      </script>
+      <script>
+        $('#sd').blur(function() {
+          if ($('#ed').val() < $('#sd').val()) {
+            if ($('#ed').val() != "") {
+              alert("뿌릴 기간을 제대로 설정해주세요.");
+              document.getElementById('sd').value = new Date().toISOString().substring(0, 10);
+            }
+          }
+        });
+      </script>
       <script>
         function readURL(input) {
           if (input.files && input.files[0]) {
