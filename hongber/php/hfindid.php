@@ -17,8 +17,8 @@ $row = $res->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 찾기</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/findid_php.css">
+    <link rel="stylesheet" href="/hongber/css/reset.css">
+    <link rel="stylesheet" href="/hongber/css/findid_php.css">
     <script>
         function hclose() {
             opener.document.location.href = "/html/hlogin.html";

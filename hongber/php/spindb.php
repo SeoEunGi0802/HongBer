@@ -80,17 +80,59 @@ if (empty($row)) {
             $stmt2 = $dbcon->prepare("UPDATE spread SET introduce_prod_img = ? WHERE spread_id = '$sp_email'");
             $stmt2->bindParam(1, $ti, PDO::PARAM_LOB);
             $stmt2->execute();
-
-            echo "<script>alert('광고가 뿌려졌습니다.'); location.href='/hongber/index.php'</script>";
         } else {
-            echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/index.php'</script>";
+            // echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/index.php'</script>";
         }
     } else {
         $sql = "DELETE FROM spread WHERE spread_id = '$sp_email'";
         $connect->query($sql);
-        echo "<script>alert('사진을 등록해주세요.'); history.back();</script>";
+        //echo "<script>alert('사진을 등록해주세요.'); history.back();</script>";
     }
+
+    $regist_day = date("Y-m-d H:i");
+
+    $usql = "SELECT COUNT(*) as cnt FROM user";
+    $nsql = "SELECT COUNT(*) as cnt FROM nuser";
+    $ksql = "SELECT COUNT(*) as cnt FROM kuser";
+
+    $ures = $connect->query($usql);
+    $nres = $connect->query($nsql);
+    $kres = $connect->query($ksql);
+
+    $urow = $ures->fetch();
+    $nrow = $nres->fetch();
+    $krow = $kres->fetch();
+
+    $unkrow =  $urow['cnt'] + $nrow['cnt'] + $krow['cnt'];
+    $rowall =  (int)$unkrow;
+
+    if($rowall > $recper){
+        $rowall = $recper;
+    }
+
+    $sqlrand = "SELECT u_email as email FROM user UNION SELECT n_email FROM nuser UNION SELECT k_email FROM kuser order by rand()";
+    $resrand = $connect->query($sqlrand);
+
+    for ($i = 0; $i < $rowall; $i++) {
+        $rowrand = $resrand->fetch();
+        $besp_email = $rowrand['email'];
+        $msgsql = "INSERT INTO msgrv(send_id, rv_id, subject, content, regist_day, rv_check) ";
+        $msgsql .= "VALUES('$sp_email','$besp_email','$add','$prod','$regist_day', 'n')";
+        $connect->query($msgsql);
+
+        $sql2 = "INSERT INTO msgsend(send_id, rv_id, subject, content, regist_day, rv_check) ";
+        $sql2 .= "VALUES('$sp_email','$besp_email','$add','$prod','$regist_day', 'n')";
+        $connect->query($sql2);
+
+        $updsql2 = "SET @COUNT = 0;";
+        $updsql2 .= "UPDATE msgrv SET num = @COUNT:=@COUNT+1;";
+        $connect->query($updsql2);
+
+        $updsql3 = "SET @COUNT = 0;";
+        $updsql3 .= "UPDATE msgsend SET num = @COUNT:=@COUNT+1;";
+        $connect->query($updsql3);
+    }
+    echo "<script>alert('광고가 뿌려졌습니다.'); location.href='/hongber/index.php'</script>";
 } else {
-    echo "<script>alert('광고 뿌리기는 계정당 1번이며 이전 광고의 기간이 만료되면 가능합니다.'); location.href='/hongber/index.php'</script>";
+    //echo "<script>alert('광고 뿌리기는 계정당 1번이며 이전 광고의 기간이 만료되면 가능합니다.'); location.href='/hongber/index.php'</script>";
 }
-?>

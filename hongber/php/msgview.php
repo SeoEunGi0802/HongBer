@@ -33,7 +33,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쪽지</title>
-    <link rel="stylesheet" href="/css/msgview.css">
+    <link rel="stylesheet" href="/hongber/css/msgview.css">
 </head>
 
 <body>

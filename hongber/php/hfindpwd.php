@@ -18,8 +18,8 @@ $row = $res->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 찾기</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/findpwd_php.css">
+    <link rel="stylesheet" href="/hongber/css/reset.css">
+    <link rel="stylesheet" href="/hongber/css/findpwd_php.css">
     <script>
         function hclose() {
             opener.document.location.href = "/html/hlogin.html";
