@@ -7,14 +7,14 @@ error_reporting(0);
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
-if (!isset($_SESSION['uislog'])) {
+if (!isset($_SESSION['hislog'])) {
 } else {
-  $uid = $_SESSION['uid'];
-  $uemail = $_SESSION['uemail'];
-  $usql = "SELECT u_pimg FROM user WHERE u_email = '$uemail'";
-  $ures = $connect->query($usql);
-  $urow = $ures->fetch();
-  $profile_img = $urow['u_pimg'];
+  $hid = $_SESSION['hid'];
+  $hemail = $_SESSION['hemail'];
+  $hsql = "SELECT h_pimg FROM hser WHERE h_email = '$hemail'";
+  $hres = $connect->query($hsql);
+  $hrow = $hres->fetch();
+  $profile_img = $hrow['h_pimg'];
 }
 ?>
 
@@ -32,7 +32,6 @@ if (!isset($_SESSION['uislog'])) {
     />
 <!--------------------------- JS ------------------------------>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="/hongber/js/pickup.js"></script>
     <title>PickUp</title>
 </head>
 
@@ -71,6 +70,23 @@ if (!isset($_SESSION['uislog'])) {
         <button class="accept" onclick="">수락</button>
         <button class="deny" onclick="">거절</button> 
 </body>
+<script>
+        var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    keyboard: {
+      enabled: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+    </script>
 <?php
 $connect = null;
 ?>
