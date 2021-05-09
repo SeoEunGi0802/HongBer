@@ -1,127 +1,78 @@
+<!-----------------------session start------------------------->
 <?php
-session_start()
+include "config.php";
+session_start();
+error_reporting(0);
+/*------------------------login/out---------------------------*/
+if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
+  echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
+}
+if (!isset($_SESSION['uislog'])) {
+} else {
+  $uid = $_SESSION['uid'];
+  $uemail = $_SESSION['uemail'];
+  $usql = "SELECT u_pimg FROM user WHERE u_email = '$uemail'";
+  $ures = $connect->query($usql);
+  $urow = $ures->fetch();
+  $profile_img = $urow['u_pimg'];
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>광고 줍기</title>
+<!-------------------------- CSS ----------------------------->
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/pickup.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+<!--------------------------- JS ------------------------------>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/hongber/js/pickup.js"></script>
+    <title>PickUp</title>
 </head>
 
 <body>
-    <div id="wrap">
-        <?php
-        include "../header.php";
-        ?>
-        <section>
-            <div class="table_wrap">
-                <div class="ad_list">
-                    <p>광고 목록</p>
-                    <table>
-                        <tr>
-                            <td>광고 1</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 2</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 3</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 4</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 5</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 6</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 7</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 8</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 9</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 10</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 11</td>
-                            <td class="plus_btn" onclick=""></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="arrow"></div>
-                <div class="pick_list">
-                    <p>주운 광고</p>
-                    <table>
-                        <tr>
-                            <td>광고 1</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 2</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 3</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 4</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 5</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 6</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 7</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 8</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 9</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 10</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                        <tr>
-                            <td>광고 11</td>
-                            <td class="minus_btn" onclick=""></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </section>
+<!---------------------------nav------------------------------->
+<?php
+    include "../header.php";
+    ?>
+<!----------------------flex container-------------------------->
+  <div id="wrap">
+    <div class="pick_wrap">
+        <div class="hm_thumb"><img src="" alt=""></div>
+        <div class="info">
+        <p class="name_section">원대호</p>
+        <p class="Email_section">wdh8366@naver.com</p>
+        <p class="day">2021-05-09</p>
+        </div>
+<!------------------------- Swiper ---------------------------->
+    <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+            <div class="swiper-slide"><p class="h_intro">광고주 소개</p></div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+        </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
     </div>
+        <p class="i_intro">제품 소개</p>
+        <button class="accept" onclick="">수락</button>
+        <button class="deny" onclick="">거절</button> 
 </body>
+<?php
+$connect = null;
+?>
 
 </html>
