@@ -9,6 +9,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
 }
 if (!isset($_SESSION['hislog'])) {
 } else {
+    $sp_name = $_SESSION['hname'];
     $sp_email = $_SESSION['hemail'];
     $sd = $_POST['sd'];
     $ed = $_POST['ed'];
@@ -22,9 +23,8 @@ $res = $connect->query($sql);
 $row = $res->fetch();
 
 if (empty($row)) {
-
-    $sql2 = "INSERT INTO spread (spread_id, spread_sd, spread_ed, introduce_add, introduce_prod, checklist, bespread_num)";
-    $sql2 = $sql2 . "VALUES('$sp_email', '$sd', '$ed', '$add', '$prod', '$checklist', '$recper')";
+    $sql2 = "INSERT INTO spread (spread_id, spread_name, spread_sd, spread_ed, introduce_add, introduce_prod, checklist, bespread_num)";
+    $sql2 = $sql2 . "VALUES('$sp_email', '$sp_name', '$sd', '$ed', '$add', '$prod', '$checklist', '$recper')";
     $connect->query($sql2);
 
     $updsql = "SET @COUNT = 0;";
@@ -106,32 +106,10 @@ if (empty($row)) {
     $unkrow =  $urow['cnt'] + $nrow['cnt'] + $krow['cnt'];
     $rowall =  (int)$unkrow;
 
-    if($rowall > $recper){
+    if ($rowall > $recper) {
         $rowall = $recper;
     }
 
-    $sqlrand = "SELECT u_email as email FROM user UNION SELECT n_email FROM nuser UNION SELECT k_email FROM kuser order by rand()";
-    $resrand = $connect->query($sqlrand);
-
-    for ($i = 0; $i < $rowall; $i++) {
-        $rowrand = $resrand->fetch();
-        $besp_email = $rowrand['email'];
-        $msgsql = "INSERT INTO msgrv(send_id, rv_id, subject, content, regist_day, rv_check) ";
-        $msgsql .= "VALUES('$sp_email','$besp_email','$add','$prod','$regist_day', 'n')";
-        $connect->query($msgsql);
-
-        $sql2 = "INSERT INTO msgsend(send_id, rv_id, subject, content, regist_day, rv_check) ";
-        $sql2 .= "VALUES('$sp_email','$besp_email','$add','$prod','$regist_day', 'n')";
-        $connect->query($sql2);
-
-        $updsql2 = "SET @COUNT = 0;";
-        $updsql2 .= "UPDATE msgrv SET num = @COUNT:=@COUNT+1;";
-        $connect->query($updsql2);
-
-        $updsql3 = "SET @COUNT = 0;";
-        $updsql3 .= "UPDATE msgsend SET num = @COUNT:=@COUNT+1;";
-        $connect->query($updsql3);
-    }
     echo "<script>alert('광고가 뿌려졌습니다.'); location.href='/hongber/index.php'</script>";
 } else {
     //echo "<script>alert('광고 뿌리기는 계정당 1번이며 이전 광고의 기간이 만료되면 가능합니다.'); location.href='/hongber/index.php'</script>";
