@@ -7,30 +7,6 @@ session_start();
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
-if (!isset($_SESSION['uislog'])) {
-} else {
-  $uid = $_SESSION['uid'];
-  $uemail = $_SESSION['uemail'];
-  $usql = "SELECT * FROM user WHERE u_id = '$uid' AND u_email = '$uemail'";
-  $ures = $connect->query($usql);
-  $urow = $ures->fetch();
-}
-if (!isset($_SESSION['nislog'])) {
-} else {
-  $nid = $_SESSION['nid'];
-  $nemail = $_SESSION['nemail'];
-  $nsql = "SELECT * FROM nuser WHERE n_id = '$nid' AND n_email = '$nemail'";
-  $nres = $connect->query($nsql);
-  $nrow = $nres->fetch();
-}
-if (!isset($_SESSION['kislog'])) {
-} else {
-  $kid = $_SESSION['kid'];
-  $kemail = $_SESSION['kemail'];
-  $ksql = "SELECT * FROM kuser WHERE k_id = '$kid' AND k_email = '$kemail'";
-  $kres = $connect->query($ksql);
-  $krow = $kres->fetch();
-}
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +18,8 @@ if (!isset($_SESSION['kislog'])) {
   <!-------------------------- CSS ----------------------------->
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/pickup.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/hongber/css/swiper.css">
+  <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <!--------------------------- JS ------------------------------>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <title>PickUp</title>
@@ -80,20 +57,21 @@ if (!isset($_SESSION['kislog'])) {
               <!------------------------- Swiper ---------------------------->
               <div class="swiper-container mySwiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <p class="h_intro"><?= $row['introduce_add'] ?></p>
-                  </div>
-                  <div class="swiper-slide"><img src=<?= $row['introduce_add_img'] ?>></div>
-                  <div class="swiper-slide"><?= $row['introduce_prod'] ?></div>
-                  <div class="swiper-slide"><img src=<?= $row['introduce_prod_img'] ?>></div>
-                  <div class="swiper-slide"><?= $row['checklist'] ?></div>
+                  <div class="swiper-slide"><p class="i_intro">광고주 소개</p><p class="intro_t"><?= $row['introduce_add'] ?></p></div>
+                  <div class="swiper-slide"><p class="i_intro">광고주 소개 사진</p><img src=<?= $row['introduce_add_img'] ?>></div>
+                  <div class="swiper-slide"><p class="i_intro">제품 소개</p><p class="intro_t"><?= $row['introduce_prod'] ?></p></div>
+                  <div class="swiper-slide"><p class="i_intro">제품 소개 사진</p><img src=<?= $row['introduce_prod_img'] ?>></div>
+                  <div class="swiper-slide"><p class="i_intro">홍보 방식</p><p class="intro_t"><?= $row['spread_tool'] ?></p></div>
                 </div>
                 <div class="swiper-button-next next"></div>
                 <div class="swiper-button-prev prev"></div>
                 <div class="swiper-pagination pag"></div>
               </div>
-              <p class="i_intro">제품 소개</p>
-              <button class="accept" onclick="pickupit()">줍기</button>
+              <form action="/hongber/php/addwait.php" method="POST">
+                <input type="hidden" name="adv_e" value="<?= $row['spread_id'] ?>">
+                <input type="hidden" name="adv_n" value="<?= $row['spread_name'] ?>">
+                <button class="accept" type="submit">줍기</button>
+              </form>
             </div>
           </div>
         <?php } ?>
@@ -136,14 +114,6 @@ if (!isset($_SESSION['kislog'])) {
       prevEl: ".prev1",
     },
   });
-</script>
-<script>
-  function pickupit() {
-    <?php
-    $sql3 = "INSERT INTO mypick(id, mypick_sd, mypick_ed, )";  
-    ?>
-    alert("JJI");
-  }
 </script>
 <?php
 $connect = null;

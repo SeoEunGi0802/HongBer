@@ -10,7 +10,8 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/spread.css">
-  <script type="text/javascript" src="/hongber/js/jquery.js"></script>
+  <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
     function details() {
       document.getElementById("front");
@@ -82,11 +83,29 @@ session_start();
             <option value="80">80명</option>
             <option value="90">90명</option>
             <option value="100">100명</option>
-          </select><br>
-          <input type="text" name="checklist" id="checklist" cols="30" rows="10" required><br>
+          </select><br><br><br>
+          요구 수단:
+          <input type="radio" name="tool" value="SNS" required>SNS
+          <input type="radio" name="tool" value="YouTube">YouTube
+          <input type="radio" name="tool" value="Web">Web
+          <input type="radio" name="tool" value="App">App
+          <input type="radio" name="tool" value="기타" class="another">기타
+          <input type="text" name="etc" class="input" placeholder="기타 선택시에 작성해주세요."><br>
+          오픈채팅 주소:<br>
+          <input type="text" name="openc" id="openc" placeholder="오픈채팅 주소를 입력해주세요." required><br>
           <h6><input type="submit" value="뿌리기" id="sbtn"></h6>
         </form>
       </div>
+      <script>
+        $('#openc').blur(function() {
+          const openc_url = $('#openc').val();
+          const findString = "<?= 'https://open.kakao.com/' ?>";
+          if (openc_url.indexOf(findString) == -1) {
+            alert("정확한 카카오 오픈채팅 링크를 입력해주세요.");
+            document.getElementById('openc').value = "";
+          }
+        });
+      </script>
       <script>
         document.getElementById('sd').value = new Date().toISOString().substring(0, 10);
         document.getElementById('sd').min = new Date().toISOString().substring(0, 10);

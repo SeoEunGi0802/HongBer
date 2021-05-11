@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    margin: 0 auto;
+    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #2f3542;
+}
+#addbox{
+    width: 920px;
+    margin: 0 auto;
+}
+#addbox h3{
+    margin-top: 30px;
+    padding: 10px;
+    border-bottom: solid 2px #2f3542;
+    font-size: 20px;
+}
+#list li{
+    padding: 10px 10px 10px 0;
+    border-bottom: solid 1px #dddddd;
+}
+#list li:nth-child(1) {
+    font-weight: bold;
+}
+#list li input {
+    width: 30px;
+}
+#list span {
+    display: inline-block;
+    text-align: center;
+}
+#list .col0 {
+    width: 30px;
+    overflow: hidden;
+}
+#list .col1 {
+    width: 80px;
+    overflow: hidden;
+}
+#list .col2 {
+    width: 70px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#list .col3 {
+    width: 250px;
+    overflow: hidden;
+}
+#list .col4 {
+    width: 150px;
+    overflow: hidden;
+}
+#list .col5 {
+    width: 150px;
+    overflow: hidden;
+}
+#page_num {
+    text-align: center;
+    margin: 30px 0;
+}
+#page_num li {
+    display: inline;
+}
+#addbox .buttons {
+    text-align: right;
+    margin: 20px 0 40px 0;
+}
+#addbox .buttons li {
+    display: inline;
+}
+#addbox .buttons button{
+    padding: 5px 10px;
+    cursor: pointer;
+}

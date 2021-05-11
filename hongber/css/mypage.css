@@ -138,7 +138,7 @@ header > div{
   background: pink;
 }
 
-.ing, .finish, .pick, .spread {
+.ing, .finish {
   width: 50%;
   height: 250px;
   padding: 50px 0;
@@ -146,16 +146,8 @@ header > div{
   overflow: auto;
 }
 
-.pick {
-  background: #bbb;
-}
-
-.spread {
-  background: #bbb;
-}
-
 .ing {
-  display: none;
+  display: block;
   background: #ddd;
 }
 
@@ -179,6 +171,20 @@ td {
   border: 1px solid black;
   vertical-align: middle;
   text-align: center;
+}
+/*-----------------------광고 수락 영역--------------------------*/
+.wait_add{
+  position: fixed;
+  bottom: 90px;
+  right: 0;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  border: none;
+  background-color: #fff;
+}
+.wait_add > img{
+  width: 50px;
+  height: 50px;
 }
 /*-----------------------쪽지영역--------------------------*/
 .send_li{

@@ -24,6 +24,7 @@ if (!isset($_SESSION['hislog'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/match.css">
+  <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="/hongber/js/match.js"></script>
   <title>match</title>
   <script>

@@ -26,6 +26,7 @@ $chc = $rrow == false ? "none" : "isis";
     <title>회원 찾기</title>
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/search.css">
+    <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
     <script src="/hongber/js/jquery.js"></script>
 </head>
 
@@ -54,7 +55,7 @@ $chc = $rrow == false ? "none" : "isis";
                 $msg = $row['msg'];
                 $pimg = $row['pimg'];
                 if (empty($pimg)) {
-                    $pimg = "/css/image/bpimg.png";
+                    $pimg = "/hongber/css/image/bpimg.png";
                 }
 
                 $usql = "SELECT * FROM user WHERE u_name = '$name' AND u_email = '$email'";
