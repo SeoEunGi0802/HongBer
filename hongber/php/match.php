@@ -66,7 +66,7 @@ if (!isset($_SESSION['hislog'])) {
         echo "<div class='hm_thumb'><img src='" . $row['hm_pimg'] . "' class='mtping'></div>";
         echo "<div class='hm_info'>" . $row['hm_name'] . "<p>" . $row['hm_email'] . "</p>" . "</div>";
         echo "<div class='hm_img'><img src=" . $row['hm_upimg'] . "></div>";
-        echo "<textarea class='hm_comment'>" . $row['hm_r'] . "</textarea>";
+        echo "<textarea class='hm_comment' readonly>" . $row['hm_r'] . "</textarea>";
         echo "<div class='hm_date'>" . "<p>" . $row['hm_sd'] . " ~ " . $row['hm_ed'] . "</p>" . "</div>";
         echo "<button class='send' id='send' value='" . $row['hm_email'] . "' onclick=" . '"message(this.value)">' . '<img src="/hongber/css/image/matching.png"></button>';
         echo "</div>";
