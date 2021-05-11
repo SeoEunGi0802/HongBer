@@ -40,14 +40,24 @@ if (!isset($_SESSION['kakao_access_token'])) {
     <section>
         <div id="main_content">
             <div id="addbox">
-                <h3>광고를 주운 홍버</h3>
+                <h3>
+                    <?php
+                    $mode = $_GET['mode'];
+                    if ($mode == "A") echo "광고를 주운 홍버";
+                    else echo "대기중인 주운 광고"
+                    ?>
+                </h3>
 
-                <!-- 쪽지 리스트가 보여지는 영역(게시판 모양) -->
+                <!-- 주운 광고 리스트가 보여지는 영역(게시판 모양) -->
                 <div>
                     <ul id="list">
                         <!-- 리스트의 제목줄 -->
                         <li>
-                            <span class="col0"><input type="checkbox" value="selall" onclick="selall(this)"></span>
+                            <?php
+                            if ($mode == "A") {
+                            ?>
+                                <span class="col0"><input type="checkbox" value="selall" onclick="selall(this)"></span>
+                            <?php } ?>
                             <span class="col1">번호</span>
                             <span class="col2">이름</span>
                             <span class="col3">이메일</span>
@@ -55,17 +65,16 @@ if (!isset($_SESSION['kakao_access_token'])) {
                             <span class="col5">상태</span>
                         </li>
                         <?php
-                        if ($mode == "send") {
-                            $sql = "SELECT * FROM msgsend WHERE send_id='$email' ORDER BY num DESC";
+                        if ($mode == "A") {
+                            $sql = "SELECT * FROM addwait WHERE adv_email = '$email' ORDER BY num DESC";
                         } else {
-                            $sql = "SELECT * FROM msgrv WHERE rv_id='$email' ORDER BY num DESC";
+                            $sql = "SELECT * FROM addwait WHERE wait_email = '$email' ORDER BY num DESC";
                         }
 
                         $res = mysqli_query($conn, $sql);
-                        //전체 쪽지 수
+                        //전체 주운 광고 수
                         $rownum = mysqli_num_rows($res);
 
-                        // 한페이지안에 모든 쪽지를 리스트로 보여주면 너무 길어서.. 최대 한페이지에 10개까지만 보여지게 하고
                         // 리스트의 하단에 페이지네이션을 표시해서 선택할 수 있도록
                         if (isset($_GET['page'])) $page = $_GET['page'];
                         else  $page = 1;
@@ -84,23 +93,29 @@ if (!isset($_SESSION['kakao_access_token'])) {
                             mysqli_data_seek($res, $i);
                             $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
                             $no = $row['num'];
-                            $subject = $row['subject'];
-                            $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'];
-                            $regist_day = $row['regist_day'];
-                            $rv_check = $row['rv_check'];
+                            $wait_name = $row['wait_name'];
+                            $wait_email = $row['wait_email'];
+                            $wait_day = $row['wait_day'];
+                            $wait_status = $row['wait_status'];
                         ?>
                             <li>
-                                <form action='/hongber/php/msgdel.php?mode=<?= $mode == 'send' ? 'send' : 'rv' ?>' method="POST">
-                                <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
-                                <span class="col1"><?= $num ?></span>
-                                <span class="col2"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
-                                                                                                    echo "&rv_email=";
-                                                                                                } else {
-                                                                                                    echo "&send_email=";
-                                                                                                } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
-                                <span class="col3"><?= $msg_id ?></span>
-                                <span class="col4"><?= $regist_day ?></span>
-                                <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
+                                <form action='' method="POST">
+                                    <?php if ($mode == "A") { ?>
+                                    <?php
+                                    if ($wait_status == "accept" || $wait_status == "deny") { ?>
+                                        <span><input type="checkbox" disabled></span>
+                                    <?php } else {
+                                    ?>
+                                        <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php } ?>
+                                    <span class="col1"><?= $num ?></span>
+                                    <span class="col2"><?= $wait_name ?></span>
+                                    <span class="col3"><?= $wait_email ?></span>
+                                    <span class="col4"><?= $wait_day ?></span>
+                                    <span class="col5"><?= $wait_status ?></span>
                             </li>
                         <?php
                             $num = $num + 1;
@@ -108,13 +123,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         mysqli_close($conn);
                         ?>
                     </ul>
-                    <!-- 메시지 출력 END -->
+                    <!-- 주운 광고 출력 END -->
                     <!-- 페이지 네이션(페이지 번호 표시) -->
                     <ul id="page_num">
                         <?php
                         if ($page != 1) {
                             $newPage = $page - 1;
-                            echo "<li><a href='/hongber/php/msgbox.php?mode=$mode&page=$newPage'>◀이전 </a></li>";
+                            echo "<li><a href='/hongber/php/addbox.php?&page=$newPage'>◀이전 </a></li>";
                         } else {
                             echo "<li>◀이전 </li>";
                         }
@@ -122,12 +137,12 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         // 페이지 수만큼 페이지 번호 출력
                         for ($i = 1; $i <= $total_page; $i++) {
                             if ($i == $page) echo "<li><strong> $i </strong></li>";
-                            else echo "<li><a href='/hongber/php/msgbox.php?mode=$mode&page=$i'> $i</a>></li>";
+                            else echo "<li><a href='/hongber/php/addbox.php?&page=$i'> $i</a>></li>";
                         }
 
                         if ($page != $total_page) {
                             $newPage = $page + 1;
-                            echo "<li><a href='/hongber/php/msgbox.php?mode=$mode&page=$newPage'> 다음▶</a></li>";
+                            echo "<li><a href='/hongber/php/addbox.php?&page=$newPage'> 다음▶</a></li>";
                         } else {
                             echo "<li> 다음▶</li>";
                         }
@@ -135,11 +150,14 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         ?>
                     </ul>
 
-                    <!-- 쪽지함 이동 버튼들 -->
+                    <?php if ($mode == "A") { ?>
                     <ul class="buttons">
-                        <li><button>삭제</button></li>
-                    </form>
+                        <!-- <li><button>삭제</button></li> -->
+                        <li><button formaction="/hongber/php/addstatus.php?st=ac">수락</button></li>
+                        <li><button formaction="/hongber/php/addstatus.php?st=de">거절</button></li>
+                        </form>
                     </ul>
+                    <?php } ?>
                 </div>
 
             </div>

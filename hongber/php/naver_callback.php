@@ -11,7 +11,7 @@ if ($_SESSION['naver_state'] != $_GET["state"]) {
 	$client_secret = "5ms9DI0XR5";
 	$code = $_GET["code"];
 	$state = $_GET["state"];
-	$redirectURI = urlencode("http://localhost/php/naver_callback.php");
+	$redirectURI = urlencode("http://localhost/hongber/php/naver_callback.php");
 
 	$url = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=" . $client_id . "&client_secret=" . $client_secret . "&redirect_uri=" . $redirectURI . "&code=" . $code . "&state=" . $state;
 	$is_post = false;

@@ -7,7 +7,7 @@ $client_id = "DRFaCS0hy5tsmm8uWjSH";
 $client_secret = "5ms9DI0XR5";
 $code = $_GET["code"];
 $state = $_GET["state"];
-$redirectURI = urlencode("http://localhost/php/naver_callbacklogin.php");
+$redirectURI = urlencode("http://localhost/hongber/php/naver_callbacklogin.php");
 
 $url = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=" . $client_id . "&client_secret=" . $client_secret . "&redirect_uri=" . $redirectURI . "&code=" . $code . "&state=" . $state;
 $is_post = false;

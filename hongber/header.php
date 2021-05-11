@@ -22,7 +22,7 @@
                 <p class="nav_p">광고 뿌리기</p>
             </a>
         </div>
-    <?php } else if (isset($_SESSION["uislog"])) { ?>
+    <?php } else if (isset($_SESSION["uislog"]) || isset($_SESSION['naver_access_token']) || isset($_SESSION['kakao_access_token']) ) { ?>
         <div>
             <a href="/hongber/php/pickup.php" class="nav_a">
                 <p class="nav_p">광고 줍기</p>

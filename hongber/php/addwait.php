@@ -2,8 +2,6 @@
 include "config.php";
 session_start();
 //error_reporting(0);
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
     echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
@@ -13,12 +11,12 @@ if (!isset($_SESSION['uislog'])) {
     $name = $_SESSION['uname'];
     $email = $_SESSION['uemail'];
 }
-if (!isset($_SESSION['nislog'])) {
+if (!isset($_SESSION['naver_access_token'])) {
 } else {
     $name = $_SESSION['nname'];
     $email = $_SESSION['nemail'];
 }
-if (!isset($_SESSION['kislog'])) {
+if (!isset($_SESSION['kakao_access_token'])) {
 } else {
     $name = $_SESSION['kname'];
     $email = $_SESSION['kemail'];
@@ -26,7 +24,7 @@ if (!isset($_SESSION['kislog'])) {
 
 $adv_e = $_POST['adv_e'];
 $adv_n = $_POST['adv_n'];
-
+$wait_day = date("Y-m-d H:i");
 
 if ($adv_e != null && $adv_n != null) {
     $sql = "SELECT * FROM addwait WHERE adv_email = '$adv_e' AND adv_name = '$adv_n' AND wait_email = '$email' AND wait_name = '$name'";
@@ -35,8 +33,8 @@ if ($adv_e != null && $adv_n != null) {
     if ($row) {
         echo "<script>alert('이미 줍기 신청한 광고입니다.'); location.replace('/hongber/php/pickup.php')</script>";
     } else {
-        $sql2 = "INSERT INTO addwait(adv_email, adv_name, wait_email, wait_name, wait_status) ";
-        $sql2 .= "VALUES('$adv_e','$adv_n','$email','$name','wait')";
+        $sql2 = "INSERT INTO addwait(adv_email, adv_name, wait_email, wait_name, wait_status, wait_day) ";
+        $sql2 .= "VALUES('$adv_e','$adv_n','$email','$name','wait', '$wait_day')";
         $res2 = $connect->query($sql2);
 
         $updsql = "SET @COUNT = 0;";

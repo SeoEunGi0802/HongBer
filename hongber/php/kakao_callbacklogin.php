@@ -1,13 +1,15 @@
 <?php
 include "config.php";
 session_start();
-error_reporting(0);
+//error_reporting(0);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 $appkey = "1e244097dc165fec1a765891df0be219";
 $client_secret = "FhctorVXgFwalPCDZpuDnjad1RFwmOhG";
 $code = $_GET["code"];
 $state = $_GET["state"];
-$redirectURL = urlencode("http://localhost/php/kakao_callbacklogin.php");
+$redirectURL = urlencode("http://localhost/hongber/php/kakao_callbacklogin.php");
 
 $url = "https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=" . $appkey . "&redirect_uri=" . $redirectURL . "&code=" . $code . "&client_secret=" . $client_secret . "&state=" . $state;
 $is_post = false;

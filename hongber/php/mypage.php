@@ -168,7 +168,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
               echo '<td>' . $row['mying_ed'] . '</td>';
               echo '<td>' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . $row['mying_oc'] . '</td>';
+              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
               echo '</tr>';
             }
           }
@@ -199,9 +199,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
       </div>
     </div>
   </section>
-  <?php if (isset($_SESSION['hislog'])) { ?>
   <button class="wait_add" onclick="viewstaus()"><img src="/hongber/css/image/addstatus.png"></button>
-  <?php } ?>
   <button class="send_li" onclick="viewmsg()"><img src="/hongber/css/image/archive.png"></button>
   <script src="/hongber/js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
@@ -209,12 +207,12 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <script>
     function viewstaus() {
       const width = '1050';
-      const height = '670';
+      const height = '630';
 
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "A" : "H" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
     }
   </script>
   <script>

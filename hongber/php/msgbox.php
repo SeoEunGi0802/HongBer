@@ -71,7 +71,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         //전체 쪽지 수
                         $rownum = mysqli_num_rows($res);
 
-                        // 한페이지안에 모든 쪽지를 리스트로 보여주면 너무 길어서.. 최대 한페이지에 10개까지만 보여지게 하고
                         // 리스트의 하단에 페이지네이션을 표시해서 선택할 수 있도록
                         if (isset($_GET['page'])) $page = $_GET['page'];
                         else  $page = 1;
