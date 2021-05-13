@@ -31,10 +31,10 @@ if (!isset($_SESSION['hislog'])) {
 </head>
 
 <body>
+  <?php
+  include "../header.php";
+  ?>
   <div id="wrap">
-    <?php
-    include "../header.php";
-    ?>
     <div class="match_wrap" id="ret">
       <?php
       if (!empty($_SESSION["uislog"]) || !empty($_SESSION['naver_access_token']) || !empty($_SESSION['kakao_access_token'])) {
@@ -45,10 +45,17 @@ if (!isset($_SESSION['hislog'])) {
       <?php
       }
       ?>
-      <button id="late" onclick="latc()">최신순</button>
-      <button id="old" onclick="oldc()">오래된 순</button>
+      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+      <input type="hidden" name="regday" value="R">
+      <button type="submit">최신순</button>
+      </form>
+      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+      <input type="hidden" name="regday" value="O">
+      <button type="submit" value="old">오래된 순</button>
+      </form>
+      <input id="smav" type="text" onkeyup="sma()">
       <?php
-      include "./card.php";
+        include "./card.php";
       ?>
     </div>
   </div>
@@ -84,17 +91,24 @@ if (!isset($_SESSION['hislog'])) {
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top +  ', scrollbars=no');
+      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
   <script>
-    function latc() {
-      $(".match_wrap").load(window.location.href + " .match_wrap");
-    }
-  </script>
-  <script>
-    function oldc() {
-      $(".match_wrap").load(window.location.href + " .match_wrap");
+    function sma() {
+      let smav = document.getElementById("smav").value.toLowerCase();
+      let honor_card = document.getElementsByClassName("honor_card");
+
+      for (let i = 0; i < honor_card.length; i++) {
+        let hm_name = honor_card[i].getElementsByClassName("hm_name");
+        let hm_email = honor_card[i].getElementsByClassName("hm_email");
+        let hm_sd_ed = honor_card[i].getElementsByClassName("hm_sd_ed");
+        if (hm_name[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_email[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_sd_ed[0].innerHTML.toLowerCase().indexOf(smav) != -1) {
+          honor_card[i].style.display = "flex"
+        } else {
+          honor_card[i].style.display = "none"
+        }
+      }
     }
   </script>
 </body>
