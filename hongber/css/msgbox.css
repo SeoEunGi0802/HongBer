@@ -86,3 +86,7 @@ a{
     padding: 5px 10px;
     cursor: pointer;
 }
+#source {
+    text-align: center;
+    font-size: large;
+}

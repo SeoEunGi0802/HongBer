@@ -96,16 +96,16 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         ?>
                             <li>
                                 <form action='/hongber/php/msgdel.php?mode=<?= $mode == 'send' ? 'send' : 'rv' ?>' method="POST">
-                                <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
-                                <span class="col1"><?= $num ?></span>
-                                <span class="col2"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
-                                                                                                    echo "&rv_email=";
-                                                                                                } else {
-                                                                                                    echo "&send_email=";
-                                                                                                } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
-                                <span class="col3"><?= $msg_id ?></span>
-                                <span class="col4"><?= $regist_day ?></span>
-                                <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
+                                    <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
+                                    <span class="col1"><?= $num ?></span>
+                                    <span class="col2"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
+                                                                                                                echo "&rv_email=";
+                                                                                                            } else {
+                                                                                                                echo "&send_email=";
+                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
+                                    <span class="col3"><?= $msg_id ?></span>
+                                    <span class="col4"><?= $regist_day ?></span>
+                                    <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
                             </li>
                         <?php
                             $num = $num + 1;
@@ -143,7 +143,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                     <!-- 쪽지함 이동 버튼들 -->
                     <ul class="buttons">
                         <li><button>삭제</button></li>
-                    </form>
+                        </form>
                         <li><button onclick="location.href='/hongber/php/msgbox.php?mode=rv'">받은 쪽지함</button></li>
                         <li><button onclick="location.href='/hongber/php/msgbox.php?mode=send'">보낸 쪽지함</button></li>
                     </ul>
@@ -152,6 +152,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
             </div>
         </div>
     </section>
+    <div id="source" onclick="source()">Source By https://lcw126.tistory.com/m/214</div>
     <script>
         function selall(selectAll) {
             const chb = document.getElementsByName('del[]');
@@ -160,6 +161,12 @@ if (!isset($_SESSION['kakao_access_token'])) {
                 checkbox.checked = selectAll.checked;
             })
         }
+    </script>
+    <script>
+    function source() {
+        window.opener.location.href="https://lcw126.tistory.com/m/214";
+        window.close();
+    }
     </script>
 </body>
 
