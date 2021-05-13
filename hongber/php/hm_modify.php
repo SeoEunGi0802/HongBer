@@ -25,7 +25,7 @@ if (empty($row)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/modify.css">
-    <script type="text/javascript" src="/hongber/js/user_info.js"></script>
+    <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="/hongber/js/jquery.js"></script>
     <script>
         function tnn() {
@@ -82,8 +82,8 @@ if (empty($row)) {
             </div><br>
             <p>상세설명 및 요구사항</p>
             <div class="res">
-                <input type="text" id="expli" name="resolution" placeholder="ex(각오한마디) 최대 50자" id="tr" onkeyup="tnn()" onkeydwon="tnn()" onkeypress="tnn()" maxlength="50" required>
-            </div>
+                <textarea type="text" name="resolution" id="tr" onkeyup="tnn()" onkeydwon="tnn()" onkeypress="tnn()" maxlength="300" required></textarea>
+            </div><br>
             <input type="number" id="tn" value="0" readonly><br>
             <p>등록기간</p>
             <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>
@@ -98,9 +98,12 @@ if (empty($row)) {
         $sql = "SELECT * FROM hmatch WHERE hm_id = '$id' AND hm_name = '$name' AND hm_email = '$email'";
         $res = $connect->query($sql);
         $row = $res->fetch();
+        $str = $row['hm_r'];
+        $str = str_replace("\r\n", " ", "$str");
+
         echo "<script>document.getElementById('inpname').value = '" . $_SESSION['hname'] . "'</script>";
         echo "<script>document.getElementById('preimg').src = '" . $row['hm_upimg'] . "'</script>";
-        echo "<script>document.getElementById('expli').value = '" . $row['hm_r'] . "'</script>";
+        echo "<script>document.getElementById('tr').value = '" . $str . "'</script>";
         echo "<script>document.getElementById('s_d').value = '" . $row['hm_sd'] . "'</script>";
         echo "<script>document.getElementById('e_d').value = '" . $row['hm_ed'] . "'</script>";
     }

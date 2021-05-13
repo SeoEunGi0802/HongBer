@@ -101,15 +101,15 @@ if (!isset($_SESSION['kakao_access_token'])) {
                             <li>
                                 <form action='' method="POST">
                                     <?php if ($mode == "A") { ?>
-                                    <?php
-                                    if ($wait_status == "accept" || $wait_status == "deny") { ?>
-                                        <span><input type="checkbox" disabled></span>
-                                    <?php } else {
-                                    ?>
-                                        <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
-                                    <?php
-                                    }
-                                    ?>
+                                        <?php
+                                        if ($wait_status == "accept" || $wait_status == "deny") { ?>
+                                            <span><input type="checkbox" disabled></span>
+                                        <?php } else {
+                                        ?>
+                                            <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
+                                        <?php
+                                        }
+                                        ?>
                                     <?php } ?>
                                     <span class="col1"><?= $num ?></span>
                                     <span class="col2"><?= $wait_name ?></span>
@@ -151,12 +151,12 @@ if (!isset($_SESSION['kakao_access_token'])) {
                     </ul>
 
                     <?php if ($mode == "A") { ?>
-                    <ul class="buttons">
-                        <!-- <li><button>삭제</button></li> -->
-                        <li><button formaction="/hongber/php/addstatus.php?st=ac">수락</button></li>
-                        <li><button formaction="/hongber/php/addstatus.php?st=de">거절</button></li>
-                        </form>
-                    </ul>
+                        <ul class="buttons">
+                            <!-- <li><button>삭제</button></li> -->
+                            <li><button formaction="/hongber/php/addstatus.php?st=ac">수락</button></li>
+                            <li><button formaction="/hongber/php/addstatus.php?st=de">거절</button></li>
+                            </form>
+                        </ul>
                     <?php } ?>
                 </div>
 
