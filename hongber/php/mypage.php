@@ -244,14 +244,14 @@ if (!isset($_SESSION['kakao_access_token'])) {
     }
   </script>
   <script>
-    function more(email) {
+    function more(vspemail) {
       const width = '1350';
       const height = '1000';
 
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/vsp.php', '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
+      window.open('/hongber/php/vsp.php?email=' + vspemail, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
 </body>
