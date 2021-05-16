@@ -72,16 +72,14 @@ header > div{
 }
 .hm_thumb{
     position: absolute;
-    margin: 10px 0 0 10px;
-    width: 130px;
-    height: 130px;
+    margin: 20px 0 0 20px;
+    width: 150px;
+    height: 150px;
     z-index: 3;
     border-radius: 50%;
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 .hm_thumb > img{
-    width: 130px;
-    height: 130px;
     border-radius: 50%;
 }
 .info{
@@ -105,6 +103,12 @@ header > div{
     margin: 15px 0 5px 0;
 }
 .day{
+    width: 50%;
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 15px 0 5px 0;
+}
+.per {
     width: 50%;
     text-align: left;
     font-size: 1.5rem;

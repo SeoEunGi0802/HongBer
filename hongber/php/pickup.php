@@ -2,7 +2,6 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
 /*------------------------login/out---------------------------*/
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
@@ -53,15 +52,29 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                 <p class="name_section"><?= $row['spread_name'] ?></p>
                 <p class="Email_section"><?= $row['spread_id'] ?></p>
                 <p class="day"><?= $row['spread_sd'] . "~" . $row['spread_ed'] ?></p>
+                <p class="per">모집인원 : <?= $row['bespread_num'] ?>명</p>
               </div>
               <!------------------------- Swiper ---------------------------->
               <div class="swiper-container mySwiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide"><p class="i_intro">광고주 소개</p><p class="intro_t"><?= $row['introduce_add'] ?></p></div>
-                  <div class="swiper-slide"><p class="i_intro">광고주 소개 사진</p><img src=<?= $row['introduce_add_img'] ?>></div>
-                  <div class="swiper-slide"><p class="i_intro">제품 소개</p><p class="intro_t"><?= $row['introduce_prod'] ?></p></div>
-                  <div class="swiper-slide"><p class="i_intro">제품 소개 사진</p><img src=<?= $row['introduce_prod_img'] ?>></div>
-                  <div class="swiper-slide"><p class="i_intro">홍보 방식</p><p class="intro_t"><?= $row['spread_tool'] ?></p></div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">광고주 소개</p>
+                    <p class="intro_t"><?= $row['introduce_add'] ?></p>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">광고주 소개 사진</p><img src=<?= $row['introduce_add_img'] ?>>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">제품 소개</p>
+                    <p class="intro_t"><?= $row['introduce_prod'] ?></p>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">제품 소개 사진</p><img src=<?= $row['introduce_prod_img'] ?>>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">홍보 방식</p>
+                    <p class="intro_t"><?= $row['spread_tool'] ?></p>
+                  </div>
                 </div>
                 <div class="swiper-button-next next"></div>
                 <div class="swiper-button-prev prev"></div>
@@ -70,7 +83,8 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
               <form action="/hongber/php/addwait.php" method="POST">
                 <input type="hidden" name="adv_e" value="<?= $row['spread_id'] ?>">
                 <input type="hidden" name="adv_n" value="<?= $row['spread_name'] ?>">
-                <button class="accept" type="submit">줍기</button>
+                <?php if (isset($_SESSION["hislog"])) {
+                } else { ?><button class="accept" type="submit">줍기</button><?php } ?>
               </form>
             </div>
           </div>

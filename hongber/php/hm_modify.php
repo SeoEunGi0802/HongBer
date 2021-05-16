@@ -1,11 +1,11 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
 
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
     echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
+$day = date("Y-m-d");
 $name = $_SESSION['hname'];
 $id = $_SESSION['hid'];
 $email = $_SESSION['hemail'];
@@ -104,7 +104,7 @@ if (empty($row)) {
         echo "<script>document.getElementById('inpname').value = '" . $_SESSION['hname'] . "'</script>";
         echo "<script>document.getElementById('preimg').src = '" . $row['hm_upimg'] . "'</script>";
         echo "<script>document.getElementById('tr').value = '" . $str . "'</script>";
-        echo "<script>document.getElementById('s_d').value = '" . $row['hm_sd'] . "'</script>";
+        echo "<script>document.getElementById('s_d').value = '" . $day . "'</script>";
         echo "<script>document.getElementById('e_d').value = '" . $row['hm_ed'] . "'</script>";
     }
     ?>

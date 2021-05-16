@@ -143,6 +143,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
             <td>홍보 아이템</td>
             <td>홍보 수단</td>
             <td>오픈 채팅</td>
+            <td>더보기</td>
           </tr>
           <?php
           if (isset($_SESSION['hislog'])) {
@@ -156,6 +157,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
               echo '<td>' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
               echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '<td>' . '<a href="">sdf</a>' . '</td>';
               echo '</tr>';
             }
           } else {
