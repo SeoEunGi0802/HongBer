@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-error_reporting(0);
 
 $uid = $_POST["id"];
 $uname = $_POST["name"];

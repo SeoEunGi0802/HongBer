@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-error_reporting(0);
 
 $h_id = $_POST["id"];
 $h_pwd = $_POST["pwd"];

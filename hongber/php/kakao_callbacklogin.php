@@ -1,9 +1,6 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 $appkey = "1e244097dc165fec1a765891df0be219";
 $client_secret = "FhctorVXgFwalPCDZpuDnjad1RFwmOhG";

@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-error_reporting(0);
 
 $u_id = $_POST["id"];
 $u_pwd = $_POST["pwd"];

@@ -1,7 +1,7 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
+
 $name = $_GET['name'];
 $email = $_GET['email'];
 $msg = $_GET['msg'];
@@ -74,104 +74,76 @@ if (!empty($urow)) {
     </div>
     <div class="history">
       <div class="history_btn_wrap">
-        <?php if (!empty($hrow)) { ?>
-          <input type="button" name="spread" id="spread" value="뿌린 광고" onclick="spreadFunction()">
-        <?php } else { ?>
-          <input type="button" name="picked" id="picked" value="주운 광고" onclick="pickFunction()">
-        <?php } ?>
         <input type="button" name="doing" id="doing" value="진행 중" onclick="ingFunction()">
         <input type="button" name="finished" id="finished" value="진행 완료" onclick="finFunction()">
       </div>
-      <?php if (!empty($hrow)) { ?>
-        <div class="spread" id="spread_id">
-          <p class="status">뿌린 광고</p>
-          <table>
-            <tr>
-              <td>number</td>
-              <td colspan="2">홍보 기간</td>
-              <td>홍보 수단</td>
-            </tr>
-            <?php
-            $sql = "SELECT * FROM spread"; //where id = '$id';
+      <div class="ing" id="ing_id">
+        <p class="status">진행 중</p>
+        <table>
+          <tr>
+            <td>number</td>
+            <td colspan="2">홍보 기간</td>
+            <td>홍보 아이템</td>
+            <td>홍보 수단</td>
+            <td>더보기</td>
+          </tr>
+          <?php
+          $num = 1;
+          if (isset($_SESSION['hislog'])) {
+            $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
               echo '<tr>';
-              echo '<td>' . $row['num'] . '</td>';
-              echo '<td>' . $row['spread_sd'] . '</td>';
-              echo '<td>' . $row['spread_ed'] . '</td>';
-              echo '<td>' . $row['spread_means'] . '</td>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['mying_sd'] . '</td>';
+              echo '<td>' . $row['mying_ed'] . '</td>';
+              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_tool'] . '</td>';
+              echo '<td>' . '<a onclick="more()">◀</a>' . '</td>';
               echo '</tr>';
+              $num = $num + 1;
             }
-            ?>
-          </table>
-        <?php } else { ?>
-          <div class="pick" id="picked_id">
-            <p class="status">주운 광고</p>
-            <table>
-              <tr>
-                <td>number</td>
-                <td colspan="2">홍보 기간</td>
-                <td>홍보 수단</td>
-              </tr>
-            <?php
-            $sql = "SELECT * FROM mypick"; //where id = '$id';
+          } else {
+            $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
               echo '<tr>';
-              echo '<td>' . $row['num'] . '</td>';
-              echo '<td>' . $row['mypick_sd'] . '</td>';
-              echo '<td>' . $row['mypick_ed'] . '</td>';
-              echo '<td>' . $row['mypick_means'] . '</td>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['mying_sd'] . '</td>';
+              echo '<td>' . $row['mying_ed'] . '</td>';
+              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_tool'] . '</td>';
+              echo '<td>' . '<a onclick="more()">◀</a>' . '</td>';
               echo '</tr>';
+              $num = $num + 1;
             }
-          } ?>
-            </table>
-          </div>
-          <div class="ing" id="ing_id">
-            <p class="status">진행 중</p>
-            <table>
-              <tr>
-                <td>number</td>
-                <td colspan="2">홍보 기간</td>
-                <td>홍보 수단</td>
-              </tr>
-              <?php
-              $sql = "SELECT * FROM mying";
-              $result = $connect->query($sql);
-              while ($row = $result->fetch()) {
-                echo '<tr>';
-                echo '<td>' . $row['num'] . '</td>';
-                echo '<td>' . $row['mying_sd'] . '</td>';
-                echo '<td>' . $row['mying_ed'] . '</td>';
-                echo '<td>' . $row['mying_means'] . '</td>';
-                echo '</tr>';
-              }
-              ?>
-            </table>
-          </div>
-          <div class="finish" id="finish_id">
-            <p class="status">진행 완료</p>
-            <table>
-              <tr>
-                <td>number</td>
-                <td colspan="2">홍보 기간</td>
-                <td>홍보 수단</td>
-              </tr>
-              <?php
-              $sql = "SELECT * FROM myed";
-              $result = $connect->query($sql);
-              while ($row = $result->fetch()) {
-                echo '<tr>';
-                echo '<td>' . $row['num'] . '</td>';
-                echo '<td>' . $row['myed_sd'] . '</td>';
-                echo '<td>' . $row['myed_ed'] . '</td>';
-                echo '<td>' . $row['myed_means'] . '</td>';
-                echo '</tr>';
-              }
-              ?>
-            </table>
-          </div>
-        </div>
+          }
+          ?>
+        </table>
+      </div>
+      <div class="finish" id="finish_id">
+        <p class="status">진행 완료</p>
+        <table>
+          <tr>
+            <td>number</td>
+            <td colspan="2">홍보 기간</td>
+            <td>홍보 수단</td>
+          </tr>
+          <?php
+          $sql = "SELECT * FROM myed";
+          $result = $connect->query($sql);
+          while ($row = $result->fetch()) {
+            echo '<tr>';
+            echo '<td>' . $row['num'] . '</td>';
+            echo '<td>' . $row['myed_sd'] . '</td>';
+            echo '<td>' . $row['myed_ed'] . '</td>';
+            echo '<td>' . $row['myed_means'] . '</td>';
+            echo '</tr>';
+          }
+          ?>
+        </table>
+      </div>
+    </div>
   </section>
   <script src="/hongber/js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>

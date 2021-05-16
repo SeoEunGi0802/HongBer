@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
 
 $mode = $_GET['mode'];
 $num = $_POST['del'];

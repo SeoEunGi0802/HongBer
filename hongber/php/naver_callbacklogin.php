@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-error_reporting(0);
 
 $client_id = "DRFaCS0hy5tsmm8uWjSH";
 $client_secret = "5ms9DI0XR5";

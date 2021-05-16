@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
 
 if ($_SESSION['naver_state'] != $_GET["state"]) {
 	echo "에러" . $_GET["state"];

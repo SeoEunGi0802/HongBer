@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-//error_reporting(0);
 
 $search = $_GET['search'];
 
@@ -109,11 +108,10 @@ $chc = $rrow == false ? "none" : "isis";
     <script>
         function knock(email) {
             const width = '1250';
-            const height = '900';
+            const height = '1000';
 
             const left = Math.ceil((window.screen.width - width) / 2);
             const top = Math.ceil((window.screen.height - height) / 2);
-            const who = $('.input_who').val();
             window.open('/hongber/php/knock.php?name=<?= $name ?>&email=' + email + '&msg=<?= $msg ?>', 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
         }
     </script>
