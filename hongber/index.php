@@ -10,7 +10,7 @@ session_start();
   <title>Hongber</title>
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/index.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/hongber/css/swiper.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script type="text/javascript" src="/hongber/js/index.js"></script>
