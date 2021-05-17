@@ -36,11 +36,11 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
 
         <?php
         $sql = "SELECT * FROM spread";
-        $result = $connect->query($sql);
-        while ($row = $result->fetch()) {
-          $sql2 = "SELECT h_pimg FROM hser WHERE h_name = '$row[2]'";
-          $result2 = $connect->query($sql2);
-          $row2 = $result2->fetch();
+        $res = $connect->query($sql);
+        while ($row = $res->fetch()) {
+          $sql2 = "SELECT h_pimg FROM hser WHERE h_email = '$row[1]'";
+          $res2 = $connect->query($sql2);
+          $row2 = $res2->fetch();
           if (empty($row2['h_pimg'])) {
             $row2['h_pimg'] = "/hongber/css/image/bpimg.png";
           }

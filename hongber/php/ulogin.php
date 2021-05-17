@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -36,23 +37,26 @@ session_start();
 <body>
     <div class="info_wrap">
         <div id="wrap">
-            <!-- 상단 바 -->
-            <header class="nav">
-                <a href="/hongber/index.php">
-                    <div class="logo">
-                        <span>HONGBER</span><br>
-                    </div>
-                </a>
-            </header>
             <form action="/hongber/php/ulog.php" method="POST">
                 <input type="text" name="id" placeholder="아이디" class="id" autocomplete="off">
-                <hr>
+                <br>
                 <input type="password" name="pwd" placeholder="비밀번호" class="password">
-                <hr>
+                <br>
                 <input type="submit" class="login_btn" value="로그인">
             </form>
             <br>
-            <div id="naverIdLogin">
+                <div class="find_wrap">
+                    <a href="#" onclick="findid()" class="find_id">
+                        아이디 찾기
+                    </a>
+                    <a href="#" onclick="findpwd()" class="find_password">
+                        비밀번호 찾기
+                    </a>
+                    <a href="/hongber/php/ber_reg.php" class="regist">
+                        회원가입
+                    </a>
+                </div>
+                <div id="naverIdLogin">
                 <?php
                 // 네이버 로그인 접근토큰 요청 예제
                 $client_id = "DRFaCS0hy5tsmm8uWjSH";
@@ -88,19 +92,6 @@ session_start();
                 <a href="<?php echo $apiURL ?>">
                     <img id="Kakaoimg" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_large_narrow.png"></a>
             </div>
-            <form>
-                <div class="find_wrap">
-                    <a href="#" onclick="findid()" class="find_id">
-                        아이디 찾기
-                    </a>
-                    <a href="#" onclick="findpwd()" class="find_password">
-                        비밀번호 찾기
-                    </a>
-                    <a href="/hongber/php/ber_reg.php" class="regist">
-                        회원가입
-                    </a>
-                </div>
-            </form>
         </div>
 </body>
 

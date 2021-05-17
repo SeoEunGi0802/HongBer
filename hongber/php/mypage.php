@@ -162,30 +162,34 @@ if (!isset($_SESSION['kakao_access_token'])) {
             $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
-              echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<a onclick="more()">◀</a>' . '</td>';
-              echo '</tr>';
+          ?>
+              <tr>
+                <td><?= $num ?></td>
+                <td><?= $row['mying_sd'] ?></td>
+                <td><?= $row['mying_ed'] ?></td>
+                <td><?= $row['mying_prod'] ?></td>
+                <td><?= $row['mying_tool'] ?></td>
+                <td><a href="<?= $row['mying_oc'] ?>" target="_blank"><img src="/hongber/css/image/openc.png"></a></td>
+                <td><button class="addmore" onclick="more(this.value)" value="<?= $row['num'] ?>">◀</button></td>
+              </tr>
+            <?php
               $num = $num + 1;
             }
           } else {
             $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
-              echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<a onclick="more(this.value)" value="' . $email . '">◀</a>' . '</td>';
-              echo '</tr>';
+            ?>
+              <tr>
+                <td><?= $num ?></td>
+                <td><?= $row['mying_sd'] ?></td>
+                <td><?= $row['mying_ed'] ?></td>
+                <td><?= $row['mying_prod'] ?></td>
+                <td><?= $row['mying_tool'] ?></td>
+                <td><a href="<?= $row['mying_oc'] ?>" target="_blank"><img src="/hongber/css/image/openc.png"></a></td>
+                <td><button class="addmore" onclick="more(this.value)" value="<?= $row['num'] ?>">◀</button></td>
+              </tr>
+          <?php
               $num = $num + 1;
             }
           }
@@ -244,14 +248,14 @@ if (!isset($_SESSION['kakao_access_token'])) {
     }
   </script>
   <script>
-    function more(vspemail) {
+    function more(vsp) {
       const width = '1350';
       const height = '1000';
 
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/vsp.php?email=' + vspemail, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
+      window.open('/hongber/php/vsp.php?nvsp=' + vsp, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
 </body>

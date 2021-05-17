@@ -1,6 +1,7 @@
 <?php
 include "config.php";
 session_start();
+error_reporting(0);
 
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
@@ -44,17 +45,19 @@ if (!isset($_SESSION['hislog'])) {
       <?php
       }
       ?>
-      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-      <input type="hidden" name="regday" value="R">
-      <button type="submit">최신순</button>
+      <div class="search_Box">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <input type="hidden" name="regday" value="R">
+        <button type="submit" class="new_btn">최신순</button>
       </form>
-      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-      <input type="hidden" name="regday" value="O">
-      <button type="submit" value="old">오래된 순</button>
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <input type="hidden" name="regday" value="O">
+        <button type="submit" value="old" class="old_btn">오래된 순</button>
       </form>
-      <input id="smav" type="text" onkeyup="sma()">
+      <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
+      </div>
       <?php
-        include "./card.php";
+      include "./card.php";
       ?>
     </div>
   </div>

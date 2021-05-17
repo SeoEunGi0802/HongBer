@@ -2,7 +2,8 @@
 
 body {
   margin: 0 auto;
-  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  font-family: serif;
+  background: url('./image/login_logo.jpg') no-repeat 50% 0%;
 }
 
 a {
@@ -42,32 +43,38 @@ header > div{
   text-align: center;
   margin-top: 50px;
 }
-
-hr{
-  width: 370px;
-}
-
 input{
-  width: 370px;
-  height: 30px;
+  width: 360px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 3px solid #e1e1e1;
+  margin-bottom: 30px;
+  opacity: 0.7;
 }
 
 input:first-child{
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 textarea {
-  resize: none;
-  height: 270px;
+  width: 360px;
+  height: 200px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  opacity: 0.7;
+  border: 3px solid #e1e1e1;
 }
-
 .submit{
-  width: 380px;
-  height: 50px;
-  background-color: rgba(228, 82, 101, 0.733);
+  width: 370px;
+  height: 100px;
+  background-color: #b08273;
+  color: #705D59;
   font-size: 30px;
+  border-radius: 5px;
+  border:3px solid #e1e1e1;
 }
-
 input::placeholder{
   text-align: center;
 }

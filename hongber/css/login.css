@@ -2,76 +2,49 @@
 
 body {
     margin: 0 auto;
-    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    font-family: serif;
+    background: url('./image/login_logo.jpg') no-repeat 50% 30%;
 }
 
 a {
-    color: #000;
+    color: #705D59;
     text-decoration: none;
 }
 
-hr{
-    width: 370px;
-    margin: 20px auto 20px auto;
-}
-
 input{
-  width: 370px;
-  height: 30px;
+  width: 360px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 3px solid #e1e1e1;
+  opacity: 0.7;
 }
 
 input:first-child{
-  margin-top: 50px;
+  margin-top: 400px;
 }
 
 .login_btn{
-  width: 385px;
+  width: 370px;
   height: 100px;
-  background-color: rgba(228, 82, 101, 0.733);
+  background-color: #b08273;
+  color: #705D59;
   font-size: 30px;
+  border-radius: 5px;
+  border:3px solid #e1e1e1;
 }
 
 .find_wrap{
-    margin-top: 30px;
+    margin: 30px 0 30px 0;
 }
 
 .find_wrap a{
-    margin: 0px 30px 0px 30px;
+    margin: 0px 25px 0px 25px;
 }
 
 .find_wrap a:hover{
   color: red;
 }
-/*----------------상단바 영역-------------*/
-header {
-  position: relative;
-  width: 1280px;
-  height: 50px;
-  background-color: white;
-  border-top: 3px solid #999;
-  border-bottom: 3px solid #999;
-  margin: 0 auto;
-  font-size: 20px;
-}
-header > div{
-  line-height: 50px;
-  padding: 5px 0;
-}
-.logo {
-  margin: 5px auto 0;
-  background: #2f3542;
-  padding-top: 10px;
-  width: max-content;
-  height: 30px;
-}
-.logo span{
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-  width: 100%;
-  color: #fff;
-}
-
-
 .info_wrap {
   text-align: center;
   /*margin-top: 100px;*/

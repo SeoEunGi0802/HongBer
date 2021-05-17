@@ -1,7 +1,7 @@
 /*----------------------전체 반영--------------------*/
 body {
   margin: 0 auto;
-  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  font-family: serif;
 }
 a {
   color: #000;
@@ -20,45 +20,56 @@ header {
   justify-content: space-between;
   flex-direction: row;
   width: 1280px;
-  height: 50px;
-  background-color: white;
-  border-top: 3px solid #999;
-  border-bottom: 3px solid #999;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 1);
   margin: 0 auto;
   font-size: 20px;
   z-index: 1;
 }
-header > div{
-  line-height: 50px;
+.search_wrap{
+  display: none;
+}
+header > div {
   padding: 5px 0;
 }
 .logo {
-  margin-top: 5px;
-  background: #2f3542;
-  padding-top: 10px;
+  width: 250px;
+  height: 40px;
+  padding: 30px 0;
   height: 30px;
+  text-align: center;
 }
-.logo span{
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-  width: 100%;
-  color: #fff;
+.logo span {
+  color: #705d59;
+  font-size: 38px;
+  font-weight: bold;
+}
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
 }
 .nav_p {
-  line-height: 40px;
+  line-height: 30px;
+  color: #705d59;
   font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
 }
 .nav_p:hover {
-  border-bottom: 2px solid rgba(0,0,0,0.2)
-}
-.nav_a:hover {
-  font-size: 18px;
-  font-weight: bold;
+  background-color: #705d59;
+  color: #000;
 }
 .logout_nav {
   display: none;
   background-color: #fff;
 }
+
 /*-----------------------li--------------------------*/
 .match_wrap{
 position: relative;
@@ -70,6 +81,25 @@ align-items: flex-start;
 width: 1280px;
 height: 100%;
 margin: 0 auto;
+background: #433431;
+}
+.search_Box{
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+.new_btn{
+  background: #b08273;
+}
+.old_btn{
+  background: #b08273;
+}
+.search_area{
+  background: #b08273;
+}
+.search_area::placeholder{
+  color: #000;
+
 }
 .honor_card{
   display: flex;
@@ -80,9 +110,10 @@ margin: 0 auto;
   justify-content: space-around;
   align-content: space-around;
   align-items: flex-start;
-  margin-left: 20px;
-  margin-top: 75px;
+  margin: 30px 0 30px 20px;
   text-align: center;
+background: #b08273;
+border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 .hm_thumb{
@@ -100,6 +131,8 @@ margin: 0 auto;
   width: 200px;
   margin-top: 10px;
   border-radius: 5px;
+background: #b08273;
+
 }
 .hm_img{
   width: 300px;
@@ -119,15 +152,20 @@ margin: 0 auto;
   height: 140px;
   border-radius: 5px;
   resize: none;
+background: #b08273;
+
 }
 .hm_date{
   width: 300px;
   border-radius: 5px;
   margin-top: 10px;
+  background: #b08273;
+
 }
 .honor_card div{
-  background-color: white;
-  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+  background: #b08273;
+
+  box-shadow: 1px 8px 10px 0px rgba(0,0,0,0.2);
 }
 .send{
   width: 50px;
