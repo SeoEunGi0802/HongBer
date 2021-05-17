@@ -2,14 +2,15 @@
 /*----------------공통영역-------------*/
 body {
   margin: 0 auto;
-  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  font-family: serif;
+  background-color: #120e10;
 }
 a {
   color: #000;
   text-decoration: none;
 }
-#wrap{
- margin: 0 auto;
+#wrap {
+  margin: 0 auto;
 }
 /*----------------상단바 영역-------------*/
 header {
@@ -18,40 +19,47 @@ header {
   justify-content: space-between;
   flex-direction: row;
   width: 1280px;
-  height: 50px;
-  background-color: white;
-  border-top: 3px solid #999;
-  border-bottom: 3px solid #999;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.8);
   margin: 0 auto;
   font-size: 20px;
   z-index: 1;
 }
-header > div{
-  line-height: 50px;
+header > div {
   padding: 5px 0;
 }
 .logo {
-  margin-top: 5px;
-  background: #2f3542;
-  padding-top: 10px;
+  width: 250px;
+  height: 40px;
+  padding: 30px 0;
   height: 30px;
+  text-align: center;
 }
-.logo span{
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-  width: 100%;
-  color: #fff;
+.logo span {
+  color: #705d59;
+  font-size: 38px;
+  font-weight: bold;
+}
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
 }
 .nav_p {
-  line-height: 40px;
+  line-height: 30px;
+  color: #705d59;
   font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
 }
 .nav_p:hover {
-  border-bottom: 2px solid rgba(0,0,0,0.2)
-}
-.nav_a:hover {
-  font-size: 18px;
-  font-weight: bold;
+  background-color: #705d59;
+  color: #000;
 }
 .logout_nav {
   display: none;
@@ -60,29 +68,34 @@ header > div{
 /*------------------검색창------------------*/
 .search_wrap {
   position: relative;
-  width: 1280px;
-  line-height: 50px;
+  line-height: 40px;
   text-align: right;
-  margin: 0 auto;
 }
 
 .searchbox {
   display: inline-block;
-  width: 300px;
+  width: 200px;
   height: 30px;
   box-sizing: border-box;
   vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
 }
 
 .search_icon {
   display: inline-block;
   width: 30px;
   line-height: 30px;
+  margin-left: -3px;
   background: url(/hongber/css/image/search.png) center center no-repeat;
-  background-size: cover;
-  cursor: pointer;
+  background-size: 80%;
   vertical-align: middle;
-
 }
 
 .search_btn {
@@ -91,77 +104,7 @@ header > div{
   height: 30px;
   box-sizing: border-box;
   opacity: 0;
-}
-/*----------------슬라이드 영역-------------*/
-.banner {
-  position: relative;
-  width: 1280px;
-  height: 500px !important;
-  /* padding-top: 50px; */
-  margin: 0 auto 50px;
-
-}
-.slides {
-  height: 500px;
-}
-.slides li {
-  position: absolute;
-  /* top: 50px; */
-  left: 0;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-
-.slides li img {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.indicators {
-  position: absolute;
-  text-align: center;
-  left: 0;
-  right: 0;
-  bottom: -30px;
-  margin: 0;
-}
-
-.indicator-item {
-  display: inline-block;
-  position: relative;
   cursor: pointer;
-  height: 16px;
-  width: 16px;
-  margin: 0 12px;
-  background-color: #e0e0e0;
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
-  border-radius: 50%;
-}
-.indicator-item.active {
-  background-color: pink;
-}
-/*---------------------------------컨텐츠영역--------------------------------------*/
-.content_area {
-  margin: 0 auto;
-  width: 1280px;
-  height: 350px;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 20px;
-  overflow: hidden;
-}
-.content_area h1{
-  font-size: 30px;
-  font-weight: bold;
-}
-.content {
-  width: 1280px;
-  height: 200px;
 }
 /*---------------------로그인 및 회원가입 영역------------------*/
 .dropdown {
@@ -174,68 +117,198 @@ header > div{
 }
 .dropbtn {
   width: 100%;
-  height: 90%;
-  background-color: white;
-  color: #000;
+  height: 30px;
+  background-color: transparent;
+  color: #705d59;
   padding: 0;
   border: none;
+  margin-top: 13px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
+  font-family: serif;
 }
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 50px;
-  right: -1px;
+  top: 44px;
+  right: 0;
   min-width: 180px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #000;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .dropdown-content a {
   border-left: 0;
 }
 .dropdown-content a p {
+  text-align: center;
+  color: #705d59;
   font-size: 14px;
+  font-weight: bold;
 }
-.dropdown-content a+a>p {
+.dropdown-content a + a > p {
   border-top: 1px solid #bbb;
 }
-.dropdown-content p {
-  text-align: center;
-  color: black;
-}
 .dropdown-content p:hover {
-  background-color: #f1f1f1
+  background-color: #705d59;
+  color: #000;
 }
 .dropdown:hover .dropdown-content {
   display: block;
 }
 .dropbtn:hover {
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   font-size: 16px;
   font-weight: bold;
 }
-/*-----------------------풋터영역-------------------------*/
+/*----------------배너-------------*/
+.banner_area {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 1280px;
+  height: 600px;
+  margin: -100px auto 0;
+  background: url(/hongber/css/image/banner.jpg) center center no-repeat;
+  background-size: cover;
+}
 
-footer{
+.banner_left {
+  width: 50%;
+  height: 100%;
+  background-color: #13171a;
+  opacity: 0.3;
+}
+
+.banner_right {
+  width: 50%;
+  height: 100%;
+  background-color: #433431;
+  opacity: 0.3;
+}
+/*---------------------------------컨텐츠영역--------------------------------------*/
+.slide_area {
+  position: relative;
+  width: 1280px;
+  height: 500px;
+  background-color: #b08273;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #000 !important;
+}
+
+.promote {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1280px;
+  height: 250px;
+  background-color: #000;
+  padding: 30px 0;
+  margin: 0 auto;
+}
+
+.promote > div {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 10%;
+}
+
+.promote > div + div {
+  margin-left: 50px;
+}
+
+.promote > div > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  line-height: 250px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10%;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.sns {
+  background: url(/hongber/css/image/sns.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.song {
+  background: url(/hongber/css/image/song.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+/* .poster {
+  background: url(/css/image/poster.jpg) center center no-repeat;
+  background-size: cover;
+} */
+
+.person {
+  background: url(/hongber/css/image/person.jpg) center center no-repeat;
+  background-size: cover;
+}
+/*-----------------------풋터영역-------------------------*/
+footer {
   margin: 0 auto;
   width: 1280px;
+  height: 50px;
   line-height: 50px;
-  background:white;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
+  background: rgba(0, 0, 0, 1);
+  border-top: 3px solid #705d59;
+  color: #705d59;
+  font-weight: bold;
   text-align: center;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
   width: 10px;
-  }
-  body::-webkit-scrollbar-thumb {
+}
+body::-webkit-scrollbar-thumb {
   background-color: #2f3542;
   border-radius: 5px;
-  }
-  body::-webkit-scrollbar-track {
+}
+body::-webkit-scrollbar-track {
   background-color: grey;
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px white;
-  }
+}
