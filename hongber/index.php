@@ -24,7 +24,13 @@ session_start();
     <!-- 배너 -->
     <div class="banner_area">
       <div class="banner_left"></div>
-      <div class="banner_right"></div>
+      <div class="banner_right">
+        <div class="title">
+          <p>HONGBER</p>
+          <span>Your new advertisement</span>
+          <span>PARTNER</span>
+        </div>
+      </div>
     </div>
     <!-- 컨텐츠 영역 -->
     <div class="slide_area swiper">
