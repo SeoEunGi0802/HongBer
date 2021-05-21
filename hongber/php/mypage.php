@@ -98,6 +98,9 @@ if (!isset($_SESSION['kakao_access_token'])) {
           <div class="wheel_icon"></div>
         </a>
       </div>
+      <?php
+      include "../php/star.php";
+      ?>
     </div>
     <div class="profile_info">
       이름
@@ -125,20 +128,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                 }
                                 ?>" disabled>
       자기소개
-      <textarea type="text" id="mymsg" disabled><?php
-                                                if (!empty($hpmsg)) {
-                                                  echo "$hpmsg";
-                                                } elseif (!empty($upmsg)) {
-                                                  echo "$upmsg";
-                                                } elseif (!empty($npmsg)) {
-                                                  echo "$npmsg";
-                                                } elseif (!empty($kpmsg)) {
-                                                  echo "$kpmsg";
-                                                } else {
-                                                  echo "아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!";
-                                                }
-                                                ?>
-                                                </textarea>
+      <textarea type="text" id="mymsg" disabled></textarea>
     </div>
     <div class="history">
       <div class="history_btn_wrap">
@@ -154,43 +144,33 @@ if (!isset($_SESSION['kakao_access_token'])) {
             <td>홍보 아이템</td>
             <td>홍보 수단</td>
             <td>오픈 채팅</td>
-            <td>더보기</td>
           </tr>
           <?php
-          $num = 1;
           if (isset($_SESSION['hislog'])) {
             $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
-          ?>
-              <tr>
-                <td><?= $num ?></td>
-                <td><?= $row['mying_sd'] ?></td>
-                <td><?= $row['mying_ed'] ?></td>
-                <td><?= $row['mying_prod'] ?></td>
-                <td><?= $row['mying_tool'] ?></td>
-                <td><a href="<?= $row['mying_oc'] ?>" target="_blank"><img src="/hongber/css/image/openc.png"></a></td>
-                <td><button class="addmore" onclick="more(this.value)" value="<?= $row['num'] ?>">◀</button></td>
-              </tr>
-            <?php
-              $num = $num + 1;
+              echo '<tr>';
+              echo '<td>' . $row['num'] . '</td>';
+              echo '<td>' . $row['mying_sd'] . '</td>';
+              echo '<td>' . $row['mying_ed'] . '</td>';
+              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_tool'] . '</td>';
+              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '</tr>';
             }
           } else {
             $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
-            ?>
-              <tr>
-                <td><?= $num ?></td>
-                <td><?= $row['mying_sd'] ?></td>
-                <td><?= $row['mying_ed'] ?></td>
-                <td><?= $row['mying_prod'] ?></td>
-                <td><?= $row['mying_tool'] ?></td>
-                <td><a href="<?= $row['mying_oc'] ?>" target="_blank"><img src="/hongber/css/image/openc.png"></a></td>
-                <td><button class="addmore" onclick="more(this.value)" value="<?= $row['num'] ?>">◀</button></td>
-              </tr>
-          <?php
-              $num = $num + 1;
+              echo '<tr>';
+              echo '<td>' . $row['num'] . '</td>';
+              echo '<td>' . $row['mying_sd'] . '</td>';
+              echo '<td>' . $row['mying_ed'] . '</td>';
+              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_tool'] . '</td>';
+              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '</tr>';
             }
           }
           ?>
@@ -233,7 +213,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "A" : "H" ?>', '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
+      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "A" : "H" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
     }
   </script>
   <script>
@@ -244,20 +224,27 @@ if (!isset($_SESSION['kakao_access_token'])) {
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',scrollbars=no');
+      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
     }
   </script>
-  <script>
-    function more(vsp) {
-      const width = '1350';
-      const height = '1000';
-
-      const left = Math.ceil((window.screen.width - width) / 2);
-      const top = Math.ceil((window.screen.height - height) / 2);
-
-      window.open('/hongber/php/vsp.php?nvsp=' + vsp, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
-    }
-  </script>
+  <?php
+  if (!empty($hpmsg)) {
+    //echo "$hpmsg";
+    echo "<script>$('#mymsg').text('" . $hpmsg . "');</script>";
+  } elseif (!empty($upmsg)) {
+    //echo "$upmsg";
+    echo "<script>$('#mymsg').text('" . $upmsg . "');</script>";
+  } elseif (!empty($npmsg)) {
+    //echo "$npmsg";
+    echo "<script>$('#mymsg').text('" . $npmsg . "');</script>";
+  } elseif (!empty($kpmsg)) {
+    echo "$kpmsg";
+    echo "<script>$('#mymsg').text('" . $kpmsg . "');</script>";
+  } else {
+    //echo "아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!";
+    echo "<script>$('#mymsg').text('아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!');</script>";
+  }
+  ?>
 </body>
 
 </html>
