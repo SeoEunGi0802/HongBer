@@ -131,3 +131,8 @@ header > div{
 .cancel_btn {
     margin-left: 30px;
 }
+
+.secession {
+  text-align: right;
+  margin: 25px 50px 25px 0;
+}

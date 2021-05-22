@@ -1,8 +1,8 @@
 <?php
 include "config.php";
 
-if(isset($_POST['regday'])){
-    if($_POST['regday'] == "R"){
+if (isset($_POST['regday'])) {
+    if ($_POST['regday'] == "R") {
         $sql = "SELECT * FROM hmatch ORDER BY hm_day";
     } else {
         $sql = "SELECT * FROM hmatch ORDER BY hm_day DESC";
@@ -18,8 +18,12 @@ while ($row = $result->fetch()) {
     }
 ?>
     <div class='honor_card'>
-        <div class='hm_thumb'><img src='<?= $row['hm_pimg'] ?>' class='mtping'></div>
-        <div class='hm_info'><p class="hm_name"><?= $row['hm_name'] ?></p><p class="hm_email"><?= $row['hm_email'] ?></p>
+        <button class="knock_btn" onclick="knock('<?= $row['hm_name'] ?>', '<?= $row['hm_email'] ?>')" value="<?= $row['hm_email'] ?>">
+            <div class='hm_thumb'><img src='<?= $row['hm_pimg'] ?>' class='mtping'></div>
+        </button>
+        <div class='hm_info'>
+            <p class="hm_name"><?= $row['hm_name'] ?></p>
+            <p class="hm_email"><?= $row['hm_email'] ?></p>
         </div>
         <div class='hm_img'><img src="<?= $row['hm_upimg'] ?>"></div>
         <textarea class='hm_comment' readonly><?= $row['hm_r'] ?></textarea>

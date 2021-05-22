@@ -2,6 +2,10 @@
 include "config.php";
 session_start();
 
+if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
+    echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
+}
+
 $search = $_GET['search'];
 
 if ($search == "") {
@@ -112,7 +116,7 @@ $chc = $rrow == false ? "none" : "isis";
 
             const left = Math.ceil((window.screen.width - width) / 2);
             const top = Math.ceil((window.screen.height - height) / 2);
-            window.open('/hongber/php/knock.php?name=<?= $name ?>&email=' + email + '&msg=<?= $msg ?>', 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+            window.open('/hongber/php/knock.php?name=<?= $name ?>&email=' + email + '&msg=<?= $msg ?>', 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
         }
     </script>
 </body>

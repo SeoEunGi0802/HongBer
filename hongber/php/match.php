@@ -46,15 +46,15 @@ if (!isset($_SESSION['hislog'])) {
       }
       ?>
       <div class="search_Box">
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <input type="hidden" name="regday" value="R">
-        <button type="submit" class="new_btn">최신순</button>
-      </form>
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <input type="hidden" name="regday" value="O">
-        <button type="submit" value="old" class="old_btn">오래된 순</button>
-      </form>
-      <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+          <input type="hidden" name="regday" value="R">
+          <button type="submit" class="new_btn">최신순</button>
+        </form>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+          <input type="hidden" name="regday" value="O">
+          <button type="submit" value="old" class="old_btn">오래된 순</button>
+        </form>
+        <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
       </div>
       <?php
       include "./card.php";
@@ -72,6 +72,16 @@ if (!isset($_SESSION['hislog'])) {
       const top = Math.ceil((window.screen.height - height) / 2);
 
       window.open('/hongber/php/hview.php', '삭제하기', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+    }
+  </script>
+  <script>
+    function knock(name, email) {
+      const width = '1250';
+      const height = '1000';
+
+      const left = Math.ceil((window.screen.width - width) / 2);
+      const top = Math.ceil((window.screen.height - height) / 2);
+      window.open('/hongber/php/knock.php?name=' + name + '&email=' + email, 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
   <script>

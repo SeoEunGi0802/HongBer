@@ -63,6 +63,19 @@ if (!empty($urow)) {
                     } ?>" alt="프로필사진">
         </a>
       </div>
+      <form action="star_rating.php" method="POST">
+        <?php
+        if ($email == $_SESSION['hemail'] || $email == $_SESSION['uemail'] || $email == $_SESSION['hemail'] || $email == $_SESSION['hemail']) {
+        } else {
+          include "star.php";
+        ?>
+          <input type="hidden" value="<?= $name ?>" name="name">
+          <input type="hidden" value="<?= $email ?>" name="email">
+          <br><input type="submit" value="별점주기">
+        <?php
+        }
+        ?>
+      </form>
     </div>
     <div class="profile_info">
       이름

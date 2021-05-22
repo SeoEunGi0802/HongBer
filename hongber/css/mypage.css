@@ -143,6 +143,10 @@ header > div {
   background-size: 80%;
 }
 
+.avg_rating {
+  font-size: 20px;
+}
+
 .profile_info {
   width: 700px;
   height: auto;
@@ -207,6 +211,15 @@ header > div {
 .status {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.addmore {
+  width: 100%;
+  height: 100%;
+  font-size: larger;
+  text-decoration: none;
+  border: none;
+  background: none;
 }
 
 table {

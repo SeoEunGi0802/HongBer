@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
+
 if (!isset($_SESSION['hislog'])) {
 } else {
   $hid = $_SESSION['hid'];
@@ -17,6 +18,16 @@ if (!isset($_SESSION['hislog'])) {
   $hrow = $hres->fetch();
   $profile_img = $hrow['h_pimg'];
   $hpmsg = $hrow['h_msg'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$hemail'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_avg = 0;
+  }
 }
 
 if (!isset($_SESSION['uislog'])) {
@@ -31,6 +42,16 @@ if (!isset($_SESSION['uislog'])) {
   $urow = $ures->fetch();
   $profile_img = $urow['u_pimg'];
   $upmsg = $urow['u_msg'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$uemail'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_avg = 0;
+  }
 }
 
 if (!isset($_SESSION['naver_access_token'])) {
@@ -45,6 +66,16 @@ if (!isset($_SESSION['naver_access_token'])) {
   $nrow = $nres->fetch();
   $profile_img = $nrow['n_pimg'];
   $npmsg = $nrow['n_msg'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$nemail'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_avg = 0;
+  }
 }
 
 if (!isset($_SESSION['kakao_access_token'])) {
@@ -59,6 +90,16 @@ if (!isset($_SESSION['kakao_access_token'])) {
   $krow = $kres->fetch();
   $profile_img = $krow['k_pimg'];
   $kpmsg = $krow['k_msg'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$kemail'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_avg = 0;
+  }
 }
 ?>
 
@@ -71,6 +112,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <title>MY PAGE</title>
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/mypage.css">
+  <link rel="stylesheet" type="text/css" href="/hongber/css/star.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
 
@@ -99,8 +141,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
         </a>
       </div>
       <?php
-      include "../php/star.php";
+      include "star.php";
       ?>
+      <div class="avg_rating">
+        <?php
+        echo ($star_avg / 2) . '점(' . $star_count . '명의 평가)';
+        ?>
+      </div>
     </div>
     <div class="profile_info">
       이름
@@ -144,33 +191,39 @@ if (!isset($_SESSION['kakao_access_token'])) {
             <td>홍보 아이템</td>
             <td>홍보 수단</td>
             <td>오픈 채팅</td>
+            <td>더보기</td>
           </tr>
           <?php
+          $num = 1;
           if (isset($_SESSION['hislog'])) {
             $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
               echo '<tr>';
-              echo '<td>' . $row['num'] . '</td>';
+              echo '<td>' . $num . '</td>';
               echo '<td>' . $row['mying_sd'] . '</td>';
               echo '<td>' . $row['mying_ed'] . '</td>';
               echo '<td>' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
               echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
               echo '</tr>';
+              $num = $num + 1;
             }
           } else {
             $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
             $result = $connect->query($sql);
             while ($row = $result->fetch()) {
               echo '<tr>';
-              echo '<td>' . $row['num'] . '</td>';
+              echo '<td>' . $num . '</td>';
               echo '<td>' . $row['mying_sd'] . '</td>';
               echo '<td>' . $row['mying_ed'] . '</td>';
               echo '<td>' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
               echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
               echo '</tr>';
+              $num = $num + 1;
             }
           }
           ?>
@@ -182,18 +235,43 @@ if (!isset($_SESSION['kakao_access_token'])) {
           <tr>
             <td>number</td>
             <td colspan="2">홍보 기간</td>
+            <td>홍보 아이템</td>
             <td>홍보 수단</td>
+            <td>오픈 채팅</td>
+            <td>더보기</td>
           </tr>
           <?php
-          $sql = "SELECT * FROM myed";
-          $result = $connect->query($sql);
-          while ($row = $result->fetch()) {
-            echo '<tr>';
-            echo '<td>' . $row['num'] . '</td>';
-            echo '<td>' . $row['myed_sd'] . '</td>';
-            echo '<td>' . $row['myed_ed'] . '</td>';
-            echo '<td>' . $row['myed_means'] . '</td>';
-            echo '</tr>';
+          $num = 1;
+          if (isset($_SESSION['hislog'])) {
+            $sql = "SELECT * FROM myed WHERE myed_adv_email = '$email' AND myed_adv_name = '$name'";
+            $result = $connect->query($sql);
+            while ($row = $result->fetch()) {
+              echo '<tr>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['myed_sd'] . '</td>';
+              echo '<td>' . $row['myed_ed'] . '</td>';
+              echo '<td>' . $row['myed_prod'] . '</td>';
+              echo '<td>' . $row['myed_tool'] . '</td>';
+              echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+              echo '</tr>';
+              $num = $num + 1;
+            }
+          } else {
+            $sql = "SELECT * FROM myed WHERE myed_email = '$email' AND myed_name = '$name'";
+            $result = $connect->query($sql);
+            while ($row = $result->fetch()) {
+              echo '<tr>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['myed_sd'] . '</td>';
+              echo '<td>' . $row['myed_ed'] . '</td>';
+              echo '<td>' . $row['myed_prod'] . '</td>';
+              echo '<td>' . $row['myed_tool'] . '</td>';
+              echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+              echo '</tr>';
+              $num = $num + 1;
+            }
           }
           ?>
         </table>
@@ -206,6 +284,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
   <script src="/hongber/js/career.js"></script>
   <script>
+    $('.startRadio__box').ready(function() {
+      $('.startRadio__box:nth-child(-n+<?= $star_avg ?>)').css({
+        "background-color": "#0084ff"
+      });
+    });
+  </script>
+  <script>
     function viewstaus() {
       const width = '1050';
       const height = '630';
@@ -213,7 +298,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "A" : "H" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+      window.open('/hongber/php/addbox.php?mode=<?= isset($_SESSION['hislog']) ? "A" : "H" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
   <script>
@@ -224,7 +309,18 @@ if (!isset($_SESSION['kakao_access_token'])) {
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
 
-      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+      window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
+    }
+  </script>
+  <script>
+    function more(vsp) {
+      const width = '1350';
+      const height = '1000';
+
+      const left = Math.ceil((window.screen.width - width) / 2);
+      const top = Math.ceil((window.screen.height - height) / 2);
+
+      window.open('/hongber/php/vsp.php?nvsp=' + vsp, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
   <?php
