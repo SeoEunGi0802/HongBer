@@ -286,9 +286,10 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <script>
     $('.startRadio__box').ready(function() {
       $('.startRadio__box:nth-child(-n+<?= $star_avg ?>)').css({
-        "background-color": "#0084ff"
+        "background-color": "#0084ff",
       });
     });
+    $('.star_input').attr('disabled', true);
   </script>
   <script>
     function viewstaus() {
