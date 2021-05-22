@@ -42,6 +42,7 @@ if (!empty($urow)) {
   <title>knock knock</title>
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/mypage.css">
+  <link rel="stylesheet" type="text/css" href="/hongber/css/star.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
 
