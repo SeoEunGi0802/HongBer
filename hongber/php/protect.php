@@ -1,5 +1,7 @@
 <?php
-$config = 'hongber\openssl.cnf';
+//$config = 'C:\Bitnami\wampstack-8.0.5-0\apache2\htdocs\hongber\conf\openssl.cnf';
+$config = '../apache2/htdocs/hongber/conf/openssl.cnf';
+error_reporting(E_ALL); ini_set("display_errors", 1);
 
 // 키 생성
 $genRes = openssl_pkey_new(array(
