@@ -14,7 +14,6 @@ if (!isset($_SESSION['hislog'])) {
   $hrow = $hres->fetch();
   $profile_img = $hrow['h_pimg'];
 }
-$today = date("Y-m-d");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -62,8 +61,7 @@ $today = date("Y-m-d");
       <div class="hot_content">
         <p class="hot_p">Today Hot - Best Promotion</p>
         <?php
-        $sql = "SELECT beviewing_email, COUNT(beviewing_email) FROM viewing WHERE date = '$today' GROUP BY beviewing_email DESC LIMIT 8";
-        $res = $connect->query($sql);
+        include "./most_view.php";
         ?>
         <div class=""></div>
         <div class=""></div>
@@ -96,8 +94,8 @@ $today = date("Y-m-d");
         <a href="?c=cC" class="categoryC">
           <div>categoryC</div>
         </a>
-        <a href="?c=cD" class="categoryD">
-          <div>categoryD</div>
+        <a href="./match.php" class="categoryALL">
+          <div>전체</div>
         </a>
       </div>
       <?php
@@ -165,6 +163,17 @@ $today = date("Y-m-d");
           honor_card[i].style.display = "none"
         }
       }
+    }
+  </script>
+  <script>
+    function more(email) {
+      const width = '700';
+      const height = '900';
+
+      const left = Math.ceil((window.screen.width - width) / 2);
+      const top = Math.ceil((window.screen.height - height) / 2);
+
+      window.open('/hongber/php/more_info.php?email=' + email, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
   <?php

@@ -240,7 +240,7 @@ td {
   margin-bottom: 40px;
   margin-right: 40px;
   border: none;
-  background-color: #fff;
+  background: none;
 }
 .wait_add > img {
   width: 50px;
@@ -254,7 +254,7 @@ td {
   margin-bottom: 40px;
   margin-right: 40px;
   border: none;
-  background-color: #fff;
+  background: none;
 }
 .send_li > img {
   width: 50px;

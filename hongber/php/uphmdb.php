@@ -14,7 +14,10 @@ if (!isset($_SESSION['hislog'])) {
     $hm_r = $_POST['resolution'];
     $hm_sd = $_POST['start_d'];
     $hm_ed = $_POST['end_d'];
-    $hm_day = date("Y-m-d H:i");
+    $category = $_POST['category'];
+    $hm_day = date("Y-m-d H:i:s");
+    $timestamp = strtotime($hm_day . " +13 hours -7 minute");
+    $hm_day = date("Y-m-d H:i", $timestamp);
 }
 if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file']['tmp_name']) != false) {
     $size = getimagesize($_FILES['file']['tmp_name']);
@@ -36,8 +39,8 @@ if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file'
         $stmt = $dbcon->prepare("UPDATE hmatch SET hm_upimg = ? WHERE hm_email = '$hm_email'");
         $stmt->bindParam(1, $ti, PDO::PARAM_LOB);
         $stmt->execute();
-        
-        $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day' WHERE hm_email = '$hm_email'";
+
+        $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day', category = '$category' WHERE hm_email = '$hm_email'";
         $res3 = $connect->query($sql3);
 
         echo "<script>alert('변경사항이 적용되었습니다.'); location.href='/hongber/php/match.php'</script>";
@@ -45,8 +48,7 @@ if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file'
         echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/php/match.php'</script>";
     }
 } else {
-    $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day' WHERE hm_email = '$hm_email'";
+    $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day', category = '$category' WHERE hm_email = '$hm_email'";
     $res3 = $connect->query($sql3);
     echo "<script>alert('변경사항이 적용되었습니다.'); location.href='/hongber/php/match.php'</script>";
 }
-?>

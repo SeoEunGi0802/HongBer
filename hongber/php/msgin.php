@@ -9,7 +9,9 @@ $send_id = $_GET['send_id']; //송신자 이메일
 $rv_id = $_POST['rv_id']; //수신자 이메일
 $subject = $_POST['subject']; // 제목
 $content = $_POST['content']; // 내용
-$regist_day = date("Y-m-d H:i"); // 쪽지 보낸 시간
+$regist_day = date("Y-m-d H:i:s"); // 쪽지 보낸 시간
+$timestamp = strtotime($regist_day . " +13 hours -7 minute");
+$regist_day = date("Y-m-d H:i", $timestamp);
 
 // 수신이메일이 존재하는지
 $sql = "SELECT hm_email FROM hmatch WHERE hm_email = '$rv_id' UNION SELECT u_email FROM user WHERE u_email = '$rv_id' UNION SELECT n_email FROM nuser WHERE n_email = '$rv_id' UNION SELECT k_email FROM kuser WHERE k_email = '$rv_id'";

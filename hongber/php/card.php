@@ -35,11 +35,8 @@ if (isset($_GET['c'])) {
         case 'cC':
             $sql = "SELECT * FROM hmatch WHERE category = 'categoryC'";
             break;
-        case 'cD':
-            $sql = "SELECT * FROM hmatch WHERE category = 'categoryD'";
-            break;
         default:
-            //
+            //d
             break;
     }
 }
@@ -51,6 +48,7 @@ while ($row = $result->fetch()) {
     }
 ?>
     <div class='honor_card'>
+        <button class="plus" value='<?= $row['hm_email'] ?>' onclick=more(this.value)><img src="/hongber/css/image/plus.png"></button>
         <button class="knock_btn" onclick="knock('<?= $row['hm_name'] ?>', '<?= $row['hm_email'] ?>')" value="<?= $row['hm_email'] ?>">
             <div class='hm_thumb'><img src='<?= $row['hm_pimg'] ?>' class='mtping'></div>
         </button>

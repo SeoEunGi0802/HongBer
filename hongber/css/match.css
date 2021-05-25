@@ -107,16 +107,16 @@ header > div {
 }
 /*-----------------------li--------------------------*/
 .match_wrap{
-position: relative;
-display: flex;
-flex-direction: row;
-align-content: flex-start;
-flex-wrap: wrap;
-align-items: flex-start;
-width: 1280px;
-height: 100%;
-margin: 0 auto;
-background: #433431;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  background: #433431;
 }
 .search_Box{
   display: flex;
@@ -207,6 +207,7 @@ background: #433431;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: 3px 5px 16px 1px rgba(0,0,0,1);
+  color: wheat;
 }
 .category_box div::before{
   content: "";
@@ -242,6 +243,20 @@ background: #433431;
   background: none;
   border: none;
 }
+.plus{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  margin-right: 5px;
+  background: none;
+  border: none;
+}
+.plus img{
+  width: 40px;
+  height: 40px;
+}
 .hm_thumb{
   width: 100px;
   height: 100px;
@@ -276,7 +291,7 @@ background: #433431;
 }
 .hm_img:hover{
   transition-duration: 1s;
-  opacity: 0;
+  display: none;
 }
 .hm_comment{
   margin-top: 10px;
@@ -285,6 +300,7 @@ background: #433431;
   font-size: 1.3rem;
   border-radius: 5px;
   background: #b08273;
+  resize: none;
 }
 .hm_date{
   width: 300px;
@@ -292,7 +308,6 @@ background: #433431;
   font-size: 1.3rem;
   margin-top: 10px;
   background: #b08273;
-
 }
 .honor_card div{
   background: #b08273;
@@ -311,16 +326,16 @@ background: #433431;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
-width: 10px;
+  width: 10px;
 }
 body::-webkit-scrollbar-thumb {
-background-color: #2f3542;
-border-radius: 10px;
+  background-color: #2f3542;
+  border-radius: 10px;
 }
 body::-webkit-scrollbar-track {
-background-color: grey;
-border-radius: 10px;
-box-shadow: inset 0px 0px 5px white;
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }
 /*-----------------------등록영역--------------------------*/
 .btn_box{

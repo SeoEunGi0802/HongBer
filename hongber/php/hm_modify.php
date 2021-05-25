@@ -64,7 +64,6 @@ if (empty($row)) {
                 <option value="categoryA">categoryA</option>
                 <option value="categoryB">categoryB</option>
                 <option value="categoryC">categoryC</option>
-                <option value="categoryD">categoryD</option>
             </select>
             <p>등록기간</p>
             <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>
