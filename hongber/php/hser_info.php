@@ -14,8 +14,9 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/user_info.css">
-  <script type="text/javascript" src="/hongber/js/user_info.js"></script>
+  <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="/hongber/js/jquery.js"></script>
+  <script type="text/javascript" src="/hongber/js/user_info.js"></script>
   <script>
     function tnn() {
       document.getElementById('tn').value = document.getElementById('tr').value.length;

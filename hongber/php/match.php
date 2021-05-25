@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 session_start();
-error_reporting(0);
 
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
@@ -27,6 +26,7 @@ if (!isset($_SESSION['hislog'])) {
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="/hongber/js/jquery.js"></script>
   <script type="text/javascript" src="/hongber/js/match.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <title>match</title>
 </head>
 
@@ -39,9 +39,11 @@ if (!isset($_SESSION['hislog'])) {
       <?php
       if (!empty($_SESSION["uislog"]) || !empty($_SESSION['naver_access_token']) || !empty($_SESSION['kakao_access_token'])) {
       } else { ?>
-        <a href='/hongber/php/hser_info.php'><button class='reg_btn'>등록</button></a>
-        <a href='/hongber/php/hm_modify.php'><button class='reg_md_btn'>수정</button></a>
-        <a href='' onclick='hdinfo()'><button class='reg_rm_btn'>삭제</button></a>
+        <div class="btn_box">
+          <a href='/hongber/php/hser_info.php'><button class='reg_btn'>등록</button></a>
+          <a href='/hongber/php/hm_modify.php'><button class='drop_btn'>수정</button></a>
+          <a href='' onclick='hdinfo()'><button class='drop_btn1'>삭제</button></a>
+        </div>
       <?php
       }
       ?>
@@ -55,6 +57,43 @@ if (!isset($_SESSION['hislog'])) {
           <button type="submit" value="old" class="old_btn">오래된 순</button>
         </form>
         <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
+      </div>
+      <div class="hot_content">
+        <p class="hot_p">Today Hot</p>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+      </div>
+      <div class="category_box">
+        <a href="" class="categoryA">
+          <div>categoryA</div>
+        </a>
+        <a href="" class="categoryB">
+          <div>categoryB</div>
+        </a>
+        <a href="" class="categoryC">
+          <div>categoryC</div>
+        </a>
+        <a href="" class="categoryD">
+          <div>categoryD</div>
+        </a>
+        <a href="" class="categoryE">
+          <div>categoryE</div>
+        </a>
+        <a href="" class="categoryF">
+          <div>categoryF</div>
+        </a>
+        <a href="" class="categoryG">
+          <div>categoryG</div>
+        </a>
+        <a href="" class="categoryH">
+          <div>categoryH</div>
+        </a>
       </div>
       <?php
       include "./card.php";
@@ -123,6 +162,9 @@ if (!isset($_SESSION['hislog'])) {
       }
     }
   </script>
+  <?php
+  include "home.php";
+  ?>
 </body>
 <?php
 $connect = null;

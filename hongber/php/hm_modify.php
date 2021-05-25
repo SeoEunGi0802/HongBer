@@ -37,39 +37,9 @@ if (empty($row)) {
 
 <body>
     <!-- 상단 바 -->
-    <header class="nav">
-        <a href="/hongber/index.php">
-            <div class="logo">
-                <span>HONGBER</span><br>
-            </div>
-        </a>
-        <div>
-            <a href="/hongber/php/mypage.php" class="nav_a">
-                <p class="nav_p">MY PAGE</p>
-            </a>
-        </div>
-        <div>
-            <a href="/hongber/php/match.php" class="nav_a">
-                <p class="nav_p">광고 매칭</p>
-            </a>
-        </div>
-        <div>
-            <a href="/hongber/php/spread.php" class="nav_a">
-                <p class="nav_p">광고 뿌리기</p>
-            </a>
-        </div>
-        <?php
-        //일반 광고주, 홍버, 관리자가 로그인시 로그아웃을 네비게이션바에 표시
-        if (!isset($_SESSION["hislog"])) {
-        } else {
-            echo '<div>';
-            echo '<a href="/hongber/php/logout.php" class="nav_a">';
-            echo '<p class="nav_p">로그아웃</p>';
-            echo '</a>';
-            echo '</div>';
-        }
-        ?>
-    </header>
+  <?php
+  include "../header.php";
+  ?>
     <form enctype="multipart/form-data" action="/hongber/php/uphmdb.php" method="POST">
         <div class="form_wrap">
             <p>이름</p>
@@ -85,6 +55,17 @@ if (empty($row)) {
                 <textarea type="text" name="resolution" id="tr" onkeyup="tnn()" onkeydwon="tnn()" onkeypress="tnn()" maxlength="300" required></textarea>
             </div><br>
             <input type="number" id="tn" value="0" readonly><br>
+            <p>Category</p>
+                <select  class="category" name="" id="">
+                    <option value="">categoryA</option>
+                    <option value="">categoryB</option>
+                    <option value="">categoryC</option>
+                    <option value="">categoryD</option>
+                    <option value="">categoryE</option>
+                    <option value="">categoryF</option>
+                    <option value="">categoryG</option>
+                    <option value="">categoryH</option>
+                </select>
             <p>등록기간</p>
             <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>
             <div>

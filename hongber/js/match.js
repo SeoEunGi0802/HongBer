@@ -1,11 +1,6 @@
-/*-------------상단바 스크롤 시-------------*/
-$(document).ready(function () {
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 10) {
-            $('.nav').fadeOut();
-        }
-        else {
-            $('.nav').fadeIn();
-        }
+jQuery(function ($) {
+    $(".btn_box").hover(function () {
+        $(".drop_btn").stop().slideToggle("500");
+        $(".drop_btn1").stop().slideToggle("500");
     });
 });

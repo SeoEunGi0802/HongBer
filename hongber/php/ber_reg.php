@@ -11,6 +11,7 @@ error_reporting(0);
    <title>회원가입</title>
    <link rel="stylesheet" href="/hongber/css/reset.css">
    <link rel="stylesheet" href="/hongber/css/ber_reg.css">
+   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
    </script>
    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8">
@@ -114,6 +115,9 @@ error_reporting(0);
 
       });
    </script>
+   <?php
+   include "home.php";
+   ?>
 </body>
 
 </html>

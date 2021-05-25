@@ -96,39 +96,43 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
       <div class="swiper-pagination pag1"></div>
     </div>
   </div>
-</body>
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    keyboard: {
-      enabled: true,
-    },
-    pagination: {
-      el: ".pag",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".next",
-      prevEl: ".prev",
-    },
-  });
-</script>
-<script>
-  var swiper = new Swiper(".mySwiper1", {
-    slidesPerView: 1,
-    spaceBetween: 30,
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      keyboard: {
+        enabled: true,
+      },
+      pagination: {
+        el: ".pag",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".next",
+        prevEl: ".prev",
+      },
+    });
+  </script>
+  <script>
+    var swiper = new Swiper(".mySwiper1", {
+      slidesPerView: 1,
+      spaceBetween: 30,
 
-    pagination: {
-      el: ".pag1",
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".next1",
-      prevEl: ".prev1",
-    },
-  });
-</script>
+      pagination: {
+        el: ".pag1",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".next1",
+        prevEl: ".prev1",
+      },
+    });
+  </script>
+  <?php
+  include "home.php";
+  ?>
+</body>
+
 <?php
 $connect = null;
 ?>

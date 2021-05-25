@@ -48,6 +48,9 @@ header > div {
   border-bottom: 3px solid #6a5f60;
   margin-top: 10px;
 }
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
+}
 .nav_p {
   line-height: 30px;
   color: #705d59;

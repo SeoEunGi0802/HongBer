@@ -34,19 +34,10 @@ $chc = $rrow == false ? "none" : "isis";
 </head>
 
 <body>
+    <?php
+    include "../header.php";
+    ?>
     <div id="wrap">
-        <?php
-        include "../header.php";
-        ?>
-        <!-- 검색창 -->
-        <div class="search_wrap">
-            <form action="/hongber/php/search.php" method="GET">
-                <input type="text" name="search" id="search" class="searchbox" placeholder="회원검색(이름 or 이메일)" autocomplete="off">
-                <div class="search_icon">
-                    <input type="submit" value="검색" class="search_btn">
-                </div>
-            </form>
-        </div>
         <nav class="nav2">
             <p>검색어 <?= $search ?>에 대한 결과 입니다.</p>
         </nav>
@@ -119,6 +110,9 @@ $chc = $rrow == false ? "none" : "isis";
             window.open('/hongber/php/knock.php?name=<?= $name ?>&email=' + email + '&msg=<?= $msg ?>', 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
         }
     </script>
+    <?php
+    include "home.php";
+    ?>
 </body>
 
 </html>

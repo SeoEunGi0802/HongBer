@@ -1,124 +1,168 @@
 @charset "UTF-8";
 /*----------------공통영역-------------*/
 body {
-    margin: 0 auto;
-    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
 }
 a {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 #wrap{
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .details{
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 1280px;
-    background-color: #000;
-    z-index: 3;
-    border: 1px solid red;
-    opacity: 0.9;
-    justify-content: center;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 1280px;
+  background-color: #000;
+  z-index: 3;
+  border: 1px solid red;
+  opacity: 0.9;
+  justify-content: center;
 }
 .filebox input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-  }
-  #addintro{
-    width: 300px;
-    height: 250px;
-  }
-  #productintro{
-    width: 300px;
-    height: 250px;
-  }
-  .introduce_add{
-    text-align: center;
-  }
-  .introduce_add input{
-    width: 500px;
-    height: 150px;
-  }
-  .introduce_prod{
-    text-align: center;
-  }
-  .introduce_prod input{
-    width: 500px;
-    height: 150px;
-  }
-  .filebox label {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #999;
-    vertical-align: middle;
-    background-color: #fdfdfd;
-    cursor: pointer;
-    border: 1px solid #ebebeb;
-    border-radius: 5px;
-  }
-  
-  .filebox .upload-name {
-    display: inline-block;
-    height: 35px;
-    font-size:18px; 
-    padding: 0 10px;
-    vertical-align: middle;
-    background-color: #f5f5f5;
-    border: 1px solid #ebebeb;
-    border-radius: 5px;
-  
-  }
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+#addintro{
+  width: 300px;
+  height: 250px;
+}
+#productintro{
+  width: 300px;
+  height: 250px;
+}
+.introduce_add{
+  text-align: center;
+}
+.introduce_add input{
+  width: 500px;
+  height: 150px;
+}
+.introduce_prod{
+  text-align: center;
+}
+.introduce_prod input{
+  width: 500px;
+  height: 150px;
+}
+.filebox label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #999;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
+.filebox .upload-name {
+  display: inline-block;
+  height: 35px;
+  font-size:18px; 
+  padding: 0 10px;
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
 /*----------------상단바 영역-------------*/
 header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 1280px;
-    height: 50px;
-    background-color: white;
-    border-top: 3px solid #999;
-    border-bottom: 3px solid #999;
-    margin: 0 auto;
-    font-size: 20px;
-    z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1280px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 1);
+  margin: 0 auto;
+  font-size: 20px;
+  z-index: 1;
 }
-header > div{
-    line-height: 50px;
-    padding: 5px 0;
+header > div {
+  padding: 5px 0;
 }
 .logo {
-    margin-top: 5px;
-    background: #2f3542;
-    padding-top: 10px;
-    height: 30px;
+  width: 250px;
+  height: 100px;
+  background: url(/hongber/css/image/logo.png) center center no-repeat;
+  background-size: contain;
 }
-.logo span{
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
-    width: 100%;
-    color: #fff;
+.logo span {
+  color: #705d59;
+  font-size: 38px;
+  font-weight: bold;
+}
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
+}
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
 }
 .nav_p {
-    line-height: 40px;
-    font-size: 16px;
+  line-height: 30px;
+  color: #705d59;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
 }
 .nav_p:hover {
-  border-bottom: 2px solid rgba(0,0,0,0.2)
-}
-.nav_a:hover {
-    font-size: 18px;
-    font-weight: bold;
+  background-color: #705d59;
+  color: #000;
 }
 .logout_nav {
-    display: none;
-    background-color: #fff;
+  display: none;
+  background-color: #fff;
+}
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  line-height: 40px;
+  text-align: right;
+}
+.searchbox {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
+}
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  margin-left: -3px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: 80%;
+  vertical-align: middle;
+}
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
 }
 .help{
   width: 160px;
@@ -128,15 +172,15 @@ header > div{
   background: white;
 }
 h1{
-    font-size: 80px;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
 }
 h3{
-    text-align: center;
-    margin-top: 30px;
-    font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
 }
 h6{
   text-align: center;
@@ -144,26 +188,26 @@ h6{
   font-size: 20px;
 }
 .form_container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .form_container form{
-    margin-top: 40px;
+  margin-top: 40px;
 }
 .form_container input{
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 .form_container select{
-    margin-top: 40px;
+  margin-top: 40px;
 }
 .form_container textarea{
-    margin-top: 10px;
-    width: 500px;
-    resize: none;
+  margin-top: 10px;
+  width: 500px;
+  resize: none;
 }
 .form_container h1{
-    font-size: 50px;
+  font-size: 50px;
 }
 #sbtn{
   width: 80px;
@@ -180,66 +224,66 @@ h6{
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: #2f3542;
-    border-radius: 5px;
+  background-color: #2f3542;
+  border-radius: 5px;
 }
 body::-webkit-scrollbar-track {
-    background-color: grey;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 5px white;
+  background-color: grey;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px white;
 }
 /*---------------------로그인 및 회원가입 영역------------------*/
 .dropdown {
-    position: relative;
-    width: 100px;
-    line-height: 50px;
-    padding: 0;
-    margin-top: 0;
-    text-align: center;
-  }
-  .dropbtn {
-    width: 100%;
-    height: 90%;
-    background-color: white;
-    color: #000;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: -1px;
-    min-width: 180px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-  .dropdown-content a {
-    border-left: 0;
-  }
-  .dropdown-content a p {
-    font-size: 14px;
-  }
-  .dropdown-content a+a>p {
-    border-top: 1px solid #bbb;
-  }
-  .dropdown-content p {
-    text-align: center;
-    color: black;
-  }
-  .dropdown-content p:hover {
-    background-color: #f1f1f1
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  .dropbtn:hover {
-    border-bottom: 2px solid rgba(0,0,0,0.2);
-    font-size: 16px;
-    font-weight: bold;
-  }
+  position: relative;
+  width: 100px;
+  line-height: 50px;
+  padding: 0;
+  margin-top: 0;
+  text-align: center;
+}
+.dropbtn {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  color: #000;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -1px;
+  min-width: 180px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  border-left: 0;
+}
+.dropdown-content a p {
+  font-size: 14px;
+}
+.dropdown-content a+a>p {
+  border-top: 1px solid #bbb;
+}
+.dropdown-content p {
+  text-align: center;
+  color: black;
+}
+.dropdown-content p:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropbtn:hover {
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: bold;
+}

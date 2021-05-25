@@ -1,12 +1,12 @@
 
 body {
-    margin: 0 auto;
-    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
-    background-color: #333;
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  background-color: #333;
 }
 a {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 /*----------------상단바 영역-------------*/
 header {
@@ -15,158 +15,204 @@ header {
   justify-content: space-between;
   flex-direction: row;
   width: 1280px;
-  height: 50px;
-  background-color: #333;
-  border-top: 3px solid #999;
-  border-bottom: 3px solid #999;
+  height: 100px;
+  background-color: #000;
   margin: 0 auto;
   font-size: 20px;
   z-index: 1;
 }
-header > div{
-  line-height: 50px;
+header > div {
   padding: 5px 0;
 }
 .logo {
-  margin-top: 5px;
-  background: #2f3542;
-  padding-top: 10px;
-  height: 30px;
+  width: 250px;
+  height: 100px;
+  background: url(/hongber/css/image/logo.png) center center no-repeat;
+  background-size: contain;
 }
-.logo span{
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-  width: 100%;
-  color: #fff;
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
+}
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
 }
 .nav_p {
-  line-height: 40px;
+  line-height: 30px;
+  color: #705d59;
   font-size: 16px;
-  color: #fff;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
 }
 .nav_p:hover {
-  border-bottom: 2px solid white;
-}
-.nav_a:hover {
-  font-size: 18px;
-  font-weight: bold;
+  background-color: #705d59;
+  color: #000;
 }
 .logout_nav {
   display: none;
   background-color: #fff;
-  color: #fff;
 }
-.form_wrap {
-  width: 374px;
-  margin: 100px auto 0;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  line-height: 40px;
+  text-align: right;
 }
 
+.searchbox {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
+}
+
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  margin-left: -3px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: 80%;
+  vertical-align: middle;
+}
+
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.form_wrap {
+width: 374px;
+margin: 100px auto 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+border-radius: 10px;
+}
 .form_wrap p{
-  font-size: 30px;
-  color:#eee;
-  text-align: left;
-  margin-bottom: 20px;
-  margin-top: 20px;
+font-size: 2rem;
+font-weight: bold;
+color:#efefef;
+text-align: left;
+margin-bottom: 20px;
+margin-top: 20px;
 }
 
 .form_wrap p:first-child {
-  margin-top: 0;
+margin-top: 0;
 }
 
 #noneimg{
-  height: 0
+height: 0
 }
 
 #preimg{
-  width: 300px;
-  height: 250px;
+width: 300px;
+height: 250px;
 }
 
 .filebox input[type="file"] {
-  position: absolute;
-  width: 0;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
+position: absolute;
+width: 0;
+height: 0;
+padding: 0;
+overflow: hidden;
+border: 0;
 }
 .filebox label {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #999;
-  vertical-align: middle;
-  background-color: #fdfdfd;
-  cursor: pointer;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
+display: inline-block;
+padding: 10px 20px;
+color: #999;
+vertical-align: middle;
+background-color: #fdfdfd;
+cursor: pointer;
+border: 1px solid #ebebeb;
+border-radius: 5px;
 }
 
 .filebox .upload-name {
-  display: inline-block;
-  height: 35px;
-  font-size:18px; 
-  padding: 0 10px;
-  vertical-align: middle;
-  background-color: #f5f5f5;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
+display: inline-block;
+height: 35px;
+font-size:18px; 
+padding: 0 10px;
+vertical-align: middle;
+background-color: #f5f5f5;
+border: 1px solid #ebebeb;
+border-radius: 5px;
 
 }
 .res {
-  width: 100%;
-  height: 140px;
-  text-align: left;
-  margin-bottom: 5px;
+width: 100%;
+height: 140px;
+text-align: left;
+margin-bottom: 5px;
 }
 
 #tr {
-  width: 100%;
-  height: 140px;
-  margin-bottom: 0;
-  box-sizing: border-box;
-  resize: none;
+width: 100%;
+height: 140px;
+margin-bottom: 0;
+box-sizing: border-box;
+resize: none;
 }
 
 #tn {
-  width: 34px;
-  background: none;
-  border: none;
-  color: white;
-  box-sizing: border-box;
-  float: right;
-  text-align: right
+width: 34px;
+background: none;
+border: none;
+color: white;
+box-sizing: border-box;
+float: right;
+text-align: right
 }
 table {
-  border-collapse: collapse;
+border-collapse: collapse;
 }
 table,tr,td {
-  border: 1px solid #333; padding: 5px;
+border: 1px solid #333; padding: 5px;
 }
-input[type='text'] {
-  width: 350px;
-  margin-bottom: 5px;
-  padding: 10px;
-  font-size: 14px;
-  }
+#inpname {
+width: 350px;
+margin-bottom: 5px;
+padding: 10px;
+font-size: 14px;
+}
 input[type='date'] {
-  width: 350px;
-  margin-bottom: 5px;
-  padding: 10px;
-  font-size: 14px;
+width: 350px;
+margin-bottom: 5px;
+padding: 10px;
+font-size: 14px;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
-  width: 10px;
-  }
-  body::-webkit-scrollbar-thumb {
-  background-color: #2f3542;
-  border-radius: 5px;
-  }
-  body::-webkit-scrollbar-track {
-  background-color: grey;
-  border-radius: 5px;
-  box-shadow: inset 0px 0px 5px white;
-  }
+width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+background-color: #2f3542;
+border-radius: 5px;
+}
+body::-webkit-scrollbar-track {
+background-color: grey;
+border-radius: 5px;
+box-shadow: inset 0px 0px 5px white;
+}

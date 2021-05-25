@@ -26,18 +26,14 @@ header {
   font-size: 20px;
   z-index: 1;
 }
-.search_wrap{
-  display: none;
-}
 header > div {
   padding: 5px 0;
 }
 .logo {
   width: 250px;
-  height: 40px;
-  padding: 30px 0;
-  height: 30px;
-  text-align: center;
+  height: 100px;
+  background: url(/hongber/css/image/logo.png) center center no-repeat;
+  background-size: contain;
 }
 .logo span {
   color: #705d59;
@@ -52,6 +48,9 @@ header > div {
   height: 40px;
   border-bottom: 3px solid #6a5f60;
   margin-top: 10px;
+}
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
 }
 .nav_p {
   line-height: 30px;
@@ -69,7 +68,43 @@ header > div {
   display: none;
   background-color: #fff;
 }
-
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  line-height: 40px;
+  text-align: right;
+}
+.searchbox {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
+}
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  margin-left: -3px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: 80%;
+  vertical-align: middle;
+}
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
+}
 /*-----------------------li--------------------------*/
 .match_wrap{
 position: relative;
@@ -86,89 +121,181 @@ background: #433431;
 .search_Box{
   display: flex;
   position: absolute;
-  left: 0;
+  right: 0;
+  margin-right: 70px;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 10;
 }
 .new_btn{
   background: #b08273;
+  border-radius: 10px;
 }
 .old_btn{
   background: #b08273;
+  border-radius: 10px;
 }
 .search_area{
   background: #b08273;
+  border-radius: 10px;
 }
 .search_area::placeholder{
   color: #000;
-
+}
+.hot{
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  font-size: 2.5rem;
+}
+.hot_content{
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 50px;
+  width: 100%;
+  height: 700px;
+}
+.hot_content p{
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+  margin: 20px 0 0 50px;
+}
+.hot_content::before{
+  content: "";
+  background: url(/hongber/css/image/banner.jpg) center center no-repeat;
+  opacity: 0.3;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.hot_content div{
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  box-shadow: 0px 16px 26px 0px rgba(0,0,0,1);
+  border-radius: 20px;
+}
+.category_box{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: #fff;
+  width: 100%;
+  height: 200px;
+}
+.category_box a{
+  position: relative;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 50px;
+  margin: auto 70px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 3px 5px 16px 1px rgba(0,0,0,1);
+}
+.category_box div::before{
+  content: "";
+  opacity: 0.4;
+  border-radius: 10px;
+  background-color: #000;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 .honor_card{
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  width: 290px;
+  width: 400px;
+  height: 400px;
   justify-content: space-around;
   align-content: space-around;
   align-items: flex-start;
   margin: 30px 0 30px 20px;
   text-align: center;
-background: #b08273;
-border-radius: 5px;
+  background: #b08273;
+  border-radius: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  border-radius: 20px;
 }
 .knock_btn {
   background: none;
   border: none;
 }
 .hm_thumb{
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
- box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 .hm_thumb > img{
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 .hm_info{
-  width: 200px;
-  margin-top: 10px;
-  border-radius: 5px;
-background: #b08273;
-
+  width: 250px;
+  margin-top: 30px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  background: #b08273;
 }
 .hm_img{
-  width: 300px;
-  height: 200px;
+  position: absolute;
+  width: 400px;
+  height: 400px;
   margin-top: 0px;
-  border-radius: 5px;
+  border-radius: 20px;
+  z-index: 5;
+  opacity: 0.95;
 }
 .hm_img > img {
-  width: 270px;
-  height: 190px;
-  border-radius: 5px;
-  margin-top: 5px;
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+}
+.hm_img:hover{
+  transition-duration: 1s;
+  opacity: 0;
 }
 .hm_comment{
   margin-top: 10px;
-  width: 300px;
-  height: 140px;
+  width: 370px;
+  height: 170px;
+  font-size: 1.3rem;
   border-radius: 5px;
-  resize: none;
-background: #b08273;
-
+  background: #b08273;
 }
 .hm_date{
   width: 300px;
   border-radius: 5px;
+  font-size: 1.3rem;
   margin-top: 10px;
   background: #b08273;
 
 }
 .honor_card div{
   background: #b08273;
-
   box-shadow: 1px 8px 10px 0px rgba(0,0,0,0.2);
 }
 .send{
@@ -196,22 +323,36 @@ border-radius: 10px;
 box-shadow: inset 0px 0px 5px white;
 }
 /*-----------------------등록영역--------------------------*/
+.btn_box{
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+}
 .reg_btn {
   position: absolute;
+  background: #b08273;
+  border-radius: 10px;
   top: 0;
   right: 0;
   width: 65px;
   height: 25px;
 }
-.reg_md_btn{
+.drop_btn{
+  display: none;
   position: absolute;
+  background: #b08273;
+  border-radius: 10px;
   top: 25px;
   right: 0;
   width: 65px;
   height: 25px;
 }
-.reg_rm_btn{
+.drop_btn1{
+  display: none;
+  background: #b08273;
   position: absolute;
+  border-radius: 10px;
   top: 50px;
   right: 0;
   width: 65px;
@@ -225,6 +366,7 @@ box-shadow: inset 0px 0px 5px white;
   margin-bottom: 40px;
   margin-right: 40px;
   border: none;
+  z-index: 12;
   background-color: #fff;
 }
 .send_li > img{

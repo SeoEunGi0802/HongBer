@@ -11,6 +11,7 @@ error_reporting(0);
    <title>회원가입</title>
    <link rel="stylesheet" href="/hongber/css/reset.css">
    <link rel="stylesheet" href="/hongber/css/ber_reg2.css">
+   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script>
       function inputPhoneNumber(obj) {
@@ -64,6 +65,9 @@ error_reporting(0);
          } else {}
       });
    </script>
+   <?php
+   include "home.php";
+   ?>
 </body>
 
 </html>

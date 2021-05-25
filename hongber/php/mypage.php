@@ -341,6 +341,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
     //echo "아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!";
     echo "<script>$('#mymsg').text('아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!');</script>";
   }
+  include "home.php";
   ?>
 </body>
 

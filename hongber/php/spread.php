@@ -173,6 +173,9 @@ session_start();
           $("#productintro").attr("src", "/hongber/css/image/bpimg.png");
         }
       </script>
+      <?php
+      include "home.php";
+      ?>
 </body>
 
 </html>

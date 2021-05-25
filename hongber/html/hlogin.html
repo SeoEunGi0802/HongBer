@@ -7,6 +7,7 @@
     <title>Log-In</title>
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/login.css">
+    <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
     <script>
         function findid() {
             const width = '300';
@@ -15,7 +16,7 @@
             const left = Math.ceil((window.screen.width - width) / 2);
             const top = Math.ceil((window.screen.height - height) / 2);
 
-            window.open('/html/hfindid.html', '아이디 찾기', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
+            window.open('/hongber/html/hfindid.html', '아이디 찾기', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
         }
 
         function findpwd() {
@@ -28,6 +29,18 @@
             window.open('/hongber/html/hfindpwd.html', '비밀번호 찾기', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ',' + 'toolbars=no', 'scrollbars=no');
         }
     </script>
+    <style>
+        .homebtn {
+            position: fixed;
+            left: 50px;
+            bottom: 50px;
+            width: 70px;
+            height: 70px;
+            background: url(/hongber/css/image/home.png) center center no-repeat;
+            background-size: cover;
+            border-radius: 10%;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,20 +52,22 @@
             <br>
             <input type="submit" class="login_btn" value="로그인">
         </form>
-        <form>
-            <div class="find_wrap">
-                <a href="" onclick="findid()" class="find_id">
-                    아이디 찾기
-                </a>
-                <a href="" onclick="findpwd()" class="find_password">
-                    비밀번호 찾기
-                </a>
-                <a href="/hongber/php/ber_reg2.php" class="regist">
-                    회원가입
-                </a>
-            </div>
-        </form>
+        <br>
+        <div class="find_wrap">
+            <a href="#" onclick="findid()" class="find_id">
+                아이디 찾기
+            </a>
+            <a href="#" onclick="findpwd()" class="find_password">
+                비밀번호 찾기
+            </a>
+            <a href="/hongber/php/ber_reg2.php" class="regist">
+                회원가입
+            </a>
+        </div>
     </div>
+    <a href="/hongber/index.php">
+        <div class="homebtn"></div>
+    </a>
 </body>
 
 </html>

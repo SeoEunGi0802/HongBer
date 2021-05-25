@@ -11,6 +11,7 @@ error_reporting(0);
     <title>Log-In</title>
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/login.css">
+    <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
     <script>
         function findid() {
             const width = '300';
@@ -36,63 +37,64 @@ error_reporting(0);
 
 <body>
     <div class="info_wrap">
-        <div id="wrap">
-            <form action="/hongber/php/ulog.php" method="POST">
-                <input type="text" name="id" placeholder="아이디" class="id" autocomplete="off">
-                <br>
-                <input type="password" name="pwd" placeholder="비밀번호" class="password">
-                <br>
-                <input type="submit" class="login_btn" value="로그인">
-            </form>
+        <form action="/hongber/php/ulog.php" method="POST">
+            <input type="text" name="id" placeholder="아이디" class="id" autocomplete="off">
             <br>
-                <div class="find_wrap">
-                    <a href="#" onclick="findid()" class="find_id">
-                        아이디 찾기
-                    </a>
-                    <a href="#" onclick="findpwd()" class="find_password">
-                        비밀번호 찾기
-                    </a>
-                    <a href="/hongber/php/ber_reg.php" class="regist">
-                        회원가입
-                    </a>
-                </div>
-                <div id="naverIdLogin">
-                <?php
-                // 네이버 로그인 접근토큰 요청 예제
-                $client_id = "DRFaCS0hy5tsmm8uWjSH";
-                $redirectURI = urlencode("http://localhost/hongber/php/naver_callbacklogin.php");
-                function ngenerate_state()
-                {
-                    $mt = microtime();
-                    $rand = mt_rand();
-                    return md5($mt . $rand);
-                }
-                $state = ngenerate_state();
-                $apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=" . $client_id . "&redirect_uri=" . $redirectURI . "&state=" . $state;
-                ?>
-                <a href="<?php echo $apiURL ?>">
-                    <img height="50" src="http://static.nid.naver.com/oauth/big_g.PNG" /></a>
-            </div>
+            <input type="password" name="pwd" placeholder="비밀번호" class="password">
             <br>
-            <div id="KakaoIdLogin">
-                <?php
-                // 카카오 로그인 접근토큰 요청 예제
-                $app_key = "1e244097dc165fec1a765891df0be219";
-                $redirect_uri = "http://localhost/hongber/php/kakao_callbacklogin.php";
-                function kgenerate_state()
-                {
-                    $mt = microtime();
-                    $rand = mt_rand();
-                    return md5($mt . $rand);
-                }
-                $state = kgenerate_state();
-                $_SESSION['kakao_state'] = $state;
-                $apiURL = "https://kauth.kakao.com/oauth/authorize?client_id=" . $app_key . "&redirect_uri=" . $redirect_uri . "&response_type=code&state=" . $state;
-                ?>
-                <a href="<?php echo $apiURL ?>">
-                    <img id="Kakaoimg" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_large_narrow.png"></a>
-            </div>
+            <input type="submit" class="login_btn" value="로그인">
+        </form>
+        <div class="find_wrap">
+            <a href="#" onclick="findid()" class="find_id">
+                아이디 찾기
+            </a>
+            <a href="#" onclick="findpwd()" class="find_password">
+                비밀번호 찾기
+            </a>
+            <a href="/hongber/php/ber_reg.php" class="regist">
+                회원가입
+            </a>
         </div>
+        <div id="naverIdLogin">
+            <?php
+            // 네이버 로그인 접근토큰 요청 예제
+            $client_id = "DRFaCS0hy5tsmm8uWjSH";
+            $redirectURI = urlencode("http://localhost/hongber/php/naver_callbacklogin.php");
+            function ngenerate_state()
+            {
+                $mt = microtime();
+                $rand = mt_rand();
+                return md5($mt . $rand);
+            }
+            $state = ngenerate_state();
+            $apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=" . $client_id . "&redirect_uri=" . $redirectURI . "&state=" . $state;
+            ?>
+            <a href="<?php echo $apiURL ?>">
+                <img height="50" src="http://static.nid.naver.com/oauth/big_g.PNG" /></a>
+        </div>
+        <br>
+        <div id="KakaoIdLogin">
+            <?php
+            // 카카오 로그인 접근토큰 요청 예제
+            $app_key = "1e244097dc165fec1a765891df0be219";
+            $redirect_uri = "http://localhost/hongber/php/kakao_callbacklogin.php";
+            function kgenerate_state()
+            {
+                $mt = microtime();
+                $rand = mt_rand();
+                return md5($mt . $rand);
+            }
+            $state = kgenerate_state();
+            $_SESSION['kakao_state'] = $state;
+            $apiURL = "https://kauth.kakao.com/oauth/authorize?client_id=" . $app_key . "&redirect_uri=" . $redirect_uri . "&response_type=code&state=" . $state;
+            ?>
+            <a href="<?php echo $apiURL ?>">
+                <img id="Kakaoimg" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_large_narrow.png"></a>
+        </div>
+    </div>
+    <?php
+    include "home.php";
+    ?>
 </body>
 
 </html>
