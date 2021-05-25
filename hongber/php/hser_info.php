@@ -14,9 +14,8 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/user_info.css">
-  <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
-  <script type="text/javascript" src="/hongber/js/jquery.js"></script>
   <script type="text/javascript" src="/hongber/js/user_info.js"></script>
+  <script type="text/javascript" src="/hongber/js/jquery.js"></script>
   <script>
     function tnn() {
       document.getElementById('tn').value = document.getElementById('tr').value.length;
@@ -45,6 +44,17 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
         <textarea name="resolution" placeholder="ex(각오한마디) 최대 300자" id="tr" onkeyup="tnn()" onkeydwon="tnn()" onkeypress="tnn()" maxlength="300" required></textarea>
       </div>
       <input type="number" id="tn" value="0" readonly><br>
+      <p>Category</p>
+      <select class="category" name="category" id="category">
+        <option value="SNS">SNS</option>
+        <option value="YouTube">YouTube</option>
+        <option value="WEB">WEB</option>
+        <option value="APP">APP</option>
+        <option value="categoryA">categoryA</option>
+        <option value="categoryB">categoryB</option>
+        <option value="categoryC">categoryC</option>
+        <option value="categoryD">categoryD</option>
+      </select>
       <p>등록기간</p>
       <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>
       <div>

@@ -37,9 +37,9 @@ if (empty($row)) {
 
 <body>
     <!-- 상단 바 -->
-  <?php
-  include "../header.php";
-  ?>
+    <?php
+    include "../header.php";
+    ?>
     <form enctype="multipart/form-data" action="/hongber/php/uphmdb.php" method="POST">
         <div class="form_wrap">
             <p>이름</p>
@@ -56,16 +56,16 @@ if (empty($row)) {
             </div><br>
             <input type="number" id="tn" value="0" readonly><br>
             <p>Category</p>
-                <select  class="category" name="" id="">
-                    <option value="">categoryA</option>
-                    <option value="">categoryB</option>
-                    <option value="">categoryC</option>
-                    <option value="">categoryD</option>
-                    <option value="">categoryE</option>
-                    <option value="">categoryF</option>
-                    <option value="">categoryG</option>
-                    <option value="">categoryH</option>
-                </select>
+            <select class="category" name="category" id="category">
+                <option value="SNS">SNS</option>
+                <option value="YouTube">YouTube</option>
+                <option value="WEB">WEB</option>
+                <option value="APP">APP</option>
+                <option value="categoryA">categoryA</option>
+                <option value="categoryB">categoryB</option>
+                <option value="categoryC">categoryC</option>
+                <option value="categoryD">categoryD</option>
+            </select>
             <p>등록기간</p>
             <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>
             <div>
@@ -87,6 +87,7 @@ if (empty($row)) {
         echo "<script>document.getElementById('tr').value = '" . $str . "'</script>";
         echo "<script>document.getElementById('s_d').value = '" . $day . "'</script>";
         echo "<script>document.getElementById('e_d').value = '" . $row['hm_ed'] . "'</script>";
+        echo "<script>document.getElementById('category').value = '" . $row['category'] . "'</script>";
     }
     ?>
     <script>

@@ -10,6 +10,7 @@ $hm_name = $_POST["name"];
 $hm_r = $_POST["resolution"];
 $hm_sd = $_POST["start_d"];
 $hm_ed = $_POST["end_d"];
+$category = $_POST["category"];
 $hm_day = date("Y-m-d H:i");
 
 if (!isset($_SESSION['hislog'])) {
@@ -28,8 +29,8 @@ $row = $res->fetch();
 
 if (empty($row)) {
 
-    $sql = "INSERT INTO hmatch (hm_id, hm_email, hm_sd, hm_ed, hm_name, hm_r, hm_pimg, hm_day)";
-    $sql = $sql . "VALUES('$hid', '$hemail', '$hm_sd', '$hm_ed', '$hm_name', '$hm_r', '$profile_img', '$hm_day')";
+    $sql = "INSERT INTO hmatch (hm_id, hm_email, hm_sd, hm_ed, hm_name, hm_r, hm_pimg, hm_day, category)";
+    $sql = $sql . "VALUES('$hid', '$hemail', '$hm_sd', '$hm_ed', '$hm_name', '$hm_r', '$profile_img', '$hm_day', '$category')";
     $res = $connect->query($sql);
 
     if ($res) {

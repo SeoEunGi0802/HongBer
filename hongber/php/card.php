@@ -11,6 +11,39 @@ if (isset($_POST['regday'])) {
     $sql = "SELECT * FROM hmatch ORDER BY hm_day";
 }
 
+if (isset($_GET['c'])) {
+    $cate = $_GET['c'];
+    switch ($cate) {
+        case 'cs':
+            $sql = "SELECT * FROM hmatch WHERE category = 'SNS'";
+            break;
+        case 'cy':
+            $sql = "SELECT * FROM hmatch WHERE category = 'YouTube'";
+            break;
+        case 'cw':
+            $sql = "SELECT * FROM hmatch WHERE category = 'WEB'";
+            break;
+        case 'ca':
+            $sql = "SELECT * FROM hmatch WHERE category = 'APP'";
+            break;
+        case 'cA':
+            $sql = "SELECT * FROM hmatch WHERE category = 'categoryA'";
+            break;
+        case 'cB':
+            $sql = "SELECT * FROM hmatch WHERE category = 'categoryB'";
+            break;
+        case 'cC':
+            $sql = "SELECT * FROM hmatch WHERE category = 'categoryC'";
+            break;
+        case 'cD':
+            $sql = "SELECT * FROM hmatch WHERE category = 'categoryD'";
+            break;
+        default:
+            //
+            break;
+    }
+}
+
 $result = $connect->query($sql);
 while ($row = $result->fetch()) {
     if (empty($row['hm_pimg'])) {

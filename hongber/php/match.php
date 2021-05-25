@@ -14,6 +14,7 @@ if (!isset($_SESSION['hislog'])) {
   $hrow = $hres->fetch();
   $profile_img = $hrow['h_pimg'];
 }
+$today = date("Y-m-d");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -59,7 +60,11 @@ if (!isset($_SESSION['hislog'])) {
         <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
       </div>
       <div class="hot_content">
-        <p class="hot_p">Today Hot</p>
+        <p class="hot_p">Today Hot - Best Promotion</p>
+        <?php
+        $sql = "SELECT beviewing_email, COUNT(beviewing_email) FROM viewing WHERE date = '$today' GROUP BY beviewing_email DESC LIMIT 8";
+        $res = $connect->query($sql);
+        ?>
         <div class=""></div>
         <div class=""></div>
         <div class=""></div>
@@ -70,29 +75,29 @@ if (!isset($_SESSION['hislog'])) {
         <div class=""></div>
       </div>
       <div class="category_box">
-        <a href="" class="categoryA">
+        <a href="?c=cs" class="categorySNS">
+          <div>SNS</div>
+        </a>
+        <a href="?c=cy" class="categoryYouTube">
+          <div>YouTube</div>
+        </a>
+        <a href="?c=cw" class="categoryWEB">
+          <div>WEB</div>
+        </a>
+        <a href="?c=ca" class="categoryAPP">
+          <div>APP</div>
+        </a>
+        <a href="?c=cA" class="categoryA">
           <div>categoryA</div>
         </a>
-        <a href="" class="categoryB">
+        <a href="?c=cB" class="categoryB">
           <div>categoryB</div>
         </a>
-        <a href="" class="categoryC">
+        <a href="?c=cC" class="categoryC">
           <div>categoryC</div>
         </a>
-        <a href="" class="categoryD">
+        <a href="?c=cD" class="categoryD">
           <div>categoryD</div>
-        </a>
-        <a href="" class="categoryE">
-          <div>categoryE</div>
-        </a>
-        <a href="" class="categoryF">
-          <div>categoryF</div>
-        </a>
-        <a href="" class="categoryG">
-          <div>categoryG</div>
-        </a>
-        <a href="" class="categoryH">
-          <div>categoryH</div>
         </a>
       </div>
       <?php
