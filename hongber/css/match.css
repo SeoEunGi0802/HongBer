@@ -148,6 +148,10 @@ header > div {
   line-height: 100px;
   font-size: 2.5rem;
 }
+.test{
+  width: 300px;
+  height: 300px;
+}
 .hot_content{
   position: relative;
   display: flex;
@@ -157,9 +161,10 @@ header > div {
   box-sizing: border-box;
   padding-top: 50px;
   width: 100%;
-  height: 700px;
+  height: 800px;
+  box-shadow: 0px 16px 26px 0px rgba(0,0,0,1);
 }
-.hot_content p{
+.hot_p{
   position: absolute;
   font-size: 1.5rem;
   font-weight: bold;
@@ -168,6 +173,36 @@ header > div {
   top: 0;
   opacity: 0.7;
   margin: 20px 0 0 50px;
+}
+.hot_card{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  margin: 30px 0 30px 20px;
+  background: #b08273;
+  border-radius: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+  border-radius: 20px;
+}
+.hot_plus{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  right: 0;
+  margin: 5px 20px 0 0;
+  background: none;
+  border: none;
+  z-index: 3;
+}
+.hot_plus img{
+  width: 30px;
+  height: 30px;
 }
 .hot_content::before{
   content: "";
@@ -180,12 +215,91 @@ header > div {
   right: 0px;
   bottom: 0px;
 }
-.hot_content div{
+.hot_btn {
+  background: none;
+  border: none;
+}
+.hot_thumb{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  margin-top: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+.hot_thumb > img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.hot_info{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 90px;
+  margin-left: 70px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  background: #b08273;
+}
+.hot_name{
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 200px;
+  height: 20px;
+  margin: 0;
+}
+.hot_email{
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 200px;
+  height: 20px;
+}
+.hot_img{
+  position: absolute;
   width: 300px;
   height: 300px;
-  background-size: cover;
-  box-shadow: 0px 16px 26px 0px rgba(0,0,0,1);
+  margin-top: 0px;
   border-radius: 20px;
+  z-index: 5;
+  opacity: 0.95;
+}
+.hot_img > img {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+}
+.hot_img:hover{
+  transition-duration: 1s;
+  display: none;
+}
+.hot_comment{
+  margin-top: 10px;
+  width: 370px;
+  height: 120px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  background: #b08273;
+  resize: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+.hot_date{
+  width: 230px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  background: #b08273;
 }
 .category_box{
   display: flex;
@@ -194,6 +308,7 @@ header > div {
   color: #fff;
   width: 100%;
   height: 200px;
+  margin-top: 100px;
 }
 .category_box a{
   position: relative;
@@ -207,7 +322,6 @@ header > div {
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: 3px 5px 16px 1px rgba(0,0,0,1);
-  color: wheat;
 }
 .category_box div::before{
   content: "";
@@ -239,10 +353,6 @@ header > div {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
   border-radius: 20px;
 }
-.knock_btn {
-  background: none;
-  border: none;
-}
 .plus{
   position: absolute;
   width: 40px;
@@ -256,6 +366,10 @@ header > div {
 .plus img{
   width: 40px;
   height: 40px;
+}
+.knock_btn {
+  background: none;
+  border: none;
 }
 .hm_thumb{
   width: 100px;

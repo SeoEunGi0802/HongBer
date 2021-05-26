@@ -63,14 +63,6 @@ if (!isset($_SESSION['hislog'])) {
         <?php
         include "./most_view.php";
         ?>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
       </div>
       <div class="category_box">
         <a href="?c=cs" class="categorySNS">

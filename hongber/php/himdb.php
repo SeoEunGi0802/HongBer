@@ -11,9 +11,8 @@ $hm_r = $_POST["resolution"];
 $hm_sd = $_POST["start_d"];
 $hm_ed = $_POST["end_d"];
 $category = $_POST["category"];
-$hm_day = date("Y-m-d H:i:s");
-$timestamp = strtotime($hm_day . " +13 hours -7 minute");
-$hm_day = date("Y-m-d H:i", $timestamp);
+date_default_timezone_set('Asia/Seoul');
+$hm_day = date("Y-m-d H:i");
 
 if (!isset($_SESSION['hislog'])) {
 } else {

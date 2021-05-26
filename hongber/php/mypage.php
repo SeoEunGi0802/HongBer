@@ -26,6 +26,7 @@ if (!isset($_SESSION['hislog'])) {
     $star_count = $row[1];
     $star_avg = ($star_score / $star_count) * 2;
   } else {
+    $star_count = 0;
     $star_avg = 0;
   }
 }
@@ -50,6 +51,7 @@ if (!isset($_SESSION['uislog'])) {
     $star_count = $row[1];
     $star_avg = ($star_score / $star_count) * 2;
   } else {
+    $star_count = 0;
     $star_avg = 0;
   }
 }
@@ -74,6 +76,7 @@ if (!isset($_SESSION['naver_access_token'])) {
     $star_count = $row[1];
     $star_avg = ($star_score / $star_count) * 2;
   } else {
+    $star_count = 0;
     $star_avg = 0;
   }
 }
@@ -98,6 +101,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
     $star_count = $row[1];
     $star_avg = ($star_score / $star_count) * 2;
   } else {
+    $star_count = 0;
     $star_avg = 0;
   }
 }

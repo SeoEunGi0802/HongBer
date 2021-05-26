@@ -23,9 +23,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
 
 $adv_e = $_POST['adv_e'];
 $adv_n = $_POST['adv_n'];
-$wait_day = date("Y-m-d H:i:s");
-$timestamp = strtotime($wait_day . " +13 hours -7 minute");
-$wait_day = date("Y-m-d H:i", $timestamp);
+date_default_timezone_set('Asia/Seoul');
+$wait_day = date("Y-m-d H:i");
 
 if ($adv_e != null && $adv_n != null) {
     $sql = "SELECT * FROM addwait WHERE adv_email = '$adv_e' AND adv_name = '$adv_n' AND wait_email = '$email' AND wait_name = '$name'";
