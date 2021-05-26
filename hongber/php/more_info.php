@@ -13,6 +13,7 @@ if (isset($_SESSION['hislog'])) {
 }
 
 $email = $_GET['email'];
+date_default_timezone_set('Asia/Seoul');
 $today = date("Y-m-d");
 
 $sql = "SELECT * FROM viewing WHERE viewing_email = '$vemail' AND beviewing_email = '$email'";

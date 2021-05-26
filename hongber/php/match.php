@@ -59,7 +59,7 @@ if (!isset($_SESSION['hislog'])) {
         <input id="smav" type="text" onkeyup="sma()" placeholder="search" class="search_area">
       </div>
       <div class="hot_content">
-        <p class="hot_p">Today Hot - Best Promotion</p>
+        <p class="hot_p">Today Hot</p>
         <?php
         include "./most_view.php";
         ?>
