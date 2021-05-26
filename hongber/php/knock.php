@@ -31,6 +31,81 @@ if (!empty($urow)) {
 } else {
   $profile_img = $hrow['h_pimg'];
 }
+
+if (!isset($_SESSION['hislog'])) {
+} else {
+  $hemail = $_SESSION['hemail'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$email'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_count = 0;
+    $star_avg = 0;
+  }
+}
+
+if (!isset($_SESSION['uislog'])) {
+} else {
+  $uemail = $_SESSION['uemail'];
+  $usql = "SELECT * FROM user WHERE u_id = '$uid'";
+  $ures = $connect->query($usql);
+  $urow = $ures->fetch();
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$email'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_count = 0;
+    $star_avg = 0;
+  }
+}
+
+if (!isset($_SESSION['naver_access_token'])) {
+} else {
+  $nemail = $_SESSION['nemail'];
+  $nsql = "SELECT * FROM nuser WHERE token = '$ntoken'";
+  $nres = $connect->query($nsql);
+  $nrow = $nres->fetch();
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$email'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_count = 0;
+    $star_avg = 0;
+  }
+}
+
+if (!isset($_SESSION['kakao_access_token'])) {
+} else {
+  $kemail = $_SESSION['kemail'];
+  $ksql = "SELECT * FROM kuser WHERE token = '$ktoken'";
+  $kres = $connect->query($ksql);
+  $krow = $kres->fetch();
+  $profile_img = $krow['k_pimg'];
+  $kpmsg = $krow['k_msg'];
+  $sql = "SELECT SUM(star_score), COUNT(*) FROM rating WHERE berating_email = '$email'";
+  $res = $connect->query($sql);
+  $row = $res->fetch();
+  if ($row[0] != null) {
+    $star_score = $row[0];
+    $star_count = $row[1];
+    $star_avg = ($star_score / $star_count) * 2;
+  } else {
+    $star_count = 0;
+    $star_avg = 0;
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,19 +139,23 @@ if (!empty($urow)) {
                     } ?>" alt="프로필사진">
         </a>
       </div>
-      <form action="star_rating.php" method="POST">
-        <?php
-        if ($email == $_SESSION['hemail'] || $email == $_SESSION['uemail'] || $email == $_SESSION['hemail'] || $email == $_SESSION['hemail']) {
-        } else {
+      <?php
+      if ($email == $_SESSION['hemail'] || $email == $_SESSION['uemail'] || $email == $_SESSION['hemail'] || $email == $_SESSION['hemail']) {
+        include "view_star_r.php";
+      } else {
+        include "view_star_r.php";
+      ?>
+        <form action="star_rating.php" method="POST">
+          <?php
           include "star.php";
-        ?>
+          ?>
           <input type="hidden" value="<?= $name ?>" name="name">
           <input type="hidden" value="<?= $email ?>" name="email">
           <br><input type="submit" value="별점주기">
         <?php
-        }
+      }
         ?>
-      </form>
+        </form>
     </div>
     <div class="profile_info">
       이름
@@ -162,6 +241,14 @@ if (!empty($urow)) {
   <script src="/hongber/js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
   <script src="/hongber/js/career.js"></script>
+  <script>
+    $('.view_startRadio__box').ready(function() {
+      $('.view_startRadio__box:nth-child(-n+<?= $star_avg ?>)').css({
+        "background-color": "#0084ff",
+      });
+    });
+    $('.view_star_input').attr('disabled', true);
+  </script>
 </body>
 
 </html>
