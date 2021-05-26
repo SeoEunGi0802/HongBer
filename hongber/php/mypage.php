@@ -127,170 +127,180 @@ if (!isset($_SESSION['kakao_access_token'])) {
   include "../header.php";
   ?>
   <section>
-    <div class="profile">
-      <div class="profile_img">
-        <a href="<?php if ($profile_img != null) {
-                    echo $profile_img;
-                  } else {
-                    echo "/hongber/css/image/bpimg.png";
-                  } ?>" data-title="프로필 사진" data-lightbox="example-set">
-          <img src="<?php if ($profile_img != null) {
-                      echo $profile_img;
-                    } else {
-                      echo "/hongber/css/image/bpimg.png";
-                    } ?>" alt="프로필사진">
-        </a>
-        <a href="/hongber/php/pchange.php">
-          <div class="wheel_icon"></div>
-        </a>
-      </div>
-      <?php
-      include "star.php";
-      ?>
-      <div class="avg_rating">
-        <?php
-        echo ($star_avg / 2) . '점(' . $star_count . '명의 평가)';
-        ?>
-      </div>
-    </div>
-    <div class="profile_info">
-      이름
-      <input type="text" value="<?php
-                                if (!empty($hname)) {
-                                  echo "$hname";
-                                } elseif (!empty($uname)) {
-                                  echo "$uname";
-                                } elseif (!empty($nname)) {
-                                  echo "$nname";
-                                } elseif (!empty($kname)) {
-                                  echo "$kname";
-                                }
-                                ?>" disabled>
-      이메일
-      <input type="text" value="<?php
-                                if (!empty($hemail)) {
-                                  echo "$hemail";
-                                } elseif (!empty($uemail)) {
-                                  echo "$uemail";
-                                } elseif (!empty($nemail)) {
-                                  echo "$nemail";
-                                } elseif (!empty($kemail)) {
-                                  echo "$kemail";
-                                }
-                                ?>" disabled>
-      자기소개
-      <textarea type="text" id="mymsg" disabled></textarea>
-    </div>
-    <div class="history">
-      <div class="history_btn_wrap">
-        <input type="button" name="doing" id="doing" value="진행 중" onclick="ingFunction()">
-        <input type="button" name="finished" id="finished" value="진행 완료" onclick="finFunction()">
-      </div>
-      <div class="ing" id="ing_id">
-        <p class="status">진행 중</p>
-        <table>
-          <tr>
-            <td>number</td>
-            <td colspan="2">홍보 기간</td>
-            <td>홍보 아이템</td>
-            <td>홍보 수단</td>
-            <td>오픈 채팅</td>
-            <td>더보기</td>
-          </tr>
+    <div class="wrap_bgimg">
+      <div class="content_wrap">
+        <div class="profile">
+          <div class="profile_img">
+            <a href="<?php if ($profile_img != null) {
+                        echo $profile_img;
+                      } else {
+                        echo "/hongber/css/image/bpimg.png";
+                      } ?>" data-title="프로필 사진" data-lightbox="example-set">
+              <img src="<?php if ($profile_img != null) {
+                          echo $profile_img;
+                        } else {
+                          echo "/hongber/css/image/bpimg.png";
+                        } ?>" alt="프로필사진">
+            </a>
+            <a href="/hongber/php/pchange.php">
+              <div class="wheel_icon"></div>
+            </a>
+          </div>
+          <button class="wait_add" onclick="viewstaus()">
+            <img src="/hongber/css/image/addstatus.png">
+          </button>
+          <button class="send_li" onclick="viewmsg()">
+            <img src="/hongber/css/image/archive.png">
+          </button>
+          <div class="avg_rating">
+            <?php
+            echo ($star_avg / 2) . '점(' . $star_count . '명의 평가)';
+            ?>
+          </div>
+        </div>
+        <div class="profile_info">
+          -NAME-
+          <input type="text" value="<?php
+                                    if (!empty($hname)) {
+                                      echo "$hname";
+                                    } elseif (!empty($uname)) {
+                                      echo "$uname";
+                                    } elseif (!empty($nname)) {
+                                      echo "$nname";
+                                    } elseif (!empty($kname)) {
+                                      echo "$kname";
+                                    }
+                                    ?>" disabled>
           <?php
-          $num = 1;
-          if (isset($_SESSION['hislog'])) {
-            $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
-            $result = $connect->query($sql);
-            while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
-              echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
-              echo '</tr>';
-              $num = $num + 1;
-            }
-          } else {
-            $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
-            $result = $connect->query($sql);
-            while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
-              echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
-              echo '</tr>';
-              $num = $num + 1;
-            }
-          }
+          include "star.php";
           ?>
-        </table>
-      </div>
-      <div class="finish" id="finish_id">
-        <p class="status">진행 완료</p>
-        <table>
-          <tr>
-            <td>number</td>
-            <td colspan="2">홍보 기간</td>
-            <td>홍보 아이템</td>
-            <td>홍보 수단</td>
-            <td>오픈 채팅</td>
-            <td>더보기</td>
-          </tr>
-          <?php
-          $num = 1;
-          if (isset($_SESSION['hislog'])) {
-            $sql = "SELECT * FROM myed WHERE myed_adv_email = '$email' AND myed_adv_name = '$name'";
-            $result = $connect->query($sql);
-            while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['myed_sd'] . '</td>';
-              echo '<td>' . $row['myed_ed'] . '</td>';
-              echo '<td>' . $row['myed_prod'] . '</td>';
-              echo '<td>' . $row['myed_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
-              echo '</tr>';
-              $num = $num + 1;
-            }
-          } else {
-            $sql = "SELECT * FROM myed WHERE myed_email = '$email' AND myed_name = '$name'";
-            $result = $connect->query($sql);
-            while ($row = $result->fetch()) {
-              echo '<tr>';
-              echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['myed_sd'] . '</td>';
-              echo '<td>' . $row['myed_ed'] . '</td>';
-              echo '<td>' . $row['myed_prod'] . '</td>';
-              echo '<td>' . $row['myed_tool'] . '</td>';
-              echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
-              echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
-              echo '</tr>';
-              $num = $num + 1;
-            }
-          }
-          ?>
-        </table>
+          -EMAIL-
+          <input type="text" value="<?php
+                                    if (!empty($hemail)) {
+                                      echo "$hemail";
+                                    } elseif (!empty($uemail)) {
+                                      echo "$uemail";
+                                    } elseif (!empty($nemail)) {
+                                      echo "$nemail";
+                                    } elseif (!empty($kemail)) {
+                                      echo "$kemail";
+                                    }
+                                    ?>" disabled>
+          -INFOMATION-
+          <textarea type="text" id="mymsg" disabled></textarea>
+        </div>
+        <div class="history">
+          <div class="history_btn_wrap">
+            <input type="button" name="doing" id="doing" value="진행 중" onclick="ingFunction()">
+            <input type="button" name="finished" id="finished" value="진행 완료" onclick="finFunction()">
+          </div>
+          <div class="ing" id="ing_id">
+            <!-- <p class="status">진행 중</p> -->
+            <table>
+              <tr>
+                <td>Number</td>
+                <td colspan="2">홍보 기간</td>
+                <td>홍보 아이템</td>
+                <td>홍보 수단</td>
+                <td>오픈 채팅</td>
+                <td>더보기</td>
+              </tr>
+            </table>
+            <table>
+              <?php
+              $num = 1;
+              if (isset($_SESSION['hislog'])) {
+                $sql = "SELECT * FROM mying WHERE mying_adv_email = '$email' AND mying_adv_name = '$name'";
+                $result = $connect->query($sql);
+                while ($row = $result->fetch()) {
+                  echo '<tr>';
+                  echo '<td>' . $num . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '</td>';
+                  echo '<td>' . $row['mying_ed'] . '</td>';
+                  echo '<td>' . $row['mying_prod'] . '</td>';
+                  echo '<td>' . $row['mying_tool'] . '</td>';
+                  echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+                  echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+                  echo '</tr>';
+                  $num = $num + 1;
+                }
+              } else {
+                $sql = "SELECT * FROM mying WHERE mying_email = '$email' AND mying_name = '$name'";
+                $result = $connect->query($sql);
+                while ($row = $result->fetch()) {
+                  echo '<tr>';
+                  echo '<td>' . $num . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '</td>';
+                  echo '<td>' . $row['mying_ed'] . '</td>';
+                  echo '<td>' . $row['mying_prod'] . '</td>';
+                  echo '<td>' . $row['mying_tool'] . '</td>';
+                  echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+                  echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+                  echo '</tr>';
+                  $num = $num + 1;
+                }
+              }
+              ?>
+            </table>
+          </div>
+          <div class="finish" id="finish_id">
+            <!-- <p class="status">진행 완료</p> -->
+            <table>
+              <tr>
+                <td>Number</td>
+                <td colspan="2">홍보 기간</td>
+                <td>홍보 아이템</td>
+                <td>홍보 수단</td>
+                <td>오픈 채팅</td>
+                <td>더보기</td>
+              </tr>
+              <?php
+              $num = 1;
+              if (isset($_SESSION['hislog'])) {
+                $sql = "SELECT * FROM myed WHERE myed_adv_email = '$email' AND myed_adv_name = '$name'";
+                $result = $connect->query($sql);
+                while ($row = $result->fetch()) {
+                  echo '<tr>';
+                  echo '<td>' . $num . '</td>';
+                  echo '<td>' . $row['myed_sd'] . '</td>';
+                  echo '<td>' . $row['myed_ed'] . '</td>';
+                  echo '<td>' . $row['myed_prod'] . '</td>';
+                  echo '<td>' . $row['myed_tool'] . '</td>';
+                  echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+                  echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+                  echo '</tr>';
+                  $num = $num + 1;
+                }
+              } else {
+                $sql = "SELECT * FROM myed WHERE myed_email = '$email' AND myed_name = '$name'";
+                $result = $connect->query($sql);
+                while ($row = $result->fetch()) {
+                  echo '<tr>';
+                  echo '<td>' . $num . '</td>';
+                  echo '<td>' . $row['myed_sd'] . '</td>';
+                  echo '<td>' . $row['myed_ed'] . '</td>';
+                  echo '<td>' . $row['myed_prod'] . '</td>';
+                  echo '<td>' . $row['myed_tool'] . '</td>';
+                  echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
+                  echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+                  echo '</tr>';
+                  $num = $num + 1;
+                }
+              }
+              ?>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <button class="wait_add" onclick="viewstaus()"><img src="/hongber/css/image/addstatus.png"></button>
-  <button class="send_li" onclick="viewmsg()"><img src="/hongber/css/image/archive.png"></button>
   <script src="/hongber/js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
   <script src="/hongber/js/career.js"></script>
   <script>
     $('.startRadio__box').ready(function() {
       $('.startRadio__box:nth-child(-n+<?= $star_avg ?>)').css({
-        "background-color": "#0084ff",
+        "background-color": "#000",
       });
     });
     $('.star_input').attr('disabled', true);

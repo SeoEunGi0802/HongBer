@@ -118,6 +118,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <link rel="stylesheet" href="/hongber/css/reset.css">
   <link rel="stylesheet" href="/hongber/css/mypage.css">
   <link rel="stylesheet" type="text/css" href="/hongber/css/star.css">
+  <link rel="stylesheet" type="text/css" href="/hongber/css/view_star.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
 
@@ -171,7 +172,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
         <input type="button" name="finished" id="finished" value="진행 완료" onclick="finFunction()">
       </div>
       <div class="ing" id="ing_id">
-        <p class="status">진행 중</p>
         <table>
           <tr>
             <td>number</td>
@@ -215,7 +215,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
         </table>
       </div>
       <div class="finish" id="finish_id">
-        <p class="status">진행 완료</p>
         <table>
           <tr>
             <td>number</td>
@@ -244,7 +243,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <script>
     $('.view_startRadio__box').ready(function() {
       $('.view_startRadio__box:nth-child(-n+<?= $star_avg ?>)').css({
-        "background-color": "#0084ff",
+        "background-color": "black",
       });
     });
     $('.view_star_input').attr('disabled', true);

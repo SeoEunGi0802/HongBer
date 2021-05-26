@@ -1,7 +1,7 @@
 <style>
     .homebtn {
         position: fixed;
-        left: 50px;
+        right: 50px;
         bottom: 50px;
         width: 70px;
         height: 70px;
