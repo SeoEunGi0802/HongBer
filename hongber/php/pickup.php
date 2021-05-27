@@ -62,14 +62,14 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                     <p class="intro_t"><?= $row['introduce_add'] ?></p>
                   </div>
                   <div class="swiper-slide">
-                    <p class="i_intro">광고주 소개 사진</p><img src=<?= $row['introduce_add_img'] ?>>
+                    <img src=<?= $row['introduce_add_img'] ?>>
                   </div>
                   <div class="swiper-slide">
                     <p class="i_intro">제품 소개</p>
                     <p class="intro_t"><?= $row['introduce_prod'] ?></p>
                   </div>
                   <div class="swiper-slide">
-                    <p class="i_intro">제품 소개 사진</p><img src=<?= $row['introduce_prod_img'] ?>>
+                    <img src=<?= $row['introduce_prod_img'] ?>>
                   </div>
                   <div class="swiper-slide">
                     <p class="i_intro">홍보 방식</p>
@@ -93,7 +93,6 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
       </div>
       <div class="swiper-button-next next1"></div>
       <div class="swiper-button-prev prev1"></div>
-      <div class="swiper-pagination pag1"></div>
     </div>
   </div>
   <script>

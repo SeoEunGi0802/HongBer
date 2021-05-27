@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0 auto;
 }
 a {
     color: #000;
@@ -12,6 +13,8 @@ a {
 body{
     font-family: serif;
     -ms-overflow-style: none; 
+    background: #000;
+
 }
 body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
@@ -24,26 +27,21 @@ header {
     flex-direction: row;
     width: 1280px;
     height: 100px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #000;
     margin: 0 auto;
     font-size: 20px;
     z-index: 1;
-}
-header > div {
+  }
+  header > div {
     padding: 5px 0;
-}
-.logo {
+  }
+  .logo {
     width: 250px;
     height: 100px;
     background: url(/hongber/css/image/logo.png) center center no-repeat;
     background-size: contain;
-}
-.logo span {
-    color: #705d59;
-    font-size: 38px;
-    font-weight: bold;
-}
-.navbar_wrap {
+  }
+  .navbar_wrap {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -51,33 +49,34 @@ header > div {
     height: 40px;
     border-bottom: 3px solid #6a5f60;
     margin-top: 10px;
-}
-.navbar_wrap>div:last-child {
+  }
+  .navbar_wrap>div:last-child {
     margin-right: 20px;
-}
-.nav_p {
+  }
+  .nav_p {
     line-height: 30px;
     color: #705d59;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: -0.5px;
     margin-top: 13px;
-}
-.nav_p:hover {
+  }
+  .nav_p:hover {
     background-color: #705d59;
     color: #000;
-}
-.logout_nav {
+  }
+  .logout_nav {
     display: none;
     background-color: #fff;
-}
-/*------------------검색창------------------*/
-.search_wrap {
+  }
+  /*------------------검색창------------------*/
+  .search_wrap {
     position: relative;
     line-height: 40px;
     text-align: right;
-}
-.searchbox {
+  }
+  
+  .searchbox {
     display: inline-block;
     width: 200px;
     height: 30px;
@@ -86,36 +85,42 @@ header > div {
     background-color: #524745;
     border: none;
     border-radius: 20px;
-}
-.searchbox::placeholder {
+  }
+  
+  .searchbox::placeholder {
     padding-left: 10px;
     color: #fff;
-}
-.search_icon {
+  }
+  
+  .search_icon {
     display: inline-block;
     width: 30px;
     line-height: 30px;
-    margin-left: -3px;
+    margin-left: 3px;
     background: url(/hongber/css/image/search.png) center center no-repeat;
     background-size: 80%;
     vertical-align: middle;
-}
-.search_btn {
+  }
+  
+  .search_btn {
     display: inline-block;
     width: 30px;
     height: 30px;
     box-sizing: border-box;
     opacity: 0;
     cursor: pointer;
-}
+  }
+  
 /*-----------------------flex container--------------------------*/
 .pick_wrap{
     position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: #524745;
     width: 900px;
-    box-shadow: 8px 10px 16px 0px rgba(0,0,0,0.5);
+    
+    box-shadow: 16px 20px 26px 10px rgba(0,0,0,0.5);
 }
 .hm_thumb{
     position: absolute;
@@ -130,6 +135,7 @@ header > div {
     border-radius: 50%;
 }
 .info{
+    position: relative;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -168,6 +174,10 @@ header > div {
 }
 .i_intro{
     width: 100%;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
     text-align: center;
 }
 .intro_t{
@@ -175,6 +185,14 @@ header > div {
     height: 100%;
     padding-top: 19.5%;
     text-align: center;
+}
+.accept{
+    width: 70px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: #b08273;
+    border-radius: 10px;
 }
 /*-----------------------swiper--------------------------*/
 .swiper-container {
@@ -199,6 +217,7 @@ header > div {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    background-color: #524745;
 }
 .swiper-slide img {
     display: block;
@@ -210,6 +229,15 @@ header > div {
     width: 100%;
     height: auto;
 }
+.swiper-button-next{
+    color: #000 !important;
+}
+.swiper-button-prev{
+    color: #000 !important;
+}
+.swiper-pagination-bullet {
+    background-color: #000 !important;
+  }
 /*-----------------------스크롤바--------------------------*/
 .ad_list::-webkit-scrollbar {
     width: 10px;
