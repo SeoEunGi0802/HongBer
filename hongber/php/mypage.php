@@ -195,7 +195,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
             <input type="button" name="finished" id="finished" value="진행 완료" onclick="finFunction()">
           </div>
           <div class="ing" id="ing_id">
-            <!-- <p class="status">진행 중</p> -->
             <table>
               <tr>
                 <td>Number</td>
@@ -215,9 +214,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                 while ($row = $result->fetch()) {
                   echo '<tr>';
                   echo '<td>' . $num . '</td>';
-                  echo '<td>' . $row['mying_sd'] . '</td>';
-                  echo '<td>' . $row['mying_ed'] . '</td>';
-                  echo '<td>' . $row['mying_prod'] . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+                  echo '<td class="showmore">' . $row['mying_prod'] . '</td>';
                   echo '<td>' . $row['mying_tool'] . '</td>';
                   echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
                   // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
@@ -230,9 +228,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                 while ($row = $result->fetch()) {
                   echo '<tr>';
                   echo '<td>' . $num . '</td>';
-                  echo '<td>' . $row['mying_sd'] . '</td>';
-                  echo '<td>' . $row['mying_ed'] . '</td>';
-                  echo '<td>' . $row['mying_prod'] . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+                  echo '<td class="showmore">' . $row['mying_prod'] . '</td>';
                   echo '<td>' . $row['mying_tool'] . '</td>';
                   echo '<td>' . '<a href="' . $row['mying_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
                   // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
@@ -244,7 +241,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
             </table>
           </div>
           <div class="finish" id="finish_id">
-            <!-- <p class="status">진행 완료</p> -->
             <table>
               <tr>
                 <td>Number</td>
@@ -262,9 +258,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                 while ($row = $result->fetch()) {
                   echo '<tr>';
                   echo '<td>' . $num . '</td>';
-                  echo '<td>' . $row['myed_sd'] . '</td>';
-                  echo '<td>' . $row['myed_ed'] . '</td>';
-                  echo '<td>' . $row['myed_prod'] . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+                  echo '<td class="showmore">' . $row['myed_prod'] . '</td>';
                   echo '<td>' . $row['myed_tool'] . '</td>';
                   echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
                   // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
@@ -277,9 +272,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                 while ($row = $result->fetch()) {
                   echo '<tr>';
                   echo '<td>' . $num . '</td>';
-                  echo '<td>' . $row['myed_sd'] . '</td>';
-                  echo '<td>' . $row['myed_ed'] . '</td>';
-                  echo '<td>' . $row['myed_prod'] . '</td>';
+                  echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+                  echo '<td class="showmore">' . $row['myed_prod'] . '</td>';
                   echo '<td>' . $row['myed_tool'] . '</td>';
                   echo '<td>' . '<a href="' . $row['myed_oc'] . '" target="_blank"><img src="/hongber/css/image/openc.png"></a>' . '</td>';
                   // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
@@ -338,6 +332,9 @@ if (!isset($_SESSION['kakao_access_token'])) {
       window.open('/hongber/php/vsp.php?nvsp=' + vsp, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
+  <!-- <script language='javascript'>
+  window.setTimeout('window.location.reload()',10000); //10초마다 리플리쉬 시킨다 1000이 1초가 된다.
+ </script> -->
   <?php
   if (!empty($hpmsg)) {
     //echo "$hpmsg";

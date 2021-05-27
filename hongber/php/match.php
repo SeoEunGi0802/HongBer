@@ -97,7 +97,9 @@ if (!isset($_SESSION['hislog'])) {
     </div>
   </div>
   <!-- 쪽지 목록 보기 구현 시키기 광고주는 rv 유저는 send-->
-  <button class="send_li" onclick="viewmsg()"><img src="/hongber/css/image/archive2.png"></button>
+  <button class="send_li" onclick="viewmsg()">
+    <div class="message_icon"></div>
+  </button>
   <script>
     function hdinfo() {
       const width = '800';
@@ -145,15 +147,30 @@ if (!isset($_SESSION['hislog'])) {
     function sma() {
       let smav = document.getElementById("smav").value.toLowerCase();
       let honor_card = document.getElementsByClassName("honor_card");
+      let hot_card = document.getElementsByClassName("hot_card");
 
       for (let i = 0; i < honor_card.length; i++) {
         let hm_name = honor_card[i].getElementsByClassName("hm_name");
         let hm_email = honor_card[i].getElementsByClassName("hm_email");
+        let hm_comment = honor_card[i].getElementsByClassName("hm_comment");
         let hm_sd_ed = honor_card[i].getElementsByClassName("hm_sd_ed");
-        if (hm_name[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_email[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_sd_ed[0].innerHTML.toLowerCase().indexOf(smav) != -1) {
+
+        if (hm_name[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_email[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_comment[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hm_sd_ed[0].innerHTML.toLowerCase().indexOf(smav) != -1) {
           honor_card[i].style.display = "flex"
         } else {
           honor_card[i].style.display = "none"
+        }
+      }
+
+      for (let j = 0; j < hot_card.length; j++) {
+        let hot_name = hot_card[j].getElementsByClassName("hot_name");
+        let hot_email = hot_card[j].getElementsByClassName("hot_email");
+        let hot_comment = hot_card[j].getElementsByClassName("hot_comment");
+        let hot_sd_ed = hot_card[j].getElementsByClassName("hot_sd_ed");
+        if (hot_name[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hot_email[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hot_comment[0].innerHTML.toLowerCase().indexOf(smav) != -1 || hot_sd_ed[0].innerHTML.toLowerCase().indexOf(smav) != -1) {
+          hot_card[j].style.display = "flex"
+        } else {
+          hot_card[j].style.display = "none"
         }
       }
     }

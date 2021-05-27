@@ -194,6 +194,11 @@ header {
     background: #b08273;
     border-radius: 10px;
 }
+
+#pick_form {
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
 /*-----------------------swiper--------------------------*/
 .swiper-container {
     width: 100%;

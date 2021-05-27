@@ -1,8 +1,8 @@
 <?php
 include "./php/config.php";
 session_start();
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+header("Progma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -94,17 +94,17 @@ ini_set("display_errors", 1);
     }
     ?>
     <div class="promote">
-      <div class="category1">
-        <div><a href="/hongber/php/match.php?c=<?= $category1 ?>"><?= $category1 ?></a></div>
+      <div class="category1" onclick="location.replace('/hongber/php/match.php?c=<?= $category1 ?>')">
+        <div><?= $category1 ?></div>
       </div>
-      <div class="category2">
-        <div><a href="/hongber/php/match.php?c=<?= $category2 ?>"><?= $category2 ?></a></div>
+      <div class="category2" onclick="location.replace('/hongber/php/match.php?c=<?= $category2 ?>')">
+        <div><?= $category2 ?></div>
       </div>
-      <div class="category3">
-        <div><a href="/hongber/php/match.php?c=<?= $category3 ?>"><?= $category3 ?></a></div>
+      <div class="category3" onclick="location.replace('/hongber/php/match.php?c=<?= $category3 ?>')">
+        <div><?= $category3 ?></div>
       </div>
-      <div class="category4">
-        <div><a href="/hongber/php/match.php?c=<?= $category4 ?>"><?= $category4 ?></a></div>
+      <div class="category4" onclick="location.replace('/hongber/php/match.php?c=<?= $category4 ?>')">
+        <div><?= $category4 ?></div>
       </div>
     </div>
     <footer>

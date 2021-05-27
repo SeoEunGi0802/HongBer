@@ -3,9 +3,9 @@ include "config.php";
 
 if (isset($_POST['regday'])) {
     if ($_POST['regday'] == "R") {
-        $sql = "SELECT * FROM hmatch ORDER BY hm_day";
-    } else {
         $sql = "SELECT * FROM hmatch ORDER BY hm_day DESC";
+    } else if ($_POST['regday'] == "O") {
+        $sql = "SELECT * FROM hmatch ORDER BY hm_day ASC";
     }
 } else {
     $sql = "SELECT * FROM hmatch ORDER BY hm_day";

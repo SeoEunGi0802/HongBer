@@ -94,10 +94,14 @@ $chc = $rrow == false ? "none" : "isis";
                 </section>
         <?php }
         } else if ($search == '""') {
+            echo "<section>";
             echo "<p class='none_here'>똑똑똑...?</p>";
+            echo "</section>";
         }
         if ($chc == "none") {
+            echo "<section>";
             echo "<p class='none_here'>똑똑똑...?</p>";
+            echo "</section>";
         } ?>
     </div>
     <script>

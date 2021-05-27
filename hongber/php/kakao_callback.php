@@ -9,7 +9,7 @@ if ($_SESSION['kakao_state'] != $_GET["state"]) {
 	$appkey = "1e244097dc165fec1a765891df0be219";
 	$code = $_GET["code"];
 	$state = $_GET["state"];
-	$redirectURL = urlencode("http://localhost/php/kakao_callback.php");
+	$redirectURL = urlencode("http://localhost/hongber/php/kakao_callback.php");
 	$client_secret = "FhctorVXgFwalPCDZpuDnjad1RFwmOhG";
 
 	$url = "https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=" . $appkey . "&redirect_uri=" . $redirectURL . "&code=" . $code . "&client_secret=" . $client_secret . "&state=" . $state;

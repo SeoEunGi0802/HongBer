@@ -80,7 +80,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                 <div class="swiper-button-prev prev"></div>
                 <div class="swiper-pagination pag"></div>
               </div>
-              <form action="/hongber/php/addwait.php" method="POST">
+              <form action="/hongber/php/addwait.php" method="POST" id="pick_form">
                 <input type="hidden" name="adv_e" value="<?= $row['spread_id'] ?>">
                 <input type="hidden" name="adv_n" value="<?= $row['spread_name'] ?>">
                 <?php if (isset($_SESSION["hislog"])) {

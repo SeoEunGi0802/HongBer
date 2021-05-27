@@ -96,6 +96,9 @@ if (isset($_SESSION['naver_access_token'])) {
         $sql = "DELETE FROM myed WHERE myed_email = '$hemail' AND myed_name = '$hname'";
         $res = $connect->query($sql);
 
+        $sql = "DELETE FROM spread WHERE spread_name = '$hname' AND spread_id = '$hemail'";
+        $res = $connect->query($sql);
+
         $sql = "DELETE FROM hser WHERE h_id = '$hid' AND h_name = '$hname' AND h_email = '$hemail'";
         $res = $connect->query($sql);
 

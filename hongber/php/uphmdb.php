@@ -19,6 +19,7 @@ if (!isset($_SESSION['hislog'])) {
     date_default_timezone_set('Asia/Seoul');
     $hm_day = date("Y-m-d H:i");
 }
+
 if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file']['tmp_name']) != false) {
     $size = getimagesize($_FILES['file']['tmp_name']);
     $type = $size['mime'];
@@ -40,6 +41,10 @@ if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file'
         $stmt->bindParam(1, $ti, PDO::PARAM_LOB);
         $stmt->execute();
 
+        if ($hm_sd > $hm_ed) {
+            echo "<script>alert('등록 기간을 제대로 설정해주세요.'); history.back(-1)'</script>";
+        }
+
         $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day', category = '$category' WHERE hm_email = '$hm_email'";
         $res3 = $connect->query($sql3);
 
@@ -48,6 +53,10 @@ if (is_uploaded_file($_FILES['file']['tmp_name']) && getimagesize($_FILES['file'
         echo "<script>alert('사진의 크기가 너무 큽니다.'); location.href='/hongber/php/match.php'</script>";
     }
 } else {
+    if ($hm_sd > $hm_ed) {
+        echo "<script>alert('등록 기간을 제대로 설정해주세요.'); history.back(-1)'</script>";
+    }
+    
     $sql3 = "UPDATE hmatch SET hm_r = '$hm_r', hm_sd = '$hm_sd', hm_ed = '$hm_ed', hm_day = '$hm_day', category = '$category' WHERE hm_email = '$hm_email'";
     $res3 = $connect->query($sql3);
     echo "<script>alert('변경사항이 적용되었습니다.'); location.href='/hongber/php/match.php'</script>";

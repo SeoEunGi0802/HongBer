@@ -20,7 +20,7 @@ $row = $res->fetch();
     <link rel="stylesheet" href="/hongber/css/findid_php.css">
     <script>
         function hclose() {
-            opener.document.location.href = "/html/hlogin.html";
+            opener.document.location.href = "/hongber/html/hlogin.html";
             self.close();
         }
     </script>

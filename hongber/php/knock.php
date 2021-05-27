@@ -32,6 +32,16 @@ if (!empty($urow)) {
   $profile_img = $hrow['h_pimg'];
 }
 
+if (!empty($urow)) {
+  $msg = $urow['u_msg'];
+} else if (!empty($nrow)) {
+  $msg = $nrow['n_msg'];
+} else if (!empty($krow)) {
+  $msg = $krow['k_msg'];
+} else {
+  $msg = $hrow['h_msg'];
+}
+
 if (!isset($_SESSION['hislog'])) {
 } else {
   $hemail = $_SESSION['hemail'];
@@ -175,10 +185,10 @@ if (!isset($_SESSION['kakao_access_token'])) {
         <table>
           <tr>
             <td>number</td>
-            <td colspan="2">홍보 기간</td>
+            <td>홍보 기간</td>
             <td>홍보 아이템</td>
             <td>홍보 수단</td>
-            <td>더보기</td>
+            <!-- <td>더보기</td> -->
           </tr>
           <?php
           $num = 1;
@@ -188,11 +198,10 @@ if (!isset($_SESSION['kakao_access_token'])) {
             while ($row = $result->fetch()) {
               echo '<tr>';
               echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+              echo '<td class="showmore">' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a onclick="more()">◀</a>' . '</td>';
+              // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
               echo '</tr>';
               $num = $num + 1;
             }
@@ -202,11 +211,10 @@ if (!isset($_SESSION['kakao_access_token'])) {
             while ($row = $result->fetch()) {
               echo '<tr>';
               echo '<td>' . $num . '</td>';
-              echo '<td>' . $row['mying_sd'] . '</td>';
-              echo '<td>' . $row['mying_ed'] . '</td>';
-              echo '<td>' . $row['mying_prod'] . '</td>';
+              echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+              echo '<td class="showmore">' . $row['mying_prod'] . '</td>';
               echo '<td>' . $row['mying_tool'] . '</td>';
-              echo '<td>' . '<a onclick="more()">◀</a>' . '</td>';
+              // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
               echo '</tr>';
               $num = $num + 1;
             }
@@ -218,19 +226,39 @@ if (!isset($_SESSION['kakao_access_token'])) {
         <table>
           <tr>
             <td>number</td>
-            <td colspan="2">홍보 기간</td>
+            <td>홍보 기간</td>
+            <td>홍보 아이템</td>
             <td>홍보 수단</td>
+            <!-- <td>더보기</td> -->
           </tr>
           <?php
-          $sql = "SELECT * FROM myed";
-          $result = $connect->query($sql);
-          while ($row = $result->fetch()) {
-            echo '<tr>';
-            echo '<td>' . $row['num'] . '</td>';
-            echo '<td>' . $row['myed_sd'] . '</td>';
-            echo '<td>' . $row['myed_ed'] . '</td>';
-            echo '<td>' . $row['myed_means'] . '</td>';
-            echo '</tr>';
+          $num = 1;
+          if (isset($_SESSION['hislog'])) {
+            $sql = "SELECT * FROM myed WHERE myed_adv_email = '$email' AND myed_adv_name = '$name'";
+            $result = $connect->query($sql);
+            while ($row = $result->fetch()) {
+              echo '<tr>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+              echo '<td class="showmore">' . $row['myed_prod'] . '</td>';
+              echo '<td>' . $row['myed_tool'] . '</td>';
+              // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+              echo '</tr>';
+              $num = $num + 1;
+            }
+          } else {
+            $sql = "SELECT * FROM myed WHERE myed_email = '$email' AND myed_name = '$name'";
+            $result = $connect->query($sql);
+            while ($row = $result->fetch()) {
+              echo '<tr>';
+              echo '<td>' . $num . '</td>';
+              echo '<td>' . $row['mying_sd'] . '<br>' . $row['mying_ed'] . '</td>';
+              echo '<td class="showmore">' . $row['myed_prod'] . '</td>';
+              echo '<td>' . $row['myed_tool'] . '</td>';
+              // echo '<td>' . '<button class="addmore" onclick="more(this.value)" value="' . $row['num'] . '">◀</button></td>';
+              echo '</tr>';
+              $num = $num + 1;
+            }
           }
           ?>
         </table>

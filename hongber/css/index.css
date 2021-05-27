@@ -3,7 +3,7 @@
 body {
   margin: 0 auto;
   font-family: serif;
-  background-color: #120e10;
+  background: rgba(0, 0, 0, 0.9);
 }
 a {
   color: #000;
@@ -306,7 +306,6 @@ header > div {
 
 .promote > div > div > a {
   color: #fff;
-  text-decoration: none;
 }
 
 .category1 {
@@ -320,8 +319,9 @@ header > div {
 }
 
 .category3 {
-  background: url(/hongber/css/image/poster.jpg) center center no-repeat;
+  background: url(/hongber/css/image/logo_hongber.png) center center no-repeat;
   background-size: cover;
+  background-color: wheat;
 }
 
 .category4 {

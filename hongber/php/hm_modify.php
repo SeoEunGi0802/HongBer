@@ -41,8 +41,8 @@ if (empty($row)) {
     <?php
     include "../header.php";
     ?>
-    <form enctype="multipart/form-data" action="/hongber/php/uphmdb.php" method="POST">
-        <div class="form_wrap">
+    <div class="form_wrap">
+        <form enctype="multipart/form-data" action="/hongber/php/uphmdb.php" method="POST">
             <p>이름</p>
             <input type="text" id="inpname" name="name" placeholder="ex)홍길동(이름)" required readonly><br>
             <p>홍보할 제품 사진 업로드</p>
@@ -71,7 +71,7 @@ if (empty($row)) {
             <div>
                 <input type="submit" value="수정" id="submit">
             </div>
-        </div>
+    </div>
     </form>
     <?php
     if (!isset($_SESSION['hislog'])) {
@@ -85,11 +85,15 @@ if (empty($row)) {
         echo "<script>document.getElementById('inpname').value = '" . $_SESSION['hname'] . "'</script>";
         echo "<script>document.getElementById('preimg').src = '" . $row['hm_upimg'] . "'</script>";
         echo "<script>document.getElementById('tr').value = '" . $str . "'</script>";
-        echo "<script>document.getElementById('s_d').value = '" . $day . "'</script>";
+        echo "<script>document.getElementById('s_d').value = '" . $row['hm_sd'] . "'</script>";
         echo "<script>document.getElementById('e_d').value = '" . $row['hm_ed'] . "'</script>";
         echo "<script>document.getElementById('category').value = '" . $row['category'] . "'</script>";
     }
     ?>
+    <script>
+        document.getElementById('s_d').min = new Date().toISOString().substring(0, 10);
+        document.getElementById('e_d').min = new Date().toISOString().substring(0, 10);
+    </script>
     <script>
         $('#e_d').blur(function() {
             if ($('#s_d').val() > $('#e_d').val()) {
@@ -125,7 +129,6 @@ if (empty($row)) {
             readURL(this);
         });
     </script>
-
 </body>
 
 </html>

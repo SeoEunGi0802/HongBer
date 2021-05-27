@@ -112,7 +112,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                         ?>
                                     <?php } ?>
                                     <span class="col1"><?= $num ?></span>
-                                    <span class="col2"><?= $wait_name ?></span>
+                                    <span class="col2"><a href="/hongber/php/knock.php?name=<?= $wait_name ?>&email=<?= $wait_email ?>"><?= $wait_name ?></a></span>
                                     <span class="col3"><?= $wait_email ?></span>
                                     <span class="col4"><?= $wait_day ?></span>
                                     <span class="col5"><?= $wait_status ?></span>

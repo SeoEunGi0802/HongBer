@@ -4,6 +4,7 @@ body {
   margin: 0 auto;
   font-family: serif;
   background: url('./image/login_logo.jpg') no-repeat 50% 0%;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 a {

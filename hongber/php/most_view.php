@@ -27,7 +27,7 @@ while ($row = $res->fetch()) {
         <div class='hot_img'><img src="<?= $row2['hm_upimg'] ?>"></div>
         <textarea class='hot_comment' readonly><?= $row2['hm_r'] ?></textarea>
         <div class='hot_date'>
-            <p class="hm_sd_ed"><?= $row2['hm_sd'] ?> ~ <?= $row2['hm_ed'] ?></p>
+            <p class="hot_sd_ed"><?= $row2['hm_sd'] ?> ~ <?= $row2['hm_ed'] ?></p>
         </div>
         <button class='send' id='send' value='<?= $row2['hm_email'] ?>' onclick=message(this.value)><img src="/hongber/css/image/matching.png"></button>
     </div>

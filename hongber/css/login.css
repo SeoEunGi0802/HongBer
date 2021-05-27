@@ -4,6 +4,7 @@ body {
     margin: 0 auto;
     font-family: serif;
     background: url('./image/login_logo.jpg') no-repeat 50% 30%;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 a {
@@ -80,3 +81,14 @@ body::-webkit-scrollbar {
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px white;
   }
+
+  .homebtn {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    width: 70px;
+    height: 70px;
+    background: url(/hongber/css/image/home.png) center center no-repeat;
+    background-size: cover;
+    border-radius: 10%;
+}

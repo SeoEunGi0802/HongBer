@@ -2,7 +2,8 @@
 
 body {
     margin: 0 auto;
-    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    font-family: serif;
+    background: rgba(0, 0, 0, 0.9);
 }
 
 a {
@@ -26,44 +27,111 @@ header {
   justify-content: space-between;
   flex-direction: row;
   width: 1280px;
-  height: 50px;
-  background-color: white;
-  border-top: 3px solid #999;
-  border-bottom: 3px solid #999;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 1);
   margin: 0 auto;
   font-size: 20px;
   z-index: 1;
 }
-header > div{
-  line-height: 50px;
+header > div {
   padding: 5px 0;
 }
 .logo {
-  margin-top: 5px;
-  background: #2f3542;
-  padding-top: 10px;
-  height: 30px;
+  width: 250px;
+  height: 100px;
+  background: url(/hongber/css/image/logo.png) center center no-repeat;
+  background-size: contain;
 }
-.logo span{
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-  width: 100%;
-  color: #fff;
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
+}
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
 }
 .nav_p {
-  line-height: 40px;
+  line-height: 30px;
+  color: #705d59;
   font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
 }
 .nav_p:hover {
-  border-bottom: 2px solid rgba(0,0,0,0.2)
-}
-.nav_a:hover {
-  font-size: 18px;
-  font-weight: bold;
+  background-color: #705d59;
+  color: #000;
 }
 .logout_nav {
   display: none;
   background-color: #fff;
+}
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  line-height: 40px;
+  text-align: right;
+}
+.searchbox {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
+}
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  margin-left: -3px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: 80%;
+  vertical-align: middle;
+}
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.wrap_bgimg {
+  position: relative;
+  max-width: 1280px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  background-color: #8C6055;
+}
+
+.content_wrap::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/hongber/css/image/content_background.jpg) center center no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.content_wrap {
+  width: 100%;
+  height: 100%;
 }
 
 .profile {
@@ -86,25 +154,54 @@ header > div{
   cursor: pointer;
 }
 
+.file_btn {
+  position: absolute;
+  right: -75px;
+  bottom: -3px;
+  width: 77px;
+  height: 27px;
+  line-height: 27px;
+  background-color: #433431;
+  padding: 0;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.file_btn span {
+  color: #fff;
+  font-family: '나눔 고딕', NanumGothic;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .edit {
   position: absolute;
   right: -75px;
   bottom: -3px;
   width: 75px;
   height: 25px;
+  opacity: 0;
 }
 
 .profile_info {
+  position: relative;
   width: 700px;
   height: auto;
   margin: 0 auto 50px;
+  color: #fff;
+  font-weight: bold;
 }
 
 .profile_info input {
   width: 100%;
   line-height: 25px;
   box-sizing: border-box;
-  margin-bottom: 25px;
+  margin: 10px 0 25px;
+  background-color: #433431;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .profile_info input:last-child {
@@ -115,10 +212,16 @@ header > div{
   width: 100%;
   height: 50px;
   resize: none;
+  margin-top: 10px;
   box-sizing: border-box;
+  background-color: #433431;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .change_btn_wrap {
+  position: relative;
     text-align: center;
 }
 
@@ -126,6 +229,10 @@ header > div{
     width: 75px;
     height: 30px;
     box-sizing: border-box;
+    background-color: #433431;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 
 .cancel_btn {
@@ -133,6 +240,31 @@ header > div{
 }
 
 .secession {
+  position: relative;
   text-align: right;
   margin: 25px 50px 25px 0;
+}
+
+.secession_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: #433431;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.secession_btn span {
+  color: #fff;
+  font-family: '나눔 고딕', NanumGothic;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.secession_btn+input {
+  opacity: 0;
 }

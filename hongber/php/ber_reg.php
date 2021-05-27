@@ -67,7 +67,7 @@ error_reporting(0);
       <?php
       // 네이버 로그인 접근토큰 요청 예제
       $client_id = "DRFaCS0hy5tsmm8uWjSH";
-      $redirectURI = urlencode("http://localhost/php/naver_callback.php");
+      $redirectURI = urlencode("http://localhost/hongber/php/naver_callback.php");
       function ngenerate_state()
       {
          $mt = microtime();
@@ -88,7 +88,7 @@ error_reporting(0);
       <?php
       // 카카오 로그인 접근토큰 요청 예제   
       $app_key = "1e244097dc165fec1a765891df0be219";
-      $redirect_uri = "http://localhost/php/kakao_callback.php";
+      $redirect_uri = "http://localhost/hongber/php/kakao_callback.php";
       function kgenerate_state()
       {
          $mt = microtime();

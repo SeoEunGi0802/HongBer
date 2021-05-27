@@ -16,27 +16,6 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <link rel="stylesheet" href="/hongber/css/spread.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-  <script>
-    function details() {
-      document.getElementById("front");
-      front.style.display = "none";
-    }
-
-    function rdetails() {
-      document.getElementById("front");
-      front.style.display = "";
-    }
-
-    function setThumbnail(event) {
-      var reader = new FileReader();
-      reader.onload = function(event) {
-        var img = document.createElement("img");
-        img.setAttribute("src", event.target.result);
-        document.querySelector("div#image_container").appendChild(img);
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  </script>
   <title>Spread</title>
 </head>
 
@@ -77,7 +56,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
           <input type="radio" name="tool" value="App">App
           <input type="radio" name="tool" value="기타" class="another" id="another">기타
           <br>
-          <input type="text" name="etc" class="etc" placeholder="기타 선택시에 작성해주세요.">
+          <input type="text" name="etc" class="etc" placeholder="기타 선택시에 작성해주세요." disabled>
         </div>
         <div class="kakao_ad">
           <p>오픈채팅 주소</p>
@@ -90,7 +69,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
             <label for="file">업로드</label>
             <input type="file" id="file" name="file" accept="image/gif, image/jpeg, image/png">
           </div><br>
-          <textarea type="text" name="add" placeholder="광고주 본인을 소개해주세요!" required class="intro"></textarea>
+          <textarea type="text" name="add" placeholder="광고주 본인을 소개해주세요!" required class="intro" maxlength="300"></textarea>
         </div>
         <div class="upload_wrap2">
           <p>홍보할 제품 소개</p>
@@ -100,7 +79,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
             <input type="file" id="file2" name="file2" accept="image/gif, image/jpeg, image/png">
           </div><br>
           <div class="introduce_prod">
-            <textarea type="text" name="prod" required placeholder="홍보계획에 대한 정보를 적어주세요!" class="intro"></textarea>
+            <textarea type="text" name="prod" required placeholder="홍보계획에 대한 정보를 적어주세요!" class="intro" maxlength="300"></textarea>
           </div>
         </div>
         <input type="submit" value="뿌리기" id="sbtn" class="sbtn">
@@ -187,9 +166,9 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <script>
     $(document).ready(function() {
       $("input:radio[name=tool]").click(function() {
-        if ($("input[id=another]:checked").val() == "기타") {
+        if ($("input[name=tool]:checked").val() == "기타") {
           $(".etc").attr("disabled", false);
-        } else if ($("input[id=another]:checked").val() != "기타") {
+        } else if ($("input[name=tool]:checked").val() != "기타") {
           $(".etc").attr("disabled", true);
         }
       });

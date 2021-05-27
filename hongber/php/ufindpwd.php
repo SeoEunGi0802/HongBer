@@ -21,7 +21,7 @@ $row = $res->fetch();
     <link rel="stylesheet" href="/hongber/css/findpwd_php.css">
     <script>
         function hclose() {
-            opener.document.location.href = "/php/ulogin.php";
+            opener.document.location.href = "/hongber//php/ulogin.php";
             self.close();
         }
     </script>
