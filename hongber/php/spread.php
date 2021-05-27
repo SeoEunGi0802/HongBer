@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token']) && !isset($_SESSION["mislog"])) {
+  echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -86,7 +90,7 @@ session_start();
             <label for="file">업로드</label>
             <input type="file" id="file" name="file" accept="image/gif, image/jpeg, image/png">
           </div><br>
-          <input type="text" name="add" placeholder="광고주 본인을 소개해주세요!" required class="intro">
+          <textarea type="text" name="add" placeholder="광고주 본인을 소개해주세요!" required class="intro"></textarea>
         </div>
         <div class="upload_wrap2">
           <p>홍보할 제품 소개</p>
@@ -96,7 +100,7 @@ session_start();
             <input type="file" id="file2" name="file2" accept="image/gif, image/jpeg, image/png">
           </div><br>
           <div class="introduce_prod">
-            <input type="text" name="prod" required placeholder="홍보계획에 대한 정보를 적어주세요!" class="intro">
+            <textarea type="text" name="prod" required placeholder="홍보계획에 대한 정보를 적어주세요!" class="intro"></textarea>
           </div>
         </div>
         <input type="submit" value="뿌리기" id="sbtn" class="sbtn">

@@ -43,6 +43,7 @@ body {
   #write_msg textarea {
       width: 550px;
       height: 300px;
+      resize: none;
   }
   #write_msg #textarea {
       position: relative;

@@ -2,9 +2,10 @@
 include "config.php";
 session_start();
 
-if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
+if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token']) && !isset($_SESSION["mislog"])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
+
 if (!isset($_SESSION['hislog'])) {
 } else {
   $hid = $_SESSION['hid'];
@@ -96,7 +97,7 @@ if (!isset($_SESSION['hislog'])) {
     </div>
   </div>
   <!-- 쪽지 목록 보기 구현 시키기 광고주는 rv 유저는 send-->
-  <button class="send_li" onclick="viewmsg()"><img src="/hongber/css/image/archive.png"></button>
+  <button class="send_li" onclick="viewmsg()"><img src="/hongber/css/image/archive2.png"></button>
   <script>
     function hdinfo() {
       const width = '800';
@@ -168,9 +169,6 @@ if (!isset($_SESSION['hislog'])) {
       window.open('/hongber/php/more_info.php?email=' + email, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
-  <?php
-  include "home.php";
-  ?>
 </body>
 <?php
 $connect = null;

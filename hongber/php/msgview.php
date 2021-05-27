@@ -2,9 +2,10 @@
 include "config.php";
 session_start();
 
-if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token'])) {
+if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token']) && !isset($_SESSION["mislog"])) {
     echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
+
 if (!isset($_SESSION['hislog'])) {
 } else {
     $email = $_SESSION['hemail'];
@@ -46,8 +47,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                         ?></h3>
                 <ul class="top_buttons">
                     <li><a href="#" onclick="history.back()">목록 보기</a></li>
-                    <li><a href="/php/msgbox.php?mode=rv">받은 쪽지함</a></li>
-                    <li><a href="/php/msgbox.php?mode=send">보낸 쪽지함</a></li>
+                    <li><a href="/hongber/php/msgbox.php?mode=rv">받은 쪽지함</a></li>
+                    <li><a href="/hongber/php/msgbox.php?mode=send">보낸 쪽지함</a></li>
                 </ul>
                 <div id="write_msg">
                     <ul>

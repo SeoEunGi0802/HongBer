@@ -496,7 +496,7 @@ body::-webkit-scrollbar-track {
   margin-right: 40px;
   border: none;
   z-index: 12;
-  background-color: #fff;
+  background: none;
 }
 .send_li > img{
   width: 50px;

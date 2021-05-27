@@ -150,19 +150,17 @@ header > div {
 .introduce_add{
   text-align: center;
 }
-.introduce_add input{
+.introduce_add textarea{
   background: rgba(0, 0, 0, 0.4);
   color: rgba(219, 200, 182, 0.6);
-  width: 500px;
-  height: 150px;
+  height: 200px;
 }
 .introduce_prod{
   text-align: center;
 }
-.introduce_prod input{
+.introduce_prod textarea{
   background: rgba(0, 0, 0, 0.4);
   color: rgba(219, 200, 182, 0.6);
-  width: 500px;
   height: 200px;
 }
 .filebox{
@@ -194,6 +192,7 @@ header > div {
 }
 .upload_wrap2 {
   text-align: center;
+  margin-bottom: 50px;
 }
 .upload_wrap2 p{
   font-size: 2rem;
@@ -258,6 +257,7 @@ select {
   margin-top: 10px;
   width: 500px;
   resize: none;
+  border-radius: 10px;
 }
 .form_container h1{
   font-size: 50px;
@@ -343,6 +343,7 @@ select {
 }
 .upload_wrap {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .upload_wrap p{

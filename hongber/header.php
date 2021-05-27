@@ -23,13 +23,13 @@
             </a>
         </div>
         <?php
-        if (isset($_SESSION["hislog"])) { ?>
+        if (isset($_SESSION["hislog"]) || isset($_SESSION["mislog"])) { ?>
             <div>
                 <a href="/hongber/php/spread.php" class="nav_a">
                     <p class="nav_p">Seedding AD</p>
                 </a>
             </div>
-        <?php } else if (isset($_SESSION["uislog"]) || isset($_SESSION['naver_access_token']) || isset($_SESSION['kakao_access_token'])) { ?>
+        <?php } else if (isset($_SESSION["uislog"]) || isset($_SESSION['naver_access_token']) || isset($_SESSION['kakao_access_token']) || isset($_SESSION["mislog"])) { ?>
             <div>
                 <a href="/hongber/php/pickup.php" class="nav_a">
                     <p class="nav_p">Picking AD</p>
