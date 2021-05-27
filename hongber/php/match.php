@@ -186,6 +186,14 @@ if (!isset($_SESSION['hislog'])) {
       window.open('/hongber/php/more_info.php?email=' + email, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
+  <script>
+    jQuery(function($) {
+      $(".btn_box").hover(function() {
+        $(".drop_btn").stop().slideToggle("500");
+        $(".drop_btn1").stop().slideToggle("500");
+      });
+    });
+  </script>
 </body>
 <?php
 $connect = null;
