@@ -1,5 +1,8 @@
 <?php
+include "./php/config.php";
 session_start();
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -65,18 +68,43 @@ session_start();
         });
       </script>
     </div>
+    <?php
+    $sql = "SELECT category FROM hmatch GROUP BY category ORDER BY COUNT(category) DESC LIMIT 4";
+    $res = $connect->query($sql);
+    $row = $res->fetchAll();
+    if ($row[0][0] != null) {
+      $category1 = $row[0][0];
+    } else {
+      $category1 = "";
+    }
+    if ($row[1][0] != null) {
+      $category2 = $row[1][0];
+    } else {
+      $category2 = "";
+    }
+    if ($row[2][0] != null) {
+      $category3 = $row[2][0];
+    } else {
+      $category3 = "";
+    }
+    if ($row[3][0] != null) {
+      $category4 = $row[3][0];
+    } else {
+      $category4 = "";
+    }
+    ?>
     <div class="promote">
-      <div class="sns">
-        <div>SNS</div>
+      <div class="category1">
+        <div><a href="/hongber/php/match.php?c=<?= $category1 ?>"><?= $category1 ?></a></div>
       </div>
-      <div class="song">
-        <div>Song</div>
+      <div class="category2">
+        <div><a href="/hongber/php/match.php?c=<?= $category2 ?>"><?= $category2 ?></a></div>
       </div>
-      <!-- <div class="poster">
-        <div>Poster</div>
-      </div> -->
-      <div class="person">
-        <div>Person</div>
+      <div class="category3">
+        <div><a href="/hongber/php/match.php?c=<?= $category3 ?>"><?= $category3 ?></a></div>
+      </div>
+      <div class="category4">
+        <div><a href="/hongber/php/match.php?c=<?= $category4 ?>"><?= $category4 ?></a></div>
       </div>
     </div>
     <footer>

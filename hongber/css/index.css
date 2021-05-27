@@ -304,22 +304,27 @@ header > div {
   letter-spacing: 5px;
 }
 
-.sns {
+.promote > div > div > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.category1 {
   background: url(/hongber/css/image/sns.jpg) center center no-repeat;
   background-size: cover;
 }
 
-.song {
+.category2 {
   background: url(/hongber/css/image/song.jpg) center center no-repeat;
   background-size: cover;
 }
 
-/* .poster {
-  background: url(/css/image/poster.jpg) center center no-repeat;
+.category3 {
+  background: url(/hongber/css/image/poster.jpg) center center no-repeat;
   background-size: cover;
-} */
+}
 
-.person {
+.category4 {
   background: url(/hongber/css/image/person.jpg) center center no-repeat;
   background-size: cover;
 }

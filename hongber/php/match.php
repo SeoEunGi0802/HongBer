@@ -65,25 +65,25 @@ if (!isset($_SESSION['hislog'])) {
         ?>
       </div>
       <div class="category_box">
-        <a href="?c=cs" class="categorySNS">
+        <a href="?c=SNS" class="categorySNS">
           <div>SNS</div>
         </a>
-        <a href="?c=cy" class="categoryYouTube">
+        <a href="?c=YouTube" class="categoryYouTube">
           <div>YouTube</div>
         </a>
-        <a href="?c=cw" class="categoryWEB">
+        <a href="?c=WEB" class="categoryWEB">
           <div>WEB</div>
         </a>
-        <a href="?c=ca" class="categoryAPP">
+        <a href="?c=APP" class="categoryAPP">
           <div>APP</div>
         </a>
-        <a href="?c=cA" class="categoryA">
+        <a href="?c=categoryA" class="categoryA">
           <div>categoryA</div>
         </a>
-        <a href="?c=cB" class="categoryB">
+        <a href="?c=categoryB" class="categoryB">
           <div>categoryB</div>
         </a>
-        <a href="?c=cC" class="categoryC">
+        <a href="?c=categoryC" class="categoryC">
           <div>categoryC</div>
         </a>
         <a href="./match.php" class="categoryALL">

@@ -14,25 +14,25 @@ if (isset($_POST['regday'])) {
 if (isset($_GET['c'])) {
     $cate = $_GET['c'];
     switch ($cate) {
-        case 'cs':
+        case 'SNS':
             $sql = "SELECT * FROM hmatch WHERE category = 'SNS'";
             break;
-        case 'cy':
+        case 'YouTube':
             $sql = "SELECT * FROM hmatch WHERE category = 'YouTube'";
             break;
-        case 'cw':
+        case 'WEB':
             $sql = "SELECT * FROM hmatch WHERE category = 'WEB'";
             break;
-        case 'ca':
+        case 'APP':
             $sql = "SELECT * FROM hmatch WHERE category = 'APP'";
             break;
-        case 'cA':
+        case 'categoryA':
             $sql = "SELECT * FROM hmatch WHERE category = 'categoryA'";
             break;
-        case 'cB':
+        case 'categoryB':
             $sql = "SELECT * FROM hmatch WHERE category = 'categoryB'";
             break;
-        case 'cC':
+        case 'categoryC':
             $sql = "SELECT * FROM hmatch WHERE category = 'categoryC'";
             break;
         default:
