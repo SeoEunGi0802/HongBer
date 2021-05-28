@@ -277,10 +277,6 @@ header > div {
   height: 300px;
   border-radius: 20px;
 }
-/* .hot_img:hover{
-  transition-duration: 1s;
-  display: none;
-} */
 .hot_comment{
   margin-top: 10px;
   width: 370px;
@@ -403,10 +399,6 @@ header > div {
   width: 400px;
   height: 400px;
   border-radius: 20px;
-}
-.hm_img:hover{
-  transition-duration: 1s;
-  display: none;
 }
 .hm_comment{
   margin-top: 10px;
