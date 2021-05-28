@@ -103,7 +103,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                                                                                             } else {
                                                                                                                 echo "&send_email=";
                                                                                                             } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
-                                    <span class="col3"><?= $msg_id ?></span>
+                                    <span class="col3"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
+                                                                                                                echo "&rv_email=";
+                                                                                                            } else {
+                                                                                                                echo "&send_email=";
+                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $msg_id ?></a></span>
                                     <span class="col4"><?= $regist_day ?></span>
                                     <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
                             </li>
@@ -163,10 +167,10 @@ if (!isset($_SESSION['kakao_access_token'])) {
         }
     </script>
     <script>
-    function source() {
-        window.opener.location.href="https://lcw126.tistory.com/m/214";
-        window.close();
-    }
+        function source() {
+            window.opener.location.href = "https://lcw126.tistory.com/m/214";
+            window.close();
+        }
     </script>
 </body>
 
