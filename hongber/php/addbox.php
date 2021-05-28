@@ -98,7 +98,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                             $wait_day = $row['wait_day'];
                             $wait_status = $row['wait_status'];
                         ?>
-                            <li>
+                            <li class="userlist">
                                 <form action='' method="POST">
                                     <?php if ($mode == "A") { ?>
                                         <?php
@@ -116,6 +116,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                     <span class="col3"><a href="/hongber/php/knock.php?name=<?= $wait_name ?>&email=<?= $wait_email ?>"><?= $wait_email ?></a></span>
                                     <span class="col4"><?= $wait_day ?></span>
                                     <span class="col5"><?= $wait_status ?></span>
+                                </form>
                             </li>
                         <?php
                             $num = $num + 1;

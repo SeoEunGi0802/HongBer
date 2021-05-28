@@ -94,7 +94,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                             $regist_day = $row['regist_day'];
                             $rv_check = $row['rv_check'];
                         ?>
-                            <li>
+                            <li class="messagelist">
                                 <form action='/hongber/php/msgdel.php?mode=<?= $mode == 'send' ? 'send' : 'rv' ?>' method="POST">
                                     <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
                                     <span class="col1"><?= $num ?></span>
@@ -110,6 +110,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                                                                                             } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $msg_id ?></a></span>
                                     <span class="col4"><?= $regist_day ?></span>
                                     <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
+                                </form>
                             </li>
                         <?php
                             $num = $num + 1;
@@ -156,7 +157,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
             </div>
         </div>
     </section>
-    <div id="source" onclick="source()">Source By https://lcw126.tistory.com/m/214</div>
     <script>
         function selall(selectAll) {
             const chb = document.getElementsByName('del[]');
@@ -164,12 +164,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
             chb.forEach((checkbox) => {
                 checkbox.checked = selectAll.checked;
             })
-        }
-    </script>
-    <script>
-        function source() {
-            window.opener.location.href = "https://lcw126.tistory.com/m/214";
-            window.close();
         }
     </script>
 </body>

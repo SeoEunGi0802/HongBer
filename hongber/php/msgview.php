@@ -44,12 +44,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                         $mode = $_GET['mode'];
                                         if ($mode == "send") echo "보낸 쪽지";
                                         else echo "받은 쪽지";
-                                        ?></h3>
-                <ul class="top_buttons">
-                    <li><a href="#" onclick="history.back()">목록 보기</a></li>
-                    <li><a href="/hongber/php/msgbox.php?mode=rv">받은 쪽지함</a></li>
-                    <li><a href="/hongber/php/msgbox.php?mode=send">보낸 쪽지함</a></li>
-                </ul>
+                                        ?>
+                    <ul class="top_buttons">
+                        <li><a href="#" onclick="history.back()">목록 보기</a></li>
+                        <li><a href="/hongber/php/msgbox.php?mode=rv">받은 쪽지함</a></li>
+                        <li><a href="/hongber/php/msgbox.php?mode=send">보낸 쪽지함</a></li>
+                    </ul>
+                </h3>
                 <div id="write_msg">
                     <ul>
                         <?php
@@ -83,26 +84,26 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         </li>
                         <li id="textarea">
                             <span class="col1">내용 : </span>
-                            <span class="col2"><textarea name="content" readonly><?php if ($mode == "send") {
-                                                                                        $id = $_GET['rv_email'];
-                                                                                        $subj = $_GET['subject'];
-                                                                                        $sql = "SELECT * FROM msgsend WHERE rv_id = '$id' AND subject = '$subj'";
-                                                                                    } else {
-                                                                                        $id = $_GET['send_email'];
-                                                                                        $subj = $_GET['subject'];
-                                                                                        $sql = "SELECT * FROM msgrv WHERE send_id =  '$id' AND subject = '$subj'";
+                            <span class="col2"><?php if ($mode == "send") {
+                                                    $id = $_GET['rv_email'];
+                                                    $subj = $_GET['subject'];
+                                                    $sql = "SELECT * FROM msgsend WHERE rv_id = '$id' AND subject = '$subj'";
+                                                } else {
+                                                    $id = $_GET['send_email'];
+                                                    $subj = $_GET['subject'];
+                                                    $sql = "SELECT * FROM msgrv WHERE send_id =  '$id' AND subject = '$subj'";
 
-                                                                                        $cssql = "UPDATE msgsend SET rv_check = 'v' WHERE send_id = '$id' AND subject = '$subj'";
-                                                                                        $csres = $connect->query($cssql);
-                                                                                        $csres->fetch();
+                                                    $cssql = "UPDATE msgsend SET rv_check = 'v' WHERE send_id = '$id' AND subject = '$subj'";
+                                                    $csres = $connect->query($cssql);
+                                                    $csres->fetch();
 
-                                                                                        $crsql = "UPDATE msgrv SET rv_check = 'v' WHERE send_id = '$id' AND subject = '$subj'";
-                                                                                        $crres = $connect->query($crsql);
-                                                                                        $crres->fetch();
-                                                                                    }
-                                                                                    $res = $connect->query($sql);
-                                                                                    $row = $res->fetch();
-                                                                                    echo $row['content']; ?></textarea></span>
+                                                    $crsql = "UPDATE msgrv SET rv_check = 'v' WHERE send_id = '$id' AND subject = '$subj'";
+                                                    $crres = $connect->query($crsql);
+                                                    $crres->fetch();
+                                                }
+                                                $res = $connect->query($sql);
+                                                $row = $res->fetch();
+                                                echo $row['content']; ?></span>
                         </li>
                         <?php
                         if ($mode == "send") {

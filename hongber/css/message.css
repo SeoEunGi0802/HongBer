@@ -1,27 +1,36 @@
 /*----------------------전체 반영--------------------*/
 body {
-  margin: 0 auto;
-  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    margin: 0 auto;
+    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    background-color: #70524a;
+    color: rgb(238, 224, 198);
 }
 a {
-  color: #000;
-  text-decoration: none;
+    color: #000;
+    text-decoration: none;
 }
 #wrap{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 /*----------------------쪽지 영역--------------------*/
 #message {
     width: 800px; margin: 0 auto;
+    background: #433431;
+    border-radius: 30px;
 } 
 #message h3{
     margin-top: 30px;
     padding: 10px;
-    border-bottom: solid 2px #2f3542;
+    border-bottom: solid 2px wheat;
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
 }
 #wirte_msg{
     padding: 0 20px;
@@ -30,10 +39,24 @@ a {
     display: inline-block;
 }
 #write_msg .col1 {
+    position: relative;
     width: 150px;
 }
+#write_msg .col1::before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 8px;
+    left: -30px;
+    width: 1px;
+    height: 1px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
 #write_msg li{
-    border-bottom: solid 1px #dddddd;
+    list-style: none;
+    border-bottom: solid 1px wheat;
     padding: 12px;
 }
 #write_msg input {
@@ -42,39 +65,65 @@ a {
 }
 #write_msg textarea {
     width: 500px;
-    height: 150px;
+    height: 200px;
     resize: none;
 }
 #write_msg #textarea {
     position: relative;
-    height: 158px;
 }
 #write_msg #textarea .col1 {
-    position: absolute;
-    top: 10px;
+    float: left;
+    margin: 95px 5px 95px 0;
 }
 #write_msg #textarea .col2 {
-    position: absolute;
-    left: 166px;
+    display: inline-block;
+}
+.col2 textarea {
+    background: none;
+    border: 1px solid wheat;
+    font-size: 16px;
+    color: rgb(238, 224, 198);
+}
+.na input[type="text"]{
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgb(238, 224, 198);
+}
+.rv input[type="text"] {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgb(238, 224, 198);
+}
+.sub input[type="text"] {
+    background: none;
+    border: 1px solid wheat;
+    font-size: 16px;
+    color: rgb(238, 224, 198);
 }
 #write_msg input[type="submit"]{
     height: 35px;
     margin: 15px 0 30px 205px;
     cursor: pointer;
+    background: wheat;
+    font-size: large;
+    border-style: double;
 }
 #message .top_buttons{
     text-align: right;
-    margin: 20px 0px;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px wheat;
 }
 #message .top_buttons li{
     display: inline;
     margin-right: 20px;
 }
 #message .top_buttons li a:link{
-    text-decoration: underline;
-    color: #2f3542;
+    color: #fff;
+    text-decoration: none;
 }
 #message .top_buttons li a:visited{
-    text-decoration: underline;
-    color: #2f3542;
+    color: #fff;
+    text-decoration: none;
 }

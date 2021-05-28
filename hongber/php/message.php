@@ -50,15 +50,15 @@ if (!isset($_SESSION['kakao_access_token'])) {
                         <ul>
                             <li>
                                 <span class="col1">보내는 사람 : </span>
-                                <span class="col2"><?= $email ?></span>
+                                <span class="col2 na"><input type="text" value="<?= $email ?>" readonly></span>
                             </li>
                             <li>
                                 <span class="col1">받는 사람 : </span>
-                                <span class="col2"><input type="text" value="<?= $_GET['rev_email'] ?>" name="rv_id" readonly></span>
+                                <span class="col2 rv"><input type="text" value="<?= $_GET['rev_email'] ?>" name="rv_id" readonly></span>
                             </li>
                             <li>
                                 <span class="col1">제목 : </span>
-                                <span class="col2"><input type="text" name="subject"></span>
+                                <span class="col2 sub"><input type="text" name="subject"></span>
                             </li>
                             <li id="textarea">
                                 <span class="col1">내용 : </span>

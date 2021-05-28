@@ -4,7 +4,8 @@
 }
 body {
     margin: 0 auto;
-    font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+    font-family: serif;
+    background-color: #70524a;
 }
 a {
     color: #000;
@@ -24,22 +25,26 @@ a{
 #addbox h3{
     margin-top: 30px;
     padding: 10px;
-    border-bottom: solid 2px #2f3542;
+    border-bottom: solid 2px #433431;
     font-size: 20px;
 }
 #list li{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     padding: 10px 10px 10px 0;
-    border-bottom: solid 1px #dddddd;
+    margin-bottom: 10px;
 }
-#list li:nth-child(1) {
+#list li:nth-child(1) span {
     font-weight: bold;
+    color: #000;
 }
 #list li input {
     width: 30px;
 }
 #list span {
-    display: inline-block;
     text-align: center;
+    color: #be8c7d;
 }
 #list .col0 {
     width: 30px;
@@ -48,6 +53,7 @@ a{
 #list .col1 {
     width: 80px;
     overflow: hidden;
+    font-weight: bold;
 }
 #list .col2 {
     width: 70px;
@@ -56,17 +62,37 @@ a{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+#list .col2 a {
+    color: #be8c7d;
+    font-weight: bold;
+}
 #list .col3 {
     width: 250px;
     overflow: hidden;
 }
+#list .col3 a {
+    color: #be8c7d;
+    font-weight: bold;
+}
 #list .col4 {
     width: 150px;
     overflow: hidden;
+    font-weight: bold;
 }
 #list .col5 {
     width: 150px;
     overflow: hidden;
+    font-weight: bold;
+}
+.userlist {
+    background-color: #433431;
+    border-radius: 10px;
+}
+.userlist form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
 }
 #page_num {
     text-align: center;
