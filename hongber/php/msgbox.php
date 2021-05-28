@@ -110,7 +110,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                                                                                             } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $msg_id ?></a></span>
                                     <span class="col4"><?= $regist_day ?></span>
                                     <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
-                                </form>
                             </li>
                         <?php
                             $num = $num + 1;
@@ -159,6 +158,15 @@ if (!isset($_SESSION['kakao_access_token'])) {
     </section>
     <script>
         function selall(selectAll) {
+            const chb = document.getElementsByName('del[]');
+
+            chb.forEach((checkbox) => {
+                checkbox.checked = selectAll.checked;
+            })
+        }
+    </script>
+    <script>
+        function del() {
             const chb = document.getElementsByName('del[]');
 
             chb.forEach((checkbox) => {
