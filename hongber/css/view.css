@@ -22,6 +22,7 @@ table {
   width: 600px;
   border-top: 1px solid #444444;
   border-collapse: collapse;
+  margin: 30px 0 50px 0;
   /*-ms-user-select: none; 
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -34,12 +35,12 @@ th, td{
   padding: 10px;
   text-align: center;
 }
-.hday{
-  width: 100px;
-  padding: 10px 0 10px 0;
+td:last-child {
+  text-align: left;
 }
-.hdaym{
-  width: 10px;
+.hday{
+  width: 200px;
+  padding: 10px 0 10px 0;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {

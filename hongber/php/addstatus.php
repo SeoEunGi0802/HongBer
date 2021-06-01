@@ -1,6 +1,9 @@
 <?php
 include "config.php";
 session_start();
+error_reporting(E_ALL);
+
+ini_set("display_errors", 1);
 
 $status = $_GET['st'];
 $num = $_POST['del'];
@@ -37,6 +40,9 @@ if ($status == "ac") {
         $sql4 = "INSERT INTO mying(mying_sd, mying_ed, mying_email, mying_name, mying_prod, mying_tool, mying_oc) ";
         $sql4 .= "VALUES ('$sp_sd', '$sp_ed', '$email', '$name', '$sp_pd', '$sp_tl', '$sp_oc')";
         $connect->query($sql4);
+
+        $upsql = "UPDATE spread SET bespread_num = bespread_num - 1 WHERE spread_id = '$adv_e'";
+        $connect->query($upsql);
 
         $updsql = "SET @COUNT = 0;";
         $updsql .= "UPDATE mying SET num = @COUNT:=@COUNT+1;";

@@ -28,7 +28,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
             </tr>
             <tr>
                 <?php
-                $sql = "SELECT * FROM hmatch"; //where id = 'id'";
+                $sql = "SELECT * FROM hmatch WHERE hm_id = ''";
                 $result = $connect->query($sql);
                 while ($row = $result->fetch()) {
                     echo "<td>" . $row['hm_sd'] . "</td>";

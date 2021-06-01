@@ -96,7 +96,6 @@ if (!isset($_SESSION['hislog'])) {
       ?>
     </div>
   </div>
-  <!-- 쪽지 목록 보기 구현 시키기 광고주는 rv 유저는 send-->
   <button class="send_li" onclick="viewmsg()">
     <div class="message_icon"></div>
   </button>

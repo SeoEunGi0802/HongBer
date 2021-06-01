@@ -35,9 +35,8 @@ if (!isset($_SESSION['hislog'])) {
         <table>
             <thead>
                 <tr>
-                    <th colspan="3">등록기간</th>
-                    <th>작성자</th>
-                    <th>각오한마디</th>
+                    <th>등록기간</th>
+                    <th>설명</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,25 +45,17 @@ if (!isset($_SESSION['hislog'])) {
                 $result = $connect->query($sql);
                 while ($row = $result->fetch()) {
                     echo "<tr>";
-                    echo "<td class='hday'>" . $row['hm_sd'] . "</td>";
-                    echo "<td class='hdaym'>~</td>";
-                    echo "<td class='hday'>" . $row['hm_ed'] . "</td>";
-                    echo "<td>" . $row['hm_name'] . "</td>";
+                    echo "<td class='hday'>" . $row['hm_sd'] . "~" . $row['hm_ed'] . "</td>";
                     echo "<td>" . $row['hm_r'] . "</td>";
                     echo '</tr>';
                 }
                 ?>
             </tbody>
         </table>
-
-        <br><br><br>
-
-        <table>
-            <tr>
-                <a href="" onclick="slist()">[목록보기] &nbsp</a>
-                <a href="/hongber/php/hdel.php" onclick="return confirm('삭제하시겠습니까?');">[삭제] &nbsp</a>
-            </tr>
-        </table>
+        <span>
+        <a href="" onclick="slist()">[목록보기] &nbsp</a>
+        <a href="/hongber/php/hdel.php" onclick="return confirm('삭제하시겠습니까?');">[삭제] &nbsp</a>
+        </span>
     </div>
 </body>
 

@@ -35,7 +35,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
       <div class="swiper-wrapper">
 
         <?php
-        $sql = "SELECT * FROM spread";
+        $sql = "SELECT * FROM spread WHERE bespread_num != '0'";
         $res = $connect->query($sql);
         while ($row = $res->fetch()) {
           $sql2 = "SELECT h_pimg FROM hser WHERE h_email = '$row[1]'";

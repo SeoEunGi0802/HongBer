@@ -1,8 +1,6 @@
 <?php
 include "./php/config.php";
 session_start();
-header("Progma:no-cache");
-header("Cache-Control:no-cache,must-revalidate");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
