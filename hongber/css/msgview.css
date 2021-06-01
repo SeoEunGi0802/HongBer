@@ -82,4 +82,7 @@ a {
     height: 35px;
     margin: 15px 0 30px 165px;
     cursor: pointer;
+    background: wheat;
+    font-size: large;
+    border-style: double;
 }

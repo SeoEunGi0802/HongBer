@@ -98,12 +98,12 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                 <form action='/hongber/php/msgdel.php?mode=<?= $mode == 'send' ? 'send' : 'rv' ?>' method="POST">
                                     <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
                                     <span class="col1"><?= $num ?></span>
-                                    <span class="col2"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
+                                    <span class="col2"><a onclick="ref()" href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
                                                                                                                 echo "&rv_email=";
                                                                                                             } else {
                                                                                                                 echo "&send_email=";
                                                                                                             } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
-                                    <span class="col3"><a href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
+                                    <span class="col3"><a onclick="ref()" href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
                                                                                                                 echo "&rv_email=";
                                                                                                             } else {
                                                                                                                 echo "&send_email=";
@@ -172,6 +172,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
             chb.forEach((checkbox) => {
                 checkbox.checked = selectAll.checked;
             })
+        }
+    </script>
+    <script>
+        function ref() {
+            opener.location.reload();
         }
     </script>
 </body>

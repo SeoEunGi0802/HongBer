@@ -154,8 +154,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
                     <?php if ($mode == "A") { ?>
                         <ul class="buttons">
                             <!-- <li><button>삭제</button></li> -->
-                            <li><button formaction="/hongber/php/addstatus.php?st=ac">수락</button></li>
-                            <li><button formaction="/hongber/php/addstatus.php?st=de">거절</button></li>
+                            <li><button formaction="/hongber/php/addstatus.php?st=ac" onclick="ref()">수락</button></li>
+                            <li><button formaction="/hongber/php/addstatus.php?st=de" onclick="ref()">거절</button></li>
                             </form>
                         </ul>
                     <?php } ?>
@@ -171,6 +171,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
             chb.forEach((checkbox) => {
                 checkbox.checked = selectAll.checked;
             })
+        }
+    </script>
+    <script>
+        function ref() {
+            opener.location.reload();
         }
     </script>
 </body>

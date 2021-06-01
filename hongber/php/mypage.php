@@ -146,10 +146,20 @@ if (!isset($_SESSION['kakao_access_token'])) {
               <div class="wheel_icon"></div>
             </a>
           </div>
-          <button class="wait_add" onclick="viewstaus()">
+          <?php
+          $chksql = "SELECT * FROM addwait WHERE adv_email = '$email' AND wait_status = 'wait'";
+          $chkres = $connect->query($chksql);
+          $chkrow = $chkres->fetch();
+          ?>
+          <button class="wait_add <?= $chkrow == null ? "" : "flash" ?>" onclick="viewstaus()">
             <img src="/hongber/css/image/addstatus.png">
           </button>
-          <button class="send_li" onclick="viewmsg()">
+          <?php
+          $chksql2 = "SELECT * FROM msgrv WHERE rv_id = '$email' AND rv_check = 'n'";
+          $chkres2 = $connect->query($chksql2);
+          $chkrow2 = $chkres2->fetch();
+          ?>
+          <button class="send_li <?= $chkrow2 == null ? "" : "flash" ?>" onclick="viewmsg()">
             <img src="/hongber/css/image/archive.png">
           </button>
           <div class="avg_rating">
@@ -317,7 +327,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
 
       const left = Math.ceil((window.screen.width - width) / 2);
       const top = Math.ceil((window.screen.height - height) / 2);
-
       window.open('/hongber/php/msgbox.php?mode=<?= isset($_SESSION['hislog']) ? "send" : "rv" ?>', '쪽지', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
