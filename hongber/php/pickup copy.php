@@ -19,8 +19,6 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <link rel="stylesheet" href="/hongber/css/pickup.css">
   <link rel="stylesheet" href="/hongber/css/swiper.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
-  <script src="/hongber/js/jquery.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
   <!--------------------------- JS ------------------------------>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <title>PickUp</title>
@@ -48,7 +46,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
         ?>
           <div class="swiper-slide">
             <div class="pick_wrap">
-              <div class="hm_thumb" onclick="knock('<?= $row['spread_name'] ?>', '<?= $row['spread_id'] ?>')"><img src="<?= $row2['h_pimg'] ?>" alt=""></div>
+              <div class="hm_thumb"><img src="<?= $row2['h_pimg'] ?>" alt=""></div>
               <div class="info">
                 <p class="name_section"><?= $row['spread_name'] ?></p>
                 <p class="Email_section"><?= $row['spread_id'] ?></p>
@@ -56,25 +54,30 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                 <p class="per">모집인원 : <?= $row['bespread_num'] ?>명</p>
               </div>
               <!------------------------- Swiper ---------------------------->
-              <div class="add_warp">
-                <div class="add_intro">
-                  <p class="i_intro">광고주 소개</p>
-                  <p class="intro_t"><?= $row['introduce_add'] ?></p>
+              <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <p class="i_intro">광고주 소개</p>
+                    <p class="intro_t"><?= $row['introduce_add'] ?></p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src=<?= $row['introduce_add_img'] ?>>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">제품 소개</p>
+                    <p class="intro_t"><?= $row['introduce_prod'] ?></p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src=<?= $row['introduce_prod_img'] ?>>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="i_intro">홍보 방식</p>
+                    <p class="intro_t"><?= $row['spread_tool'] ?></p>
+                  </div>
                 </div>
-                <div class="add_img">
-                  <a href="<?= $row['introduce_add_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_add_img'] ?>></a>
-                </div>
-                <div class="prod_intro">
-                  <p class="i_intro">제품 소개</p>
-                  <p class="intro_t"><?= $row['introduce_prod'] ?></p>
-                </div>
-                <div class="prod_img">
-                  <a href="<?= $row['introduce_prod_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_prod_img'] ?>></a>
-                </div>
-                <div class="add_tool">
-                  <p class="i_intro">홍보 방식</p>
-                  <p class="intro_t"><?= $row['spread_tool'] ?></p>
-                </div>
+                <div class="swiper-button-next next"></div>
+                <div class="swiper-button-prev prev"></div>
+                <div class="swiper-pagination pag"></div>
               </div>
               <form action="/hongber/php/addwait.php" method="POST" id="pick_form">
                 <input type="hidden" name="adv_e" value="<?= $row['spread_id'] ?>">
@@ -92,29 +95,37 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
     </div>
   </div>
   <script>
-    var swiper = new Swiper(".mySwiper1", {
+    var swiper = new Swiper(".mySwiper", {
       slidesPerView: 1,
       spaceBetween: 30,
-      navigation: {
-        nextEl: ".next1",
-        prevEl: ".prev1",
-      },
       keyboard: {
         enabled: true,
+      },
+      pagination: {
+        el: ".pag",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".next",
+        prevEl: ".prev",
       },
     });
   </script>
   <script>
-    function knock(name, email) {
-      const width = '1250';
-      const height = '1000';
+    var swiper = new Swiper(".mySwiper1", {
+      slidesPerView: 1,
+      spaceBetween: 30,
 
-      const left = Math.ceil((window.screen.width - width) / 2);
-      const top = Math.ceil((window.screen.height - height) / 2);
-      window.open('/hongber/php/knock.php?name=' + name + '&email=' + email, 'knock', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
-    }
+      pagination: {
+        el: ".pag1",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".next1",
+        prevEl: ".prev1",
+      },
+    });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
   <?php
   include "home.php";
   ?>

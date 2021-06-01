@@ -192,42 +192,21 @@ header > div {
     height: 200px;
     border: 1px solid red;
 }
-.add_warp {
+.i_intro{
     width: 100%;
-    background-color: #cc9583;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.add_warp img {
-    width: 300px;
-    height: 300px;
-    margin-bottom: 30px;
-    border: 2px solid #524745;
-    padding: 10px;
-}
-.add_intro {
-    height: fit-content;
-    margin: 10px 0 10px 0;
-}
-.prod_intro {
-    height: fit-content;
-    margin: 10px 0 10px 0;
-}
-.i_intro {
-    width: 100%;
-    margin: 10px 0 10px 0;
+    margin-top: 10px;
     font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 10px;
     text-align: center;
 }
-.intro_t {
-    width: 500px;
-    height: fit-content;
-    margin: 10px 0 10px 0;
+.intro_t{
+    width: 100%;
+    height: 100%;
+    line-height: 356px;
     text-align: center;
 }
-.accept {
+.accept{
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -241,13 +220,6 @@ header > div {
     border: none;
     border-radius: 10px;
     z-index: 1;
-}
-.add_tool {
-    margin: 10px 0 10px 0;
-}
-.homebtn {
-    z-index: 1;
-    bottom: 90px !important;
 }
 /*-----------------------swiper--------------------------*/
 .swiper-container {
@@ -272,17 +244,21 @@ header > div {
     align-items: center;
     background-color: #b08273;
 }
+.swiper-slide img {
+    display: block;
+    width: 90%;
+    height: 85%;
+    object-fit: cover;
+}
 .swiper-container1{
     width: 100%;
     height: auto;
 }
 .swiper-button-next{
     color: #000 !important;
-    position: fixed !important;
 }
 .swiper-button-prev{
     color: #000 !important;
-    position: fixed !important;
 }
 .swiper-pagination-bullet {
     background-color: #000 !important;

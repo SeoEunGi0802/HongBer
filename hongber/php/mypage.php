@@ -118,8 +118,8 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <link rel="stylesheet" href="/hongber/css/mypage.css">
   <link rel="stylesheet" type="text/css" href="/hongber/css/star.css">
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
+  <script src="/hongber/js/jquery.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
-
 </head>
 
 <body>
@@ -298,7 +298,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
       </div>
     </div>
   </section>
-  <script src="/hongber/js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
   <script src="/hongber/js/career.js"></script>
   <script>
@@ -341,9 +340,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
       window.open('/hongber/php/vsp.php?nvsp=' + vsp, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
   </script>
-  <!-- <script language='javascript'>
-  window.setTimeout('window.location.reload()',10000); //10초마다 리플리쉬 시킨다 1000이 1초가 된다.
- </script> -->
   <?php
   if (!empty($hpmsg)) {
     //echo "$hpmsg";
@@ -358,7 +354,6 @@ if (!isset($_SESSION['kakao_access_token'])) {
     echo "$kpmsg";
     echo "<script>$('#mymsg').text('" . $kpmsg . "');</script>";
   } else {
-    //echo "아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!";
     echo "<script>$('#mymsg').text('아직 자신의 대한 소개글이없어요! 마이페이지를 수정하여 채워보세요!');</script>";
   }
   include "home.php";
