@@ -57,23 +57,25 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
               </div>
               <!------------------------- Swiper ---------------------------->
               <div class="add_warp">
-                <div class="add_intro">
-                  <p class="i_intro">광고주 소개</p>
-                  <p class="intro_t"><?= $row['introduce_add'] ?></p>
-                </div>
-                <div class="add_img">
-                  <a href="<?= $row['introduce_add_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_add_img'] ?>></a>
-                </div>
-                <div class="prod_intro">
-                  <p class="i_intro">제품 소개</p>
-                  <p class="intro_t"><?= $row['introduce_prod'] ?></p>
-                </div>
-                <div class="prod_img">
-                  <a href="<?= $row['introduce_prod_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_prod_img'] ?>></a>
-                </div>
-                <div class="add_tool">
-                  <p class="i_intro">홍보 방식</p>
-                  <p class="intro_t"><?= $row['spread_tool'] ?></p>
+                <div>
+                  <div class="add_intro">
+                    <p class="i_intro">광고주 소개</p>
+                    <p class="intro_t"><?= $row['introduce_add'] ?></p>
+                  </div>
+                  <div class="add_img">
+                    <a href="<?= $row['introduce_add_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_add_img'] ?>></a>
+                  </div>
+                  <div class="prod_intro">
+                    <p class="i_intro">제품 소개</p>
+                    <p class="intro_t"><?= $row['introduce_prod'] ?></p>
+                  </div>
+                  <div class="prod_img">
+                    <a href="<?= $row['introduce_prod_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_prod_img'] ?>></a>
+                  </div>
+                  <div class="add_tool">
+                    <p class="i_intro">홍보 방식</p>
+                    <p class="intro_t"><?= $row['spread_tool'] ?></p>
+                  </div>
                 </div>
               </div>
               <form action="/hongber/php/addwait.php" method="POST" id="pick_form">

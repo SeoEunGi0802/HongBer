@@ -116,7 +116,6 @@ header > div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #524745;
     width: 900px;
     box-shadow: 16px 20px 26px 10px rgba(0,0,0,0.5);
 }
@@ -194,7 +193,7 @@ header > div {
 }
 .add_warp {
     width: 100%;
-    background-color: #cc9583;
+    background-color: rgba(204, 149, 131, 70%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,10 +249,6 @@ header > div {
     bottom: 90px !important;
 }
 /*-----------------------swiper--------------------------*/
-.swiper-container {
-    width: 100%;
-    height: 400px;
-}
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -270,11 +265,13 @@ header > div {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    background-color: #b08273;
+    background: none
 }
 .swiper-container1{
     width: 100%;
     height: auto;
+    background: url(/hongber/css/image/banner.jpg) center center no-repeat;
+    background-size: cover;
 }
 .swiper-button-next{
     color: #000 !important;
