@@ -10,11 +10,27 @@ if (!isset($_SESSION['hislog'])) {
 } else {
   $hid = $_SESSION['hid'];
   $hemail = $_SESSION['hemail'];
+  $email = $_SESSION['hemail'];
   $hsql = "SELECT h_pimg FROM hser WHERE h_email = '$hemail'";
   $hres = $connect->query($hsql);
   $hrow = $hres->fetch();
   $profile_img = $hrow['h_pimg'];
 }
+if (!isset($_SESSION['uislog'])) {
+} else {
+  $email = $_SESSION['uemail'];
+}
+if (!isset($_SESSION['kakao_access_token'])) {
+} else {
+  $email = $_SESSION['kemail'];
+}
+if (!isset($_SESSION['naver_access_token'])) {
+} else {
+  $email = $_SESSION['nemail'];
+}
+$chksql2 = "SELECT * FROM msgrv WHERE rv_id = '$email' AND rv_check = 'n'";
+$chkres2 = $connect->query($chksql2);
+$chkrow2 = $chkres2->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -96,7 +112,7 @@ if (!isset($_SESSION['hislog'])) {
       ?>
     </div>
   </div>
-  <button class="send_li" onclick="viewmsg()">
+  <button class="send_li <?= $chkrow2 == null ? "" : "flash" ?>" onclick="viewmsg()">
     <div class="message_icon"></div>
   </button>
   <script>
