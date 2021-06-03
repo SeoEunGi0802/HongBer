@@ -36,6 +36,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
     <div class="swiper-container1 mySwiper1">
       <div class="swiper-wrapper">
         <?php
+        $i = 1;
         $sql = "SELECT * FROM spread WHERE bespread_num != '0'";
         $res = $connect->query($sql);
         while ($row = $res->fetch()) {
@@ -63,14 +64,14 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                     <p class="intro_t"><?= $row['introduce_add'] ?></p>
                   </div>
                   <div class="add_img">
-                    <a href="<?= $row['introduce_add_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_add_img'] ?>></a>
+                    <a href="<?= $row['introduce_add_img'] ?>" data-lightbox="<?= $i ?>"><img src=<?= $row['introduce_add_img'] ?>></a>
                   </div>
                   <div class="prod_intro">
                     <p class="i_intro">제품 소개</p>
                     <p class="intro_t"><?= $row['introduce_prod'] ?></p>
                   </div>
                   <div class="prod_img">
-                    <a href="<?= $row['introduce_prod_img'] ?>" data-lightbox="example-set"><img src=<?= $row['introduce_prod_img'] ?>></a>
+                    <a href="<?= $row['introduce_prod_img'] ?>" data-lightbox="<?= $i ?>"><img src=<?= $row['introduce_prod_img'] ?>></a>
                   </div>
                   <div class="add_tool">
                     <p class="i_intro">홍보 방식</p>
@@ -86,8 +87,10 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
               </form>
             </div>
           </div>
-        <?php } ?>
-
+        <?php
+          $i += 1;
+        }
+        ?>
       </div>
       <div class="swiper-button-next next1"></div>
       <div class="swiper-button-prev prev1"></div>
