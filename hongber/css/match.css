@@ -438,6 +438,14 @@ header > div {
   from {background-color: #433431;}
   to {background-color: #a51313;}
 }
+.res_none {
+  width: 100%;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  font-size: 50px;
+  color: wheat;
+}
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
   width: 10px;
