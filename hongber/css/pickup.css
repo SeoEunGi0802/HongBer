@@ -274,11 +274,11 @@ header > div {
     background-size: cover;
 }
 .swiper-button-next{
-    color: #000 !important;
+    color: wheat !important;
     position: fixed !important;
 }
 .swiper-button-prev{
-    color: #000 !important;
+    color: wheat !important;
     position: fixed !important;
 }
 .swiper-pagination-bullet {

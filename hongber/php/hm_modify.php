@@ -62,9 +62,9 @@ if (empty($row)) {
                 <option value="YouTube">YouTube</option>
                 <option value="WEB">WEB</option>
                 <option value="APP">APP</option>
-                <option value="categoryA">categoryA</option>
-                <option value="categoryB">categoryB</option>
-                <option value="categoryC">categoryC</option>
+                <option value="entertainment">entertainment</option>
+                <option value="music">music</option>
+                <option value="video">video</option>
             </select>
             <p>등록기간</p>
             <input type="date" name="start_d" id="s_d"><input type="date" name="end_d" id="e_d" required><br>

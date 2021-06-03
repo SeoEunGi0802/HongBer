@@ -26,14 +26,14 @@ if (isset($_GET['c'])) {
         case 'APP':
             $sql = "SELECT * FROM hmatch WHERE category = 'APP' AND hm_ed > DATE(NOW())";
             break;
-        case 'categoryA':
-            $sql = "SELECT * FROM hmatch WHERE category = 'categoryA' AND hm_ed > DATE(NOW())";
+        case 'entertainment':
+            $sql = "SELECT * FROM hmatch WHERE category = 'entertainment' AND hm_ed > DATE(NOW())";
             break;
-        case 'categoryB':
-            $sql = "SELECT * FROM hmatch WHERE category = 'categoryB' AND hm_ed > DATE(NOW())";
+        case 'music':
+            $sql = "SELECT * FROM hmatch WHERE category = 'music' AND hm_ed > DATE(NOW())";
             break;
-        case 'categoryC':
-            $sql = "SELECT * FROM hmatch WHERE category = 'categoryC' AND hm_ed > DATE(NOW())";
+        case 'video':
+            $sql = "SELECT * FROM hmatch WHERE category = 'video' AND hm_ed > DATE(NOW())";
             break;
         default:
             //d
@@ -80,6 +80,7 @@ while ($row = $result->fetch()) {
                 <p>아직 등록된 광고가 없어요.</p>
             </div>
 <?php
+            break;
         }
     }
 }

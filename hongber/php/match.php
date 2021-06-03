@@ -94,14 +94,14 @@ $chkrow2 = $chkres2->fetch();
         <a href="?c=APP" class="categoryAPP">
           <div>APP</div>
         </a>
-        <a href="?c=categoryA" class="categoryA">
-          <div>categoryA</div>
+        <a href="?c=entertainment" class="entertainment">
+          <div>entertainment</div>
         </a>
-        <a href="?c=categoryB" class="categoryB">
-          <div>categoryB</div>
+        <a href="?c=music" class="music">
+          <div>music</div>
         </a>
-        <a href="?c=categoryC" class="categoryC">
-          <div>categoryC</div>
+        <a href="?c=video" class="video">
+          <div>video</div>
         </a>
         <a href="./match.php" class="categoryALL">
           <div>전체</div>
