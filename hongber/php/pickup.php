@@ -6,6 +6,10 @@ session_start();
 if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSION['naver_access_token']) && !isset($_SESSION['kakao_access_token']) && !isset($_SESSION["mislog"])) {
   echo "<script>alert('로그인후 이용하실 수 있습니다.'); location.href='/hongber/index.php'</script>";
 }
+
+if (isset($_SESSION['hislog'])) {
+  $chk_e = $_SESSION['hemail'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +59,13 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
                 <p class="Email_section"><?= $row['spread_id'] ?></p>
                 <p class="day"><?= $row['spread_sd'] . "~" . $row['spread_ed'] ?></p>
                 <p class="per">모집인원 : <?= $row['bespread_num'] ?>명</p>
+                <?php
+                if ($chk_e == $row['spread_id']) {
+                ?>
+                  <a href="pickup_modify.php" class="modi"><button class="modify">수정</button></a>
+                <?php
+                }
+                ?>
               </div>
               <!------------------------- Swiper ---------------------------->
               <div class="add_warp">

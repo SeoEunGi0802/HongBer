@@ -18,7 +18,7 @@ if (!isset($_SESSION['hislog'])) {
     $recper = $_POST['recper']; // 인원
     $tool = $_POST['tool']; // 수단
     $etc = $_POST['etc']; // 수단 중 기타
-    if (empty($tool)) {
+    if ($tool == "기타") {
         $tool = $etc;
     }
     $openc = $_POST['openc']; // 카카오 오픈채팅*
@@ -92,27 +92,6 @@ if (empty($row)) {
         $sql = "DELETE FROM spread WHERE spread_id = '$sp_email'";
         $connect->query($sql);
         echo "<script>alert('사진을 등록해주세요.'); history.back();</script>";
-    }
-
-    $regist_day = date("Y-m-d H:i");
-
-    $usql = "SELECT COUNT(*) as cnt FROM user";
-    $nsql = "SELECT COUNT(*) as cnt FROM nuser";
-    $ksql = "SELECT COUNT(*) as cnt FROM kuser";
-
-    $ures = $connect->query($usql);
-    $nres = $connect->query($nsql);
-    $kres = $connect->query($ksql);
-
-    $urow = $ures->fetch();
-    $nrow = $nres->fetch();
-    $krow = $kres->fetch();
-
-    $unkrow =  $urow['cnt'] + $nrow['cnt'] + $krow['cnt'];
-    $rowall =  (int)$unkrow;
-
-    if ($rowall > $recper) {
-        $rowall = $recper;
     }
 
     $sql4 = "INSERT INTO mying(mying_sd, mying_ed, mying_adv_email, mying_adv_name, mying_prod, mying_tool, mying_oc) ";

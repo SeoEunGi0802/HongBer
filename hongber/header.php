@@ -29,6 +29,11 @@
                     <p class="nav_p">Seedding AD</p>
                 </a>
             </div>
+            <div>
+                <a href="/hongber/php/pickup.php" class="nav_a">
+                    <p class="nav_p">Picking AD</p>
+                </a>
+            </div>
         <?php } else if (isset($_SESSION["uislog"]) || isset($_SESSION['naver_access_token']) || isset($_SESSION['kakao_access_token']) || isset($_SESSION["mislog"])) { ?>
             <div>
                 <a href="/hongber/php/pickup.php" class="nav_a">

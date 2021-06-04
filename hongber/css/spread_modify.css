@@ -1,0 +1,428 @@
+@charset "UTF-8";
+/*----------------공통영역-------------*/
+body {
+  margin: 0 auto;
+  font-family: '나눔 고딕', NanumGothic, '돋움', Dotum, sans-serif;
+  background: rgba(0, 0, 0, 0.9);
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+#wrap{
+  margin: 0 auto;
+}
+/*----------------상단바 영역-------------*/
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1280px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 1);
+  margin: 0 auto;
+  font-size: 20px;
+  z-index: 1;
+}
+header > div {
+  padding: 5px 0;
+}
+.logo {
+  width: 250px;
+  height: 100px;
+  background: url(/hongber/css/image/logo.png) center center no-repeat;
+  background-size: contain;
+}
+.logo span {
+  color: #705d59;
+  font-size: 38px;
+  font-weight: bold;
+}
+.navbar_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 1030px;
+  height: 40px;
+  border-bottom: 3px solid #6a5f60;
+  margin-top: 10px;
+}
+.navbar_wrap>div:last-child {
+  margin-right: 20px;
+}
+.nav_p {
+  line-height: 30px;
+  color: #705d59;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  margin-top: 13px;
+}
+.nav_p:hover {
+  background-color: #705d59;
+  color: #000;
+}
+.logout_nav {
+  display: none;
+  background-color: #fff;
+}
+/*------------------검색창------------------*/
+.search_wrap {
+  position: relative;
+  line-height: 40px;
+  text-align: right;
+}
+.searchbox {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #524745;
+  border: none;
+  border-radius: 20px;
+}
+.searchbox::placeholder {
+  padding-left: 10px;
+  color: #fff;
+}
+.search_icon {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  margin-left: -3px;
+  background: url(/hongber/css/image/search.png) center center no-repeat;
+  background-size: 80%;
+  vertical-align: middle;
+}
+.search_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
+}
+.spread_comment{
+  position: relative;
+  width: 1280px;
+  height: 300px;
+  margin: 0 auto;
+  background: url(./image/content_background.jpg) center;
+}
+.spread_comment p{
+  position: absolute;
+  width: 1280px;
+  height: 300px;
+  font-size: 4rem;
+  line-height: 300px;
+  font-weight: bold;
+  color: rgba(219, 200, 182, 0.6);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+}
+.spread_comment h3{
+  position: absolute;
+  width: 1280px;
+  z-index: 5;
+  margin-top: 200px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgba(219, 200, 182, 0.6);
+}
+.filebox input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+#addintro{
+  width: 300px;
+  height: 250px;
+}
+#productintro{
+  width: 300px;
+  height: 250px;
+}
+.introduce_add{
+  text-align: center;
+}
+.introduce_add textarea{
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(219, 200, 182, 0.6);
+  height: 200px;
+}
+.introduce_prod{
+  text-align: center;
+}
+.introduce_prod textarea{
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(219, 200, 182, 0.6);
+  height: 250px;
+}
+.filebox{
+  position: relative;
+  width: 400px;
+  height: 252px;
+}
+.filebox label {
+  position: absolute;
+  z-index: 3;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: rgba(219, 200, 182, 0.6);
+  background-color: #000;
+  cursor: pointer;
+  border-radius: 10px;
+  width: fit-content;
+}
+.filebox .upload-name {
+  display: inline-block;
+  height: 35px;
+  font-size:18px; 
+  padding: 0 10px;
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
+.upload_wrap2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.upload_wrap2 p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+h1{
+  font-size: 80px;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
+}
+h3{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+}
+.form_container{
+  margin: 0 auto;
+  display: flex;
+  width: 1280px;
+  flex-direction: row;
+  justify-content: center;
+  background-image: url(./image/spread_back.jpg);
+}
+.form_wrap{
+  width: 1280px;
+  background: rgba(78, 69, 68, 0.8);
+}
+.form_container form{
+  display: flex;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  justify-content: start;
+  align-items: center;
+  padding: 50px;
+  width: 1100px;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 0 auto;
+}
+.form_container input{
+  border-radius: 10px;
+  margin-bottom: 40px;
+
+}
+.form_container select{
+  background: #000;
+  color: rgba(219, 200, 182, 0.6);
+  width: 130px;
+  height: 50px;
+  font-size: x-large;
+  text-align: center;
+  border-radius: 10px;
+}
+select {
+  text-align-last: center;
+  text-align: center;
+}
+.form_container textarea{
+  margin-top: 10px;
+  width: 500px;
+  resize: none;
+  border-radius: 10px;
+}
+.form_container h1{
+  font-size: 50px;
+}
+#sbtn{
+  width: auto;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(219, 200, 182, 0.6);
+  font-size: 1.5rem;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.spread_date{
+  text-align: center;
+}
+#checklist{
+  width: 500px;
+  height: 150px;
+}
+.spread_date{
+  color: rgba(219, 200, 182, 0.6);
+}
+.spread_date p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+.spread_date input{
+  text-align: center;
+  background: #1f1c1a;
+  color: rgba(219, 200, 182, 0.6);
+  width: 150px;
+  height: 50px;
+  font-size: x-large;
+  border-radius: 10px;
+}
+::-webkit-calendar-picker-indicator {
+  margin: 0;
+  filter: invert(1);
+}
+.select_p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+.tool_wrap{
+  color: rgba(219, 200, 182, 0.6);
+  font-size: 1.5rem;
+  text-align: center;
+}
+.tool_wrap p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+.etc{
+  background: #000;
+  color: rgba(219, 200, 182, 0.6);
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+.kakao_ad p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+.kakao_ad input{
+  background: #000;
+  color: rgba(219, 200, 182, 0.6);
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+.upload_wrap {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.upload_wrap p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgba(219, 200, 182, 0.6);
+}
+.intro{
+  width: 500px;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(219, 200, 182, 0.6);
+  font-size: 1.5rem;
+}
+/*-----------------------스크롤바--------------------------*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px white;
+}
+/*---------------------로그인 및 회원가입 영역------------------*/
+.dropdown {
+  position: relative;
+  width: 100px;
+  line-height: 50px;
+  padding: 0;
+  margin-top: 0;
+  text-align: center;
+}
+.dropbtn {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  color: #000;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -1px;
+  min-width: 180px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  border-left: 0;
+}
+.dropdown-content a p {
+  font-size: 14px;
+}
+.dropdown-content a+a>p {
+  border-top: 1px solid #bbb;
+}
+.dropdown-content p {
+  text-align: center;
+  color: black;
+}
+.dropdown-content p:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropbtn:hover {
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: bold;
+}

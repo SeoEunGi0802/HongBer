@@ -71,8 +71,9 @@ if (empty($row)) {
             <div>
                 <input type="submit" value="수정" id="submit">
             </div>
+        </form>
     </div>
-    </form>
+
     <?php
     if (!isset($_SESSION['hislog'])) {
     } else {

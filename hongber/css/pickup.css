@@ -248,6 +248,19 @@ header > div {
     z-index: 1;
     bottom: 90px !important;
 }
+.modi {
+    width: 50%;
+    text-align: left;
+    margin: 5px 0 5px 0;
+    z-index: 1;
+}
+.modify {
+    width: 40%;
+    border: none;
+    border-radius: 20px;
+    color: #cc9583;
+    font-size: 1rem;
+}
 /*-----------------------swiper--------------------------*/
 .swiper-slide {
     text-align: center;
