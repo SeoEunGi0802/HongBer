@@ -48,6 +48,7 @@ $chkrow2 = $chkres2->fetch();
 </head>
 
 <body>
+  <div class="loading"></div>
   <?php
   include "../header.php";
   ?>
@@ -200,6 +201,11 @@ $chkrow2 = $chkres2->fetch();
 
       window.open('/hongber/php/more_info.php?email=' + email, '', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no');
     }
+  </script>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
   </script>
 </body>
 <?php

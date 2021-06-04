@@ -18,6 +18,7 @@ session_start();
 </head>
 
 <body>
+  <div class="loading"></div>
   <div id="wrap">
     <?php
     include "header.php";
@@ -109,6 +110,11 @@ session_start();
       <p>ⓒcopyright reserved</p>
     </footer>
   </div>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 </html>
