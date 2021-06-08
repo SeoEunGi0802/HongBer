@@ -8,17 +8,23 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
 
 $search = $_GET['search'];
 
-if ($search == "") {
-    $search = '""';
-} else {
-    $sql = "SELECT u_name as name, u_email as email, u_msg as msg, u_pimg as pimg FROM user WHERE u_name = '$search' or u_email = '$search' UNION SELECT n_name, n_email, n_msg, n_pimg FROM nuser WHERE n_name = '$search' or n_email = '$search' UNION SELECT k_name, k_email, k_msg, k_pimg FROM kuser WHERE k_name = '$search' or k_email = '$search' UNION SELECT h_name, h_email, h_msg, h_pimg FROM hser WHERE h_name = '$search' or h_email = '$search'";
-    $res = $connect->query($sql);
-}
+$sp_t = "/[][`~!#$%^&*|\\\'\";:\/?^=^+_(){}<>]/";
 
-$rsql = "SELECT u_name as name, u_email as email, u_msg as msg, u_pimg as pimg FROM user WHERE u_name = '$search' or u_email = '$search' UNION SELECT n_name, n_email, n_msg, n_pimg FROM nuser WHERE n_name = '$search' or n_email = '$search' UNION SELECT k_name, k_email, k_msg, k_pimg FROM kuser WHERE k_name = '$search' or k_email = '$search' UNION SELECT h_name, h_email, h_msg, h_pimg FROM hser WHERE h_name = '$search' or h_email = '$search'";
-$rres = $connect->query($rsql);
-$rrow = $rres->fetch();
-$chc = $rrow == false ? "none" : "isis";
+if (preg_match($sp_t, $_GET['search'])) {
+    echo "<script>alert('허용되지 않은 문자가 포함되어 있습니다.'); location.href='/hongber/index.php'</script>";
+} else {
+    if ($search == "") {
+        $search = '""';
+    } else {
+        $sql = "SELECT u_name as name, u_email as email, u_msg as msg, u_pimg as pimg FROM user WHERE u_name = '$search' or u_email = '$search' UNION SELECT n_name, n_email, n_msg, n_pimg FROM nuser WHERE n_name = '$search' or n_email = '$search' UNION SELECT k_name, k_email, k_msg, k_pimg FROM kuser WHERE k_name = '$search' or k_email = '$search' UNION SELECT h_name, h_email, h_msg, h_pimg FROM hser WHERE h_name = '$search' or h_email = '$search'";
+        $res = $connect->query($sql);
+    }
+
+    $rsql = "SELECT u_name as name, u_email as email, u_msg as msg, u_pimg as pimg FROM user WHERE u_name = '$search' or u_email = '$search' UNION SELECT n_name, n_email, n_msg, n_pimg FROM nuser WHERE n_name = '$search' or n_email = '$search' UNION SELECT k_name, k_email, k_msg, k_pimg FROM kuser WHERE k_name = '$search' or k_email = '$search' UNION SELECT h_name, h_email, h_msg, h_pimg FROM hser WHERE h_name = '$search' or h_email = '$search'";
+    $rres = $connect->query($rsql);
+    $rrow = $rres->fetch();
+    $chc = $rrow == false ? "none" : "isis";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -34,6 +40,7 @@ $chc = $rrow == false ? "none" : "isis";
 </head>
 
 <body>
+    <div class="loading"></div>
     <?php
     include "../header.php";
     ?>
@@ -117,6 +124,11 @@ $chc = $rrow == false ? "none" : "isis";
     <?php
     include "home.php";
     ?>
+    <script>
+        $(window).on('load', function() {
+            $('.loading').fadeOut(500);
+        });
+    </script>
 </body>
 
 </html>

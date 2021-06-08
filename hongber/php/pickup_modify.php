@@ -27,6 +27,7 @@ $row = $res->fetch();
 </head>
 
 <body>
+  <div class="loading"></div>
   <!-- 상단 바 -->
   <?php
   include "../header.php";
@@ -204,6 +205,11 @@ $row = $res->fetch();
   <?php
   include "home.php";
   ?>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 </html>

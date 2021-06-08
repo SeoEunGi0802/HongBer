@@ -111,4 +111,18 @@ a{
 #addbox .buttons button{
     padding: 5px 10px;
     cursor: pointer;
+    background-color: #000;
+    color: #8F7974;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(/hongber/css/image/loading.svg) center center no-repeat;
+    background-size: cover;
+    z-index: 50000;
 }

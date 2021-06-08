@@ -123,6 +123,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
 </head>
 
 <body>
+  <div class="loading"></div>
   <?php
   include "../header.php";
   ?>
@@ -358,6 +359,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
   }
   include "home.php";
   ?>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 </html>

@@ -85,6 +85,7 @@ if (!isset($_SESSION['kakao_access_token'])) {
 </head>
 
 <body>
+  <div class="loading"></div>
   <!-- 상단 바 -->
   <?php
   include "../header.php";
@@ -179,6 +180,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
     echo "<script>$('#cpmsg').text('" . $kpmsg . "');</script>";
   }
   ?>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 </html>

@@ -32,11 +32,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/hongber/js/jquery.js"></script>
     <title>광고 현황</title>
     <link rel="stylesheet" href="/hongber/css/addbox.css">
 </head>
 
 <body>
+    <div class="loading"></div>
     <section>
         <div id="main_content">
             <div id="addbox">
@@ -177,6 +179,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
         function ref() {
             opener.location.reload();
         }
+    </script>
+    <script>
+        $(window).on('load', function() {
+            $('.loading').fadeOut(500);
+        });
     </script>
 </body>
 

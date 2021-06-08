@@ -11,6 +11,7 @@ error_reporting(0);
     <title>Log-In</title>
     <link rel="stylesheet" href="/hongber/css/reset.css">
     <link rel="stylesheet" href="/hongber/css/login.css">
+    <script src="/hongber/js/jquery.js"></script>
     <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
     <script>
         function findid() {
@@ -36,11 +37,12 @@ error_reporting(0);
 </head>
 
 <body>
+    <div class="loading"></div>
     <div class="info_wrap">
         <form action="/hongber/php/ulog.php" method="POST">
-            <input type="text" name="id" placeholder="아이디" class="id" autocomplete="off">
+            <input type="text" name="id" placeholder="아이디" class="id" autocomplete="off" required>
             <br>
-            <input type="password" name="pwd" placeholder="비밀번호" class="password">
+            <input type="password" name="pwd" placeholder="비밀번호" class="password" required>
             <br>
             <input type="submit" class="login_btn" value="로그인">
         </form>
@@ -95,6 +97,11 @@ error_reporting(0);
     <?php
     include "home.php";
     ?>
+    <script>
+        $(window).on('load', function() {
+            $('.loading').fadeOut(500);
+        });
+    </script>
 </body>
 
 </html>

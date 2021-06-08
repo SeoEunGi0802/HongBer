@@ -129,12 +129,14 @@ if (!isset($_SESSION['kakao_access_token'])) {
   <link rel="stylesheet" href="/hongber/css/mypage.css">
   <link rel="stylesheet" type="text/css" href="/hongber/css/star.css">
   <link rel="stylesheet" type="text/css" href="/hongber/css/view_star.css">
+  <script src="/hongber/js/jquery.js"></script>
   <link rel="icon" href="/hongber/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
 
 </head>
 
 <body>
+  <div class="loading"></div>
   <section>
     <div class="profile">
       <div class="profile_img">
@@ -275,6 +277,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
       });
     });
     $('.view_star_input').attr('disabled', true);
+  </script>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
   </script>
 </body>
 

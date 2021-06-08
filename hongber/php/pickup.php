@@ -31,6 +31,7 @@ if (isset($_SESSION['hislog'])) {
 </head>
 
 <body>
+  <div class="loading"></div>
   <!---------------------------nav------------------------------->
   <?php
   include "../header.php";
@@ -134,6 +135,11 @@ if (isset($_SESSION['hislog'])) {
   <?php
   include "home.php";
   ?>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 <?php

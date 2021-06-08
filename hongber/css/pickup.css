@@ -322,3 +322,12 @@ header > div {
     border-radius: 5px;
     box-shadow: inset 0px 0px 5px white;
 }
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(/hongber/css/image/loading.svg) center center no-repeat;
+    background-size: cover;
+    z-index: 50000;
+}

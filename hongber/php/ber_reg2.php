@@ -42,6 +42,7 @@ session_start();
 </head>
 
 <body>
+   <div class="loading"></div>
    <div class="info_wrap">
       <form action="/hongber/php/add_hser.php" method="POST">
          <input type="id" name="id" placeholder="아이디" required autocomplete="off"><br>
@@ -67,6 +68,11 @@ session_start();
    <?php
    include "home.php";
    ?>
+   <script>
+      $(window).on('load', function() {
+         $('.loading').fadeOut(500);
+      });
+   </script>
 </body>
 
 </html>

@@ -20,7 +20,8 @@ header {
   margin: 0 auto;
   font-size: 20px;
 }
-header > div{
+
+header > div {
   line-height: 50px;
   padding: 5px 0;
 }
@@ -31,16 +32,19 @@ header > div{
   width: max-content;
   height: 30px;
 }
-.logo span{
+
+.logo span {
   border-top: 3px solid red;
   border-bottom: 3px solid red;
   width: 100%;
   color: #fff;
 }
+
 .info_wrap {
   text-align: center;
 }
-input{
+
+input {
   width: 360px;
   height: 50px;
   font-size: 20px;
@@ -49,8 +53,9 @@ input{
   margin-bottom: 30px;
   opacity: 0.7;
 }
-input:first-child{
-  margin-top: 100px;
+
+input:first-child {
+  margin-top: 30px;
 }
 
 textarea {
@@ -62,7 +67,8 @@ textarea {
   margin-bottom: 10px;
   border: 3px solid #e1e1e1;
 }
-.submit{
+
+.submit {
   width: 370px;
   height: 100px;
   background-color: #b08273;
@@ -70,34 +76,54 @@ textarea {
   font-size: 30px;
   border-radius: 5px;
   border:3px solid #e1e1e1;
+  margin-bottom: 0;
 }
-input::placeholder{
+
+input::placeholder {
   text-align: center;
 }
 
-#naverIdLogin{
+.snslogint {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  margin: 20px 0 20px 0;
+}
+
+#naverIdLogin {
   text-align: center;
 }
 
-#KakaoIdLogin{
+#KakaoIdLogin {
   text-align: center;
   height: 63px;
 }
 
-#Kakaoimg{
+#Kakaoimg {
   height: 55px;
   width: auto;
 }
 /*-----------------------스크롤바--------------------------*/
 body::-webkit-scrollbar {
   width: 10px;
-  }
-  body::-webkit-scrollbar-thumb {
+}
+
+body::-webkit-scrollbar-thumb {
   background-color: #2f3542;
   border-radius: 5px;
-  }
-  body::-webkit-scrollbar-track {
+}
+
+body::-webkit-scrollbar-track {
   background-color: grey;
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px white;
-  }
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url(/hongber/css/image/loading.svg) center center no-repeat;
+  background-size: cover;
+  z-index: 50000;
+}

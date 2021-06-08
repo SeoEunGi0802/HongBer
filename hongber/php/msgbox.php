@@ -32,11 +32,13 @@ if (!isset($_SESSION['kakao_access_token'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/hongber/js/jquery.js"></script>
     <title>쪽지함</title>
     <link rel="stylesheet" href="/hongber/css/msgbox.css">
 </head>
 
 <body>
+    <div class="loading"></div>
     <section>
         <div id="main_content">
             <div id="msgbox">
@@ -99,15 +101,15 @@ if (!isset($_SESSION['kakao_access_token'])) {
                                     <span><input type="checkbox" name="del[]" value="<?= $no ?>"></span>
                                     <span class="col1"><?= $num ?></span>
                                     <span class="col2"><a onclick="ref()" href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
-                                                                                                                echo "&rv_email=";
-                                                                                                            } else {
-                                                                                                                echo "&send_email=";
-                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
+                                                                                                                                echo "&rv_email=";
+                                                                                                                            } else {
+                                                                                                                                echo "&send_email=";
+                                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $subject ?></a></span>
                                     <span class="col3"><a onclick="ref()" href="/hongber/php/msgview.php?mode=<?= $mode ?><?php if ($mode == "send") {
-                                                                                                                echo "&rv_email=";
-                                                                                                            } else {
-                                                                                                                echo "&send_email=";
-                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $msg_id ?></a></span>
+                                                                                                                                echo "&rv_email=";
+                                                                                                                            } else {
+                                                                                                                                echo "&send_email=";
+                                                                                                                            } ?><?= $msg_id = ($mode == "send") ? $row['rv_id'] : $row['send_id'] ?>&subject=<?= $subject ?>&regday=<?= $regist_day ?>&rvc=<?= $rv_check ?>"><?= $msg_id ?></a></span>
                                     <span class="col4"><?= $regist_day ?></span>
                                     <span class="col5"><?= $row['rv_check'] == "n" ? "읽지 않음" : "읽음" ?></span>
                             </li>
@@ -178,6 +180,11 @@ if (!isset($_SESSION['kakao_access_token'])) {
         function ref() {
             opener.location.reload();
         }
+    </script>
+    <script>
+        $(window).on('load', function() {
+            $('.loading').fadeOut(500);
+        });
     </script>
 </body>
 

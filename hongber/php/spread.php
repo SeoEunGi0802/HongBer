@@ -20,6 +20,7 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
 </head>
 
 <body>
+  <div class="loading"></div>
   <!-- 상단 바 -->
   <?php
   include "../header.php";
@@ -179,6 +180,11 @@ if (!isset($_SESSION['hislog']) && !isset($_SESSION['uislog']) && !isset($_SESSI
   <?php
   include "home.php";
   ?>
+  <script>
+    $(window).on('load', function() {
+      $('.loading').fadeOut(500);
+    });
+  </script>
 </body>
 
 </html>

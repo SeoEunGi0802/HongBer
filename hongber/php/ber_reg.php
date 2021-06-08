@@ -47,6 +47,7 @@ session_start();
 </head>
 
 <body>
+   <div class="loading"></div>
    <div class="info_wrap">
       <form action="/hongber/php/add_user.php" method="POST">
          <input type="id" name="id" placeholder="아이디" required><br>
@@ -59,8 +60,7 @@ session_start();
          <input type="submit" value="가입" class="submit"><br>
       </form>
    </div>
-   <br>
-
+   <div class="snslogint">SNS로 로그인은 회원가입을 필요로 하지 않습니다.</div>
    <!-- 네이버아이디로로그인 버튼 노출 영역 -->
    <div id="naverIdLogin">
       <?php
@@ -117,6 +117,11 @@ session_start();
    <?php
    include "home.php";
    ?>
+   <script>
+      $(window).on('load', function() {
+         $('.loading').fadeOut(500);
+      });
+   </script>
 </body>
 
 </html>
