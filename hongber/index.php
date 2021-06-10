@@ -37,11 +37,11 @@ session_start();
     <!-- 컨텐츠 영역 -->
     <div class="slide_area swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">slide1</div>
-        <div class="swiper-slide">slide2</div>
-        <div class="swiper-slide">slide3</div>
-        <div class="swiper-slide">slide4</div>
-        <div class="swiper-slide">slide5</div>
+        <div class="swiper-slide"><img src="./css/image/slide1.png"></div>
+        <div class="swiper-slide"><img src="./css/image/slide2.png"></div>
+        <div class="swiper-slide"><img src="./css/image/slide3.png"></div>
+        <div class="swiper-slide"><img src="./css/image/slide4.png"></div>
+        <div class="swiper-slide"><img src="./css/image/slide5.png"></div>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
