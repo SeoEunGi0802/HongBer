@@ -3,7 +3,6 @@
 ### 2021-08-08
  + aws를 사용하여 프리티어로 웹 호스팅
  + 졸업작품과 개인프로젝트를 업로드
-   > [SITE](http://3.35.174.183)
 
 ##FRONT END, BACK END
   + https://github.com/leesh9098
